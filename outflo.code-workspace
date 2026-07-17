@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "outflo-constitution",
+			"path": "../outflo-constitution"
+		},
+		{
+			"name": "outflo-v2",
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.profiles.windows": {
+			"Git Bash": {
+				"path": "C:\\Program Files\\Git\\bin\\bash.exe"
+			}
+		},
+		"terminal.integrated.defaultProfile.windows": "Git Bash"
+	}
+}
