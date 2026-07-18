@@ -1,3 +1,11 @@
+/* ==========================================================
+   OUTFLO — DEVELOPMENT WORKSPACE
+   File: outflo.code-workspace
+   Scope: Own the shared VS Code workspace for the Constitution and V2 repositories
+   Last Updated:
+   - date: 2026-07-17
+   - note: establish the dual-repository workspace and Git Bash terminal profile
+   ========================================================== */
 {
 	"folders": [
 		{
@@ -10,6 +18,7 @@
 		}
 	],
 	"settings": {
+		"explorer.compactFolders": false,
 		"terminal.integrated.profiles.windows": {
 			"Git Bash": {
 				"path": "C:\\Program Files\\Git\\bin\\bash.exe"

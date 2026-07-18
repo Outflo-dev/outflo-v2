@@ -1,26 +1,55 @@
-@import "tailwindcss";
+/* ==========================================================
+   OUTFLO — GLOBAL STYLES
+   File: src/app/globals.css
+   Scope: Own the initial global document baseline
+   Last Updated:
+   - date: 2026-07-17
+   - note: replace generated framework styles with the initial Outflō baseline
+   ========================================================== */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------
+   Box Sizing
+-------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------
+   Document
+-------------------------------- */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* ------------------------------
+   Typography Inheritance
+-------------------------------- */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ------------------------------
+   Media
+-------------------------------- */
+img,
+picture,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
 }
