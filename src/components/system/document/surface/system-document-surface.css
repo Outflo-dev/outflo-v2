@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — SYSTEM DOCUMENT SURFACE
+   File: src/components/system/document/surface/system-document-surface.css
+   Scope: Own the browser document canvas surface
+   Last Updated:
+   - date: 2026-07-19
+   - note: establish a continuous browser canvas behind the phone application frame
+   ========================================================== */
+
+html,
+body {
+    background: var(--color-surface-primary);
+}

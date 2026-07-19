@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — SYSTEM COLOR
+   File: src/components/system/appearance/color/system-color.css
+   Scope: Own canonical shared color sources
+   Last Updated:
+   - date: 2026-07-18
+   - note: establish the initial landing surface and typography color sources
+   ========================================================== */
+
+:root {
+    --color-surface-primary: #070706;
+
+    --color-text-primary: #f4f1e8;
+    --color-text-secondary: #a29d91;
+
+    --color-brand-primary: #b8a16b;
+}

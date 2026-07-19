@@ -1,55 +1,16 @@
 /* ==========================================================
-   OUTFLO — GLOBAL STYLES
+   OUTFLO — GLOBAL STYLE MANIFEST
    File: src/app/globals.css
-   Scope: Own the initial global document baseline
+   Scope: Import global style owners
    Last Updated:
-   - date: 2026-07-17
-   - note: replace generated framework styles with the initial Outflō baseline
+   - date: 2026-07-18
+   - note: convert the global stylesheet into an import-only composition boundary
    ========================================================== */
 
-/* ------------------------------
-   Box Sizing
--------------------------------- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@import "../components/system/document/reset/system-document-reset.css";
 
-/* ------------------------------
-   Document
--------------------------------- */
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-}
+@import "../components/system/appearance/color/system-color.css";
 
-html {
-  text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-/* ------------------------------
-   Typography Inheritance
--------------------------------- */
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-/* ------------------------------
-   Media
--------------------------------- */
-img,
-picture,
-svg,
-canvas {
-  display: block;
-  max-width: 100%;
-}
+@import "../components/system/appearance/typography/system-typography.css";
+@import "../components/system/appearance/typography/system-body-typography.css";
+@import "../components/system/document/surface/system-document-surface.css";

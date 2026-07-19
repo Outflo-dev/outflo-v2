@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — LANDING WORDMARK
-   File: src/components/landing/brand/LandingWordmark.tsx
-   Scope: Render the canonical Outflō landing wordmark
+   File: src/app/(landing)/brand/internal/LandingWordmark.tsx
+   Scope: Render and visually style the canonical Outflō landing wordmark
    Last Updated:
-   - date: 2026-07-18
-   - note: establish the landing wordmark as its own presentation owner
+   - date: 2026-07-19
+   - note: leave line-box geometry and composition spacing to LandingBrand
    ========================================================== */
 
 /* ------------------------------
@@ -12,10 +12,13 @@
 -------------------------------- */
 const WORDMARK_STYLE = {
     margin: 0,
-    fontSize: "2rem",
-    lineHeight: 1,
-    fontWeight: 500,
-    letterSpacing: "-0.03em",
+
+    fontFamily: "var(--font-family-wordmark)",
+    fontSize: "2.65rem",
+    fontWeight: 300,
+    letterSpacing: "0.03em",
+
+    color: "var(--color-text-primary)",
     textAlign: "center",
 } as const;
 

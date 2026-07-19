@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — ROOT LAYOUT
    File: src/app/layout.tsx
-   Scope: Own the root document boundary, application metadata, and phone shell composition
+   Scope: Own the root document boundary, application metadata, font registration, and phone shell composition
    Last Updated:
-   - date: 2026-07-17
-   - note: replace the generated Next.js layout with the initial Outflō root boundary
+   - date: 2026-07-18
+   - note: register canonical system and wordmark font variables at the document boundary
    ========================================================== */
 
 /* ------------------------------
@@ -17,6 +17,11 @@ import type {
 import type {
   ReactNode,
 } from "react";
+
+import {
+  systemFont,
+  wordmarkFont,
+} from "@/components/system/appearance/typography/system-font";
 
 import AppPhoneShell from "@/components/system/shell/app/phone/AppPhoneShell";
 
@@ -38,13 +43,16 @@ type RootLayoutProps = {
 };
 
 /* ------------------------------
-   Layout
+   Component
 -------------------------------- */
 export default function RootLayout({
   children,
 }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${systemFont.variable} ${wordmarkFont.variable}`}
+    >
       <body>
         <AppPhoneShell>
           {children}

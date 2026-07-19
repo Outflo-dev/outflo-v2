@@ -1,0 +1,14 @@
+/* ==========================================================
+   OUTFLO — SYSTEM BODY TYPOGRAPHY
+   File: src/components/system/appearance/typography/system-body-typography.css
+   Scope: Apply canonical system typography to the document body
+   Last Updated:
+   - date: 2026-07-18
+   - note: establish the body typography application owner
+   ========================================================== */
+
+body {
+    font-family: var(--font-family-system);
+    font-weight: 400;
+    font-synthesis: none;
+}

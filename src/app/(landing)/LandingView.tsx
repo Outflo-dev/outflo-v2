@@ -4,7 +4,7 @@
    Scope: Own the signed-out landing surface composition
    Last Updated:
    - date: 2026-07-18
-   - note: establish the landing surface with its canonical brand composition
+   - note: apply the initial landing surface and text colors
    ========================================================== */
 
 /* ------------------------------
@@ -20,10 +20,17 @@ const VIEW_STYLE = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "flex-start",
+
     width: "100%",
     minHeight: "100dvh",
-    paddingTop: "env(safe-area-inset-top)",
+
+    paddingTop: "calc(env(safe-area-inset-top) + clamp(5.5rem, 13dvh, 8rem))",
     paddingBottom: "env(safe-area-inset-bottom)",
+
+    color: "var(--color-text-primary)",
+    background: "var(--color-surface-primary)",
+
     overflow: "hidden",
 } as const;
 

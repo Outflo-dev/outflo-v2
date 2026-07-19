@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — LANDING TAGLINE
-   File: src/components/landing/brand/LandingTagline.tsx
-   Scope: Render the canonical landing tagline
+   File: src/app/(landing)/brand/internal/LandingTagline.tsx
+   Scope: Render and visually style the canonical landing tagline
    Last Updated:
-   - date: 2026-07-18
-   - note: establish the landing tagline as its own presentation owner
+   - date: 2026-07-19
+   - note: leave line-box geometry and composition spacing to LandingBrand
    ========================================================== */
 
 /* ------------------------------
@@ -12,10 +12,13 @@
 -------------------------------- */
 const TAGLINE_STYLE = {
     margin: 0,
-    fontSize: "1rem",
-    lineHeight: 1.4,
+
+    fontFamily: "var(--font-family-system)",
+    fontSize: ".9rem",
     fontWeight: 400,
     letterSpacing: "0.01em",
+
+    color: "var(--color-text-secondary)",
     textAlign: "center",
 } as const;
 

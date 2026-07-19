@@ -1,0 +1,43 @@
+/* ==========================================================
+   OUTFLO — SYSTEM DOCUMENT RESET
+   File: src/components/system/document/reset/system-document-reset.css
+   Scope: Own global document normalization
+   Last Updated:
+   - date: 2026-07-18
+   - note: establish the canonical document reset owner
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img,
+picture,
+svg,
+canvas {
+    display: block;
+    max-width: 100%;
+}
