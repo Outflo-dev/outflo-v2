@@ -1,17 +1,18 @@
 /* ==========================================================
    OUTFLO — SYSTEM COLOR
    File: src/components/system/appearance/color/system-color.css
-   Scope: Own canonical shared color sources
+   Scope: Resolve the active theme contract into canonical shared solid-color roles
    Last Updated:
-   - date: 2026-07-18
-   - note: establish the initial landing surface and typography color sources
+   - date: 2026-07-20
+   - note: connect shared color roles to the neutral theme contract
    ========================================================== */
 
 :root {
-    --color-surface-primary: #070706;
+    --color-surface-primary: var(--theme-surface-primary);
 
-    --color-text-primary: #f4f1e8;
-    --color-text-secondary: #a29d91;
+    --color-text-primary: var(--theme-text-primary);
+    --color-text-secondary: var(--theme-text-secondary);
 
-    --color-brand-primary: #b8a16b;
+    --color-accent-primary: var(--theme-accent-primary);
+    --color-accent-secondary: var(--theme-accent-secondary);
 }

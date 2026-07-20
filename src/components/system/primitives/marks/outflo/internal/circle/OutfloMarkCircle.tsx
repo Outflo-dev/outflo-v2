@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — OUTFLO MARK CIRCLE
-   File: src/components/system/primitives/marks/outflo/OutfloMarkCircle.tsx
+   File: src/components/system/primitives/marks/outflo/internal/circle/OutfloMarkCircle.tsx
    Scope: Render the canonical circle element of the Outflō mark
    Last Updated:
-   - date: 2026-07-17
-   - note: establish the initial coded circle element
+   - date: 2026-07-20
+   - note: restore paint neutrality inside the circle ownership boundary
    ========================================================== */
 
 /* ------------------------------

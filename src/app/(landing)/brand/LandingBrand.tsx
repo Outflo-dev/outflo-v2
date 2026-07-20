@@ -3,8 +3,8 @@
    File: src/app/(landing)/brand/LandingBrand.tsx
    Scope: Compose the canonical landing mark, wordmark, and tagline
    Last Updated:
-   - date: 2026-07-19
-   - note: centralize landing brand alignment, line boxes, and internal spacing
+   - date: 2026-07-20
+   - note: connect the landing mark to the canonical system accent
    ========================================================== */
 
 /* ------------------------------
@@ -31,7 +31,7 @@ const BRAND_STYLE = {
 } as const;
 
 const MARK_STYLE = {
-    color: "var(--color-brand-primary)",
+    color: "var(--color-accent-primary)",
     marginBottom: MARK_TO_WORDMARK_GAP,
 } as const;
 

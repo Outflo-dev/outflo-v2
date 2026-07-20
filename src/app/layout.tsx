@@ -3,8 +3,8 @@
    File: src/app/layout.tsx
    Scope: Own the root document boundary, application metadata, font registration, and phone shell composition
    Last Updated:
-   - date: 2026-07-18
-   - note: register canonical system and wordmark font variables at the document boundary
+   - date: 2026-07-19
+   - note: register installable application metadata and the canonical touch icon
    ========================================================== */
 
 /* ------------------------------
@@ -33,6 +33,18 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Outflō",
   description: "Your life, in time.",
+
+  applicationName: "Outflō",
+
+  icons: {
+    apple: "/app-icons/outflo/apple-touch-icon.png",
+  },
+
+  appleWebApp: {
+    capable: true,
+    title: "Outflō",
+    statusBarStyle: "black-translucent",
+  },
 };
 
 /* ------------------------------

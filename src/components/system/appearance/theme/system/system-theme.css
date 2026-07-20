@@ -1,0 +1,18 @@
+/* ==========================================================
+   OUTFLO — SYSTEM THEME
+   File: src/components/system/appearance/theme/system/system-theme.css
+   Scope: Supply the canonical neutral paint contract for the system theme
+   Last Updated:
+   - date: 2026-07-20
+   - note: establish the initial system theme without leaking palette identity
+   ========================================================== */
+
+:root {
+    --theme-surface-primary: #050713;
+
+    --theme-text-primary: #f7f8ff;
+    --theme-text-secondary: #9ba3bc;
+
+    --theme-accent-primary: #4f7cff;
+    --theme-accent-secondary: #8b5cff;
+}

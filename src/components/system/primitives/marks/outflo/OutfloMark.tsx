@@ -3,15 +3,15 @@
    File: src/components/system/primitives/marks/outflo/OutfloMark.tsx
    Scope: Own the SVG boundary, accessibility, and composition of the canonical Outflō mark
    Last Updated:
-   - date: 2026-07-17
-   - note: assemble the canonical circle and macron elements
+   - date: 2026-07-20
+   - note: restore the canonical mark as a paint-neutral composition primitive
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
-import OutfloMarkCircle from "./OutfloMarkCircle";
-import OutfloMarkMacron from "./OutfloMarkMacron";
+import OutfloMarkCircle from "./internal/circle/OutfloMarkCircle";
+import OutfloMarkMacron from "./internal/macron/OutfloMarkMacron";
 
 /* ------------------------------
    Types

@@ -1,0 +1,15 @@
+/* ==========================================================
+   OUTFLO — SYSTEM GRADIENT
+   File: src/components/system/appearance/gradient/system-gradient.css
+   Scope: Own canonical shared gradient roles
+   Last Updated:
+   - date: 2026-07-20
+   - note: establish the primary Outflō brand gradient from shared color roles
+   ========================================================== */
+
+:root {
+    --gradient-brand-primary:
+        linear-gradient(135deg,
+            var(--color-accent-primary) 0%,
+            var(--color-accent-secondary) 100%);
+}

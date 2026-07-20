@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — OUTFLO MARK MACRON
-   File: src/components/system/primitives/marks/outflo/OutfloMarkMacron.tsx
+   File: src/components/system/primitives/marks/outflo/internal/macron/OutfloMarkMacron.tsx
    Scope: Render the canonical macron element of the Outflō mark
    Last Updated:
-   - date: 2026-07-17
-   - note: establish the initial coded macron element
+   - date: 2026-07-20
+   - note: restore paint neutrality inside the macron ownership boundary
    ========================================================== */
 
 /* ------------------------------

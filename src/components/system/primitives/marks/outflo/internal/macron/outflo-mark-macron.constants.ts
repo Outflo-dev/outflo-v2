@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — OUTFLO MARK MACRON CONSTANTS
-   File: src/components/system/primitives/marks/outflo/outflo-mark-macron.constants.ts
+   File: src/components/system/primitives/marks/outflo/internal/macron/outflo-mark-macron.constants.ts
    Scope: Own the canonical geometry of the Outflō mark macron
    Last Updated:
-   - date: 2026-07-18
-   - note: establish the initial macron geometry from the canonical mark reference
+   - date: 2026-07-20
+   - note: move macron geometry into its internal ownership boundary
    ========================================================== */
 
 export const OUTFLO_MARK_MACRON = {

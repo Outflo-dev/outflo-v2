@@ -1,16 +1,16 @@
 /* ==========================================================
-   OUTFLO — GLOBAL STYLE MANIFEST
+   OUTFLO — GLOBAL STYLES
    File: src/app/globals.css
-   Scope: Import global style owners
+   Scope: Import canonical global style owners
    Last Updated:
-   - date: 2026-07-18
-   - note: convert the global stylesheet into an import-only composition boundary
+   - date: 2026-07-20
+   - note: wire the system theme and shared appearance sources
    ========================================================== */
 
 @import "../components/system/document/reset/system-document-reset.css";
-
+@import "../components/system/appearance/theme/system/system-theme.css";
 @import "../components/system/appearance/color/system-color.css";
-
+@import "../components/system/appearance/gradient/system-gradient.css";
 @import "../components/system/appearance/typography/system-typography.css";
 @import "../components/system/appearance/typography/system-body-typography.css";
 @import "../components/system/document/surface/system-document-surface.css";
