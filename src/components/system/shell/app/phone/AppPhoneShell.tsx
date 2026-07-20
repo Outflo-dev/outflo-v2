@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — APP PHONE SHELL
    File: src/components/system/shell/app/phone/AppPhoneShell.tsx
-   Scope: Own the phone application surface and compose the shared phone frame
+   Scope: Own the application viewport and compose the shared phone frame
    Last Updated:
-   - date: 2026-07-17
-   - note: establish the initial phone application shell
+   - date: 2026-07-19
+   - note: clarify the shell as the canonical application viewport owner
    ========================================================== */
 
 /* ------------------------------
@@ -30,6 +30,8 @@ type AppPhoneShellProps = {
 const SHELL_STYLE: CSSProperties = {
     position: "relative",
     isolation: "isolate",
+
+    display: "flex",
 
     width: "100%",
     minHeight: "100dvh",

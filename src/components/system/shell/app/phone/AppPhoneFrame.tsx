@@ -3,8 +3,8 @@
    File: src/components/system/shell/app/phone/AppPhoneFrame.tsx
    Scope: Own the centered phone-width boundary, horizontal gutter, and horizontal safe-area accommodation
    Last Updated:
-   - date: 2026-07-17
-   - note: establish the initial phone application frame
+   - date: 2026-07-19
+   - note: carry the full application viewport through the shared phone frame
    ========================================================== */
 
 /* ------------------------------
@@ -30,13 +30,20 @@ type AppPhoneFrameProps = {
    Styles
 -------------------------------- */
 const FRAME_STYLE: CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+
     width: "100%",
     maxWidth: APP_PHONE_FRAME.maxWidthPx,
+
     marginInline: "auto",
+
     paddingLeft:
         `calc(${APP_PHONE_FRAME.gutterXPx}px + env(safe-area-inset-left))`,
     paddingRight:
         `calc(${APP_PHONE_FRAME.gutterXPx}px + env(safe-area-inset-right))`,
+
     boxSizing: "border-box",
 };
 

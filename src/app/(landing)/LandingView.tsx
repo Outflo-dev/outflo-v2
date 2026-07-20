@@ -3,8 +3,8 @@
    File: src/app/(landing)/LandingView.tsx
    Scope: Own the signed-out landing surface composition
    Last Updated:
-   - date: 2026-07-18
-   - note: apply the initial landing surface and text colors
+   - date: 2026-07-19
+   - note: fill the shared application frame while preserving landing-specific placement
    ========================================================== */
 
 /* ------------------------------
@@ -17,15 +17,17 @@ import LandingBrand from "./brand/LandingBrand";
 -------------------------------- */
 const VIEW_STYLE = {
     position: "relative",
+
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
+    flex: 1,
 
     width: "100%",
-    minHeight: "100dvh",
 
-    paddingTop: "calc(env(safe-area-inset-top) + clamp(5.5rem, 13dvh, 8rem))",
+    paddingTop:
+        "calc(env(safe-area-inset-top) + clamp(5.5rem, 13dvh, 8rem))",
     paddingBottom: "env(safe-area-inset-bottom)",
 
     color: "var(--color-text-primary)",
