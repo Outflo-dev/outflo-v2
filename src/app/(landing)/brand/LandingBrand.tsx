@@ -4,7 +4,7 @@
    Scope: Compose the canonical landing mark, wordmark, and tagline
    Last Updated:
    - date: 2026-07-20
-   - note: connect the landing mark to the canonical system accent
+   - note: apply the canonical brand-gradient presentation to the landing mark
    ========================================================== */
 
 /* ------------------------------
@@ -51,7 +51,7 @@ export default function LandingBrand() {
     return (
         <div style={BRAND_STYLE}>
             <div style={MARK_STYLE}>
-                <OutfloMark size={105} />
+                <OutfloMark size={125} />
             </div>
 
             <div style={WORDMARK_SLOT_STYLE}>
