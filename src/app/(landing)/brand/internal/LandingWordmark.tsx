@@ -14,8 +14,8 @@ const WORDMARK_STYLE = {
     margin: 0,
 
     fontFamily: "var(--font-family-wordmark)",
-    fontSize: "2.65rem",
-    fontWeight: 300,
+    fontSize: "2.95rem",
+    fontWeight: 400,
     letterSpacing: "0.03em",
 
     color: "var(--color-text-primary)",

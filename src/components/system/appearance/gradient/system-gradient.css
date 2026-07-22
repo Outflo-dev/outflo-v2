@@ -3,13 +3,13 @@
    File: src/components/system/appearance/gradient/system-gradient.css
    Scope: Own canonical shared gradient roles
    Last Updated:
-   - date: 2026-07-20
-   - note: establish the primary Outflō brand gradient from shared color roles
+   - date: 2026-07-21
+   - note: establish terminal gradient paint without token indirection
    ========================================================== */
 
 :root {
     --gradient-brand-primary:
         linear-gradient(135deg,
-            var(--color-accent-primary) 0%,
-            var(--color-accent-secondary) 100%);
+            #4f7cff 0%,
+            #8b5cff 100%);
 }

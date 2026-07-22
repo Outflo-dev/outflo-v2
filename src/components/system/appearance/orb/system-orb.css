@@ -1,0 +1,32 @@
+/* ==========================================================
+   OUTFLO — SYSTEM ORB
+   File: src/components/system/appearance/orb/system-orb.css
+   Scope: Own the complete canonical Orb paint contract
+   Last Updated:
+   - date: 2026-07-21
+   - note: consolidate Orb fill, ring, shadow, glow, inset, and mark paint
+   ========================================================== */
+
+:root {
+    --orb-border: 1.5px solid transparent;
+
+    --orb-background:
+        linear-gradient(rgba(0, 0, 0, 0.92),
+            rgba(0, 0, 0, 0.92)) padding-box,
+        linear-gradient(135deg,
+            rgba(255, 196, 118, 0.88) 10%,
+            rgba(126, 231, 181, 0.82) 20%,
+            rgba(140, 215, 255, 0.78) 32%,
+            rgba(164, 194, 255, 0.82) 62%,
+            rgba(196, 173, 255, 0.82) 82%,
+            rgba(255, 196, 118, 0.88) 100%) border-box;
+
+    --orb-shadow:
+        0 0 0 1px rgba(140, 215, 255, 0.20),
+        0 0 40px rgba(255, 254, 250, 0.08),
+        0 0 90px rgba(196, 173, 255, 0.20),
+        0 0 70px rgba(255, 196, 118, 0.12),
+        inset 0 0 60px rgba(140, 215, 255, 0.05);
+
+    --orb-mark: rgba(255, 254, 250, 0.95);
+}

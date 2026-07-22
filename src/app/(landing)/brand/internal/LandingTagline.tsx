@@ -14,7 +14,7 @@ const TAGLINE_STYLE = {
     margin: 0,
 
     fontFamily: "var(--font-family-system)",
-    fontSize: ".9rem",
+    fontSize: ".95rem",
     fontWeight: 400,
     letterSpacing: "0.01em",
 
@@ -28,7 +28,7 @@ const TAGLINE_STYLE = {
 export default function LandingTagline() {
     return (
         <p style={TAGLINE_STYLE}>
-            Your life, in time.
+            Your life, in <span style={{ color: "var(--color-accent-primary)" }}>time</span>.
         </p>
     );
 }

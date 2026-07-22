@@ -10,6 +10,7 @@
 /* ------------------------------
    Imports
 -------------------------------- */
+import LandingOrbAtmosphere from "./atmosphere/LandingOrbAtmosphere";
 import LandingBrand from "./brand/LandingBrand";
 
 /* ------------------------------
@@ -27,7 +28,7 @@ const VIEW_STYLE = {
     width: "100%",
 
     paddingTop:
-        "calc(env(safe-area-inset-top) + clamp(5.5rem, 13dvh, 8rem))",
+        "calc(env(safe-area-inset-top) + clamp(4.75rem, 11.5dvh, 7rem))",
     paddingBottom: "env(safe-area-inset-bottom)",
 
     color: "var(--color-text-primary)",
