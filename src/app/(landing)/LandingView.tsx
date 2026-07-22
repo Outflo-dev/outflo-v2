@@ -3,14 +3,15 @@
    File: src/app/(landing)/LandingView.tsx
    Scope: Own the signed-out landing surface composition
    Last Updated:
-   - date: 2026-07-21
-   - note: mount the landing Orb atmosphere behind the locked brand composition
+   - date: 2026-07-22
+   - note: mount the authentication doorway beneath the landing brand
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
 import LandingOrbAtmosphere from "./atmosphere/LandingOrbAtmosphere";
+import LandingAuthStack from "./auth/LandingAuthStack";
 import LandingBrand from "./brand/LandingBrand";
 
 /* ------------------------------
@@ -29,7 +30,8 @@ const VIEW_STYLE = {
 
     paddingTop:
         "calc(env(safe-area-inset-top) + clamp(4.4rem, 10.8dvh, 6.8rem))",
-    paddingBottom: "env(safe-area-inset-bottom)",
+    paddingBottom:
+        "calc(env(safe-area-inset-bottom) + 2rem)",
 
     color: "var(--color-text-primary)",
     background: "var(--color-surface-primary)",
@@ -45,6 +47,7 @@ export default function LandingView() {
         <section style={VIEW_STYLE}>
             <LandingOrbAtmosphere />
             <LandingBrand />
+            <LandingAuthStack />
         </section>
     );
 }
