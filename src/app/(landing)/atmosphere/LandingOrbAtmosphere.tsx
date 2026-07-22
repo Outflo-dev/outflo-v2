@@ -3,8 +3,8 @@
    File: src/app/(landing)/atmosphere/LandingOrbAtmosphere.tsx
    Scope: Render the cropped atmospheric rings at the viewport perimeter
    Last Updated:
-   - date: 2026-07-21
-   - note: resolve four persistent rings from the viewport edges without entering the content column
+   - date: 2026-07-22
+   - note: resolve the atmosphere against the full viewport and bring each ring slightly inward
    ========================================================== */
 
 import type { CSSProperties } from "react";
@@ -14,7 +14,13 @@ import type { CSSProperties } from "react";
 -------------------------------- */
 const ATMOSPHERE_STYLE: CSSProperties = {
     position: "absolute",
-    inset: 0,
+
+    top: 0,
+    bottom: 0,
+    left: "50%",
+
+    width: "100vw",
+    transform: "translateX(-50%)",
 
     background: "transparent",
 
@@ -47,7 +53,7 @@ const TOP_LEFT_RING_STYLE: CSSProperties = {
 
     width: "clamp(250px, 66vw, 340px)",
 
-    left: "clamp(-185px, -37vw, -130px)",
+    left: "clamp(-165px, -33vw, -115px)",
     top: "clamp(-205px, -40vw, -145px)",
 
     borderColor: "var(--color-accent-primary)",
@@ -59,7 +65,7 @@ const MIDDLE_LEFT_RING_STYLE: CSSProperties = {
 
     width: "clamp(160px, 40vw, 220px)",
 
-    left: "clamp(-145px, -31vw, -105px)",
+    left: "clamp(-125px, -27vw, -90px)",
     top: "26dvh",
 
     borderColor: "var(--color-accent-primary)",
@@ -69,9 +75,9 @@ const MIDDLE_LEFT_RING_STYLE: CSSProperties = {
 const RIGHT_RING_STYLE: CSSProperties = {
     ...RING_STYLE,
 
-    width: "clamp(180px, 46vw, 250px)",
+    width: "clamp(200px, 52vw, 280px)",
 
-    right: "clamp(-140px, -28vw, -105px)",
+    right: "clamp(-120px, -24vw, -90px)",
     top: "4dvh",
 
     borderColor: "var(--color-accent-secondary)",
@@ -83,8 +89,8 @@ const BOTTOM_RIGHT_RING_STYLE: CSSProperties = {
 
     width: "clamp(190px, 48vw, 260px)",
 
-    right: "clamp(-170px, -34vw, -120px)",
-    bottom: "clamp(-125px, -22vw, -75px)",
+    right: "clamp(-150px, -30vw, -105px)",
+    bottom: "clamp(-105px, -18vw, -60px)",
 
     borderColor: "var(--color-accent-primary)",
     opacity: 0.20,
