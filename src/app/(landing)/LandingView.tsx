@@ -3,8 +3,8 @@
    File: src/app/(landing)/LandingView.tsx
    Scope: Own the signed-out landing surface composition
    Last Updated:
-   - date: 2026-07-19
-   - note: fill the shared application frame while preserving landing-specific placement
+   - date: 2026-07-21
+   - note: mount the landing Orb atmosphere behind the locked brand composition
    ========================================================== */
 
 /* ------------------------------
@@ -43,6 +43,7 @@ const VIEW_STYLE = {
 export default function LandingView() {
     return (
         <section style={VIEW_STYLE}>
+            <LandingOrbAtmosphere />
             <LandingBrand />
         </section>
     );

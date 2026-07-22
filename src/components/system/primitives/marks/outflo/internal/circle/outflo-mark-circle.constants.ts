@@ -11,5 +11,5 @@ export const OUTFLO_MARK_CIRCLE = {
     centerX: 256,
     centerY: 270,
     radius: 137,
-    strokeWidth: 11,
+    strokeWidth: 9.5,
 } as const;

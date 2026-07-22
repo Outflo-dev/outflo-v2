@@ -1,25 +1,40 @@
 /* ==========================================================
    OUTFLO — LANDING ORB ATMOSPHERE
    File: src/app/(landing)/atmosphere/LandingOrbAtmosphere.tsx
-   Scope: Render the cropped atmospheric orbs behind the landing surface
+   Scope: Render the cropped atmospheric rings at the viewport perimeter
    Last Updated:
    - date: 2026-07-21
-   - note: consume the complete canonical Orb paint contract
+   - note: resolve four persistent rings from the viewport edges without entering the content column
    ========================================================== */
 
 import type { CSSProperties } from "react";
 
 /* ------------------------------
-   Shared Structure
+   Canvas
 -------------------------------- */
-const ORB_STYLE: CSSProperties = {
+const ATMOSPHERE_STYLE: CSSProperties = {
+    position: "absolute",
+    inset: 0,
+
+    background: "transparent",
+
+    overflow: "hidden",
+    pointerEvents: "none",
+};
+
+/* ------------------------------
+   Shared Ring
+-------------------------------- */
+const RING_STYLE: CSSProperties = {
     position: "absolute",
 
-    border: "var(--orb-border)",
+    aspectRatio: "1",
+
+    borderWidth: "1px",
+    borderStyle: "solid",
     borderRadius: "50%",
 
-    background: "var(--orb-background)",
-    boxShadow: "var(--orb-shadow)",
+    background: "transparent",
 
     pointerEvents: "none",
 };
@@ -27,34 +42,52 @@ const ORB_STYLE: CSSProperties = {
 /* ------------------------------
    Placement
 -------------------------------- */
-const LEFT_ORB_STYLE: CSSProperties = {
-    ...ORB_STYLE,
+const TOP_LEFT_RING_STYLE: CSSProperties = {
+    ...RING_STYLE,
 
-    width: "clamp(220px, 72vw, 340px)",
-    aspectRatio: "1",
+    width: "clamp(250px, 66vw, 340px)",
 
-    left: "clamp(-230px, -42vw, -145px)",
-    top: "31%",
+    left: "clamp(-185px, -37vw, -130px)",
+    top: "clamp(-205px, -40vw, -145px)",
+
+    borderColor: "var(--color-accent-primary)",
+    opacity: 0.38,
 };
 
-const RIGHT_ORB_STYLE: CSSProperties = {
-    ...ORB_STYLE,
+const MIDDLE_LEFT_RING_STYLE: CSSProperties = {
+    ...RING_STYLE,
 
-    width: "clamp(280px, 88vw, 430px)",
-    aspectRatio: "1",
+    width: "clamp(160px, 40vw, 220px)",
 
-    right: "clamp(-320px, -58vw, -205px)",
-    top: "43%",
+    left: "clamp(-145px, -31vw, -105px)",
+    top: "26dvh",
+
+    borderColor: "var(--color-accent-primary)",
+    opacity: 0.12,
 };
 
-const BOTTOM_ORB_STYLE: CSSProperties = {
-    ...ORB_STYLE,
+const RIGHT_RING_STYLE: CSSProperties = {
+    ...RING_STYLE,
 
-    width: "clamp(280px, 90vw, 440px)",
-    aspectRatio: "1",
+    width: "clamp(180px, 46vw, 250px)",
 
-    left: "clamp(-300px, -54vw, -190px)",
-    bottom: "-19%",
+    right: "clamp(-140px, -28vw, -105px)",
+    top: "4dvh",
+
+    borderColor: "var(--color-accent-secondary)",
+    opacity: 0.38,
+};
+
+const BOTTOM_RIGHT_RING_STYLE: CSSProperties = {
+    ...RING_STYLE,
+
+    width: "clamp(190px, 48vw, 260px)",
+
+    right: "clamp(-170px, -34vw, -120px)",
+    bottom: "clamp(-125px, -22vw, -75px)",
+
+    borderColor: "var(--color-accent-primary)",
+    opacity: 0.20,
 };
 
 /* ------------------------------
@@ -62,10 +95,14 @@ const BOTTOM_ORB_STYLE: CSSProperties = {
 -------------------------------- */
 export default function LandingOrbAtmosphere() {
     return (
-        <div aria-hidden="true">
-            <div style={LEFT_ORB_STYLE} />
-            <div style={RIGHT_ORB_STYLE} />
-            <div style={BOTTOM_ORB_STYLE} />
+        <div
+            aria-hidden="true"
+            style={ATMOSPHERE_STYLE}
+        >
+            <div style={TOP_LEFT_RING_STYLE} />
+            <div style={MIDDLE_LEFT_RING_STYLE} />
+            <div style={RIGHT_RING_STYLE} />
+            <div style={BOTTOM_RIGHT_RING_STYLE} />
         </div>
     );
 }

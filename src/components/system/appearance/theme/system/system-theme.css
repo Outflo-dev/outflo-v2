@@ -3,12 +3,12 @@
    File: src/components/system/appearance/theme/system/system-theme.css
    Scope: Supply the canonical neutral paint contract for the system theme
    Last Updated:
-   - date: 2026-07-20
-   - note: establish the initial system theme without leaking palette identity
+   - date: 2026-07-21
+   - note: add the complete theme-bound landing atmosphere wash
    ========================================================== */
 
 :root {
-    --theme-surface-primary: #050713;
+    --theme-surface-primary: #020a17;
 
     --theme-text-primary: #f7f8ff;
     --theme-text-secondary: #9ba3bc;
