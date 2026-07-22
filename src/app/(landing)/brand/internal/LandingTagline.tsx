@@ -3,8 +3,8 @@
    File: src/app/(landing)/brand/internal/LandingTagline.tsx
    Scope: Render and visually style the canonical landing tagline
    Last Updated:
-   - date: 2026-07-19
-   - note: leave line-box geometry and composition spacing to LandingBrand
+   - date: 2026-07-21
+   - note: preserve tuned typography while applying a soft Time gradient
    ========================================================== */
 
 /* ------------------------------
@@ -16,10 +16,20 @@ const TAGLINE_STYLE = {
     fontFamily: "var(--font-family-system)",
     fontSize: ".95rem",
     fontWeight: 400,
-    letterSpacing: "0.01em",
+    letterSpacing: "0.0em",
 
     color: "var(--color-text-secondary)",
     textAlign: "center",
+} as const;
+
+const TIME_STYLE = {
+    color: "transparent",
+
+    background:
+        "linear-gradient(90deg, var(--color-accent-primary) -35%, var(--color-accent-secondary) 85%)",
+
+    backgroundClip: "text",
+    WebkitBackgroundClip: "text",
 } as const;
 
 /* ------------------------------
@@ -28,7 +38,7 @@ const TAGLINE_STYLE = {
 export default function LandingTagline() {
     return (
         <p style={TAGLINE_STYLE}>
-            Your life, in <span style={{ color: "var(--color-accent-primary)" }}>time</span>.
+            Your life, in <span style={TIME_STYLE}>time.</span>
         </p>
     );
 }

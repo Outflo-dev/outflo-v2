@@ -10,7 +10,7 @@
 export const OUTFLO_MARK_MACRON = {
     startX: 207,
     endX: 305,
-    y: 113,
-    strokeWidth: 5,
-    strokeLinecap: "square",
+    y: 105,
+    strokeWidth: 11,
+    strokeLinecap: "round",
 } as const;

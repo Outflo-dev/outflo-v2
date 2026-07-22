@@ -18,7 +18,7 @@ import LandingWordmark from "./internal/LandingWordmark";
 /* ------------------------------
    Composition
 -------------------------------- */
-const MARK_TO_WORDMARK_GAP = "-.8rem";
+const MARK_TO_WORDMARK_GAP = "-.2rem";
 const WORDMARK_TO_TAGLINE_GAP = "0.65rem";
 
 /* ------------------------------

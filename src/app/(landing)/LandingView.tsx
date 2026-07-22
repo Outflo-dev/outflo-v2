@@ -28,7 +28,7 @@ const VIEW_STYLE = {
     width: "100%",
 
     paddingTop:
-        "calc(env(safe-area-inset-top) + clamp(4.75rem, 11.5dvh, 7rem))",
+        "calc(env(safe-area-inset-top) + clamp(4.4rem, 10.8dvh, 6.8rem))",
     paddingBottom: "env(safe-area-inset-bottom)",
 
     color: "var(--color-text-primary)",
