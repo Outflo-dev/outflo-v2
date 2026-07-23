@@ -3,12 +3,17 @@
    File: src/components/system/appearance/color/system-color.css
    Scope: Resolve the active theme contract into canonical shared solid-color roles
    Last Updated:
-   - date: 2026-07-20
-   - note: connect shared color roles to the neutral theme contract
+   - date: 2026-07-22
+   - note: expose shared card paint roles from the active theme contract
    ========================================================== */
 
 :root {
     --color-surface-primary: var(--theme-surface-primary);
+
+    --color-card-surface: var(--theme-card-surface);
+    --color-card-border: var(--theme-card-border);
+    --color-card-shadow: var(--theme-card-shadow);
+    --color-card-highlight: var(--theme-card-highlight);
 
     --color-text-primary: var(--theme-text-primary);
     --color-text-secondary: var(--theme-text-secondary);

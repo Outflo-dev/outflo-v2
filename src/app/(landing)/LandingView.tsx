@@ -4,7 +4,7 @@
    Scope: Own the signed-out landing surface composition
    Last Updated:
    - date: 2026-07-22
-   - note: mount the authentication doorway beneath the landing brand
+   - note: mount the first Time story beneath the authentication doorway
    ========================================================== */
 
 /* ------------------------------
@@ -13,6 +13,7 @@
 import LandingOrbAtmosphere from "./atmosphere/LandingOrbAtmosphere";
 import LandingAuthStack from "./auth/LandingAuthStack";
 import LandingBrand from "./brand/LandingBrand";
+import LandingStory from "./story/LandingStory";
 
 /* ------------------------------
    Styles
@@ -48,6 +49,7 @@ export default function LandingView() {
             <LandingOrbAtmosphere />
             <LandingBrand />
             <LandingAuthStack />
+            <LandingStory />
         </section>
     );
 }

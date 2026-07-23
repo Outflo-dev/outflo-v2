@@ -10,6 +10,17 @@
 :root {
     --theme-surface-primary: #020a17;
 
+    --theme-card-surface: rgba(7, 17, 33, 0.74);
+    --theme-card-border:
+        color-mix(in srgb,
+            var(--theme-accent-primary) 30%,
+            transparent);
+    --theme-card-shadow: rgba(0, 0, 0, 0.28);
+    --theme-card-highlight:
+        color-mix(in srgb,
+            var(--theme-accent-secondary) 10%,
+            transparent);
+
     --theme-text-primary: #f7f8ff;
     --theme-text-secondary: #9ba3bc;
 
