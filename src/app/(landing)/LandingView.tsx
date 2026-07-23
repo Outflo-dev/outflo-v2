@@ -3,8 +3,8 @@
    File: src/app/(landing)/LandingView.tsx
    Scope: Own the signed-out landing surface composition
    Last Updated:
-   - date: 2026-07-22
-   - note: mount the first Time story beneath the authentication doorway
+   - date: 2026-07-23
+   - note: complete the landing composition with story and legal
    ========================================================== */
 
 /* ------------------------------
@@ -13,6 +13,7 @@
 import LandingOrbAtmosphere from "./atmosphere/LandingOrbAtmosphere";
 import LandingAuthStack from "./auth/LandingAuthStack";
 import LandingBrand from "./brand/LandingBrand";
+import LandingLegal from "./legal/LandingLegal";
 import LandingStory from "./story/LandingStory";
 
 /* ------------------------------
@@ -32,7 +33,7 @@ const VIEW_STYLE = {
     paddingTop:
         "calc(env(safe-area-inset-top) + clamp(4.4rem, 10.8dvh, 6.8rem))",
     paddingBottom:
-        "calc(env(safe-area-inset-bottom) + 2rem)",
+        "calc(env(safe-area-inset-bottom) + 1.25rem)",
 
     color: "var(--color-text-primary)",
     background: "var(--color-surface-primary)",
@@ -50,6 +51,7 @@ export default function LandingView() {
             <LandingBrand />
             <LandingAuthStack />
             <LandingStory />
+            <LandingLegal />
         </section>
     );
 }
