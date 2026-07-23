@@ -24,7 +24,7 @@ const PROVIDER_ACTIONS_STYLE: CSSProperties = {
 
     width: "100%",
 
-    gap: "0.75rem",
+    gap: "0.85rem",
 };
 
 /* ------------------------------

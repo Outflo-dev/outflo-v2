@@ -31,9 +31,9 @@ const AUTH_STACK_STYLE: CSSProperties = {
     width: "100%",
     maxWidth: "19.5rem",
 
-    marginTop: "clamp(2.5rem, 6dvh, 3.75rem)",
+    marginTop: "clamp(2rem, 4.4dvh, 2.8rem)",
 
-    gap: "1rem",
+    gap: "0.9rem",
 };
 
 const EMAIL_GROUP_STYLE: CSSProperties = {

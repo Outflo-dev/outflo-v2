@@ -31,9 +31,9 @@ const VIEW_STYLE = {
     width: "100%",
 
     paddingTop:
-        "calc(env(safe-area-inset-top) + clamp(4.4rem, 10.8dvh, 6.8rem))",
+        "calc(env(safe-area-inset-top) + clamp(2.9rem, 7.2dvh, 4.6rem))",
     paddingBottom:
-        "calc(env(safe-area-inset-bottom) + 1.25rem)",
+        "calc(env(safe-area-inset-bottom) + 0.8rem)",
 
     color: "var(--color-text-primary)",
     background: "var(--color-surface-primary)",

@@ -21,7 +21,7 @@ const DIVIDER_STYLE: CSSProperties = {
 
     width: "100%",
 
-    gap: "0.75rem",
+    gap: "0.95rem",
 };
 
 const LINE_STYLE: CSSProperties = {

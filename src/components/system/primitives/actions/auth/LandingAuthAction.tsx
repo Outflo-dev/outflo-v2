@@ -47,7 +47,7 @@ const ACTION_STYLE: CSSProperties = {
     justifyContent: "center",
 
     width: "100%",
-    minHeight: "3.25rem",
+    minHeight: "2.875rem",
 
     paddingInline: "3.5rem",
 
