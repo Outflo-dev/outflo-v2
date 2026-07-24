@@ -3,11 +3,33 @@
    File: src/components/system/document/surface/system-document-surface.css
    Scope: Own the browser document canvas surface
    Last Updated:
-   - date: 2026-07-19
-   - note: establish a continuous browser canvas behind the phone application frame
+   - date: 2026-07-24
+   - note: complete the landing top-left atmospheric ring through the physical viewport
    ========================================================== */
 
-html,
+html {
+    --landing-top-left-ring-radius:
+        clamp(125px, 33vw, 170px);
+
+    --landing-top-left-ring-center-x:
+        calc(clamp(-165px, -33vw, -115px) + var(--landing-top-left-ring-radius));
+
+    --landing-top-left-ring-center-y:
+        calc(env(safe-area-inset-top) + clamp(-205px, -40vw, -145px) + var(--landing-top-left-ring-radius));
+
+    background:
+        radial-gradient(circle at var(--landing-top-left-ring-center-x) var(--landing-top-left-ring-center-y),
+
+            transparent calc(var(--landing-top-left-ring-radius) - 0.5px),
+
+            color-mix(in srgb,
+                var(--color-accent-primary) 38%,
+                transparent) var(--landing-top-left-ring-radius),
+
+            transparent calc(var(--landing-top-left-ring-radius) + 0.5px)),
+        var(--color-surface-primary);
+}
+
 body {
     background: var(--color-surface-primary);
 }
