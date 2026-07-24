@@ -17,10 +17,8 @@ const ATMOSPHERE_STYLE: CSSProperties = {
 
     left: 0,
     right: 0,
-    top: "calc(-1 * env(safe-area-inset-top))",
-    bottom: 0,
-
-    width: "100vw",
+    top: "calc(0px - env(safe-area-inset-top))",
+    bottom: "calc(0px - env(safe-area-inset-bottom))",
 
     background: "transparent",
 
