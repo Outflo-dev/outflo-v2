@@ -3,8 +3,8 @@
    File: src/app/(landing)/atmosphere/LandingOrbAtmosphere.tsx
    Scope: Render the cropped atmospheric rings at the viewport perimeter
    Last Updated:
-   - date: 2026-07-22
-   - note: resolve the atmosphere against the full viewport and bring each ring slightly inward
+   - date: 2026-07-24
+   - note: preserve full-screen atmospheric paint while restoring viewport-relative ring placement
    ========================================================== */
 
 import type { CSSProperties } from "react";
@@ -23,6 +23,21 @@ const ATMOSPHERE_STYLE: CSSProperties = {
     background: "transparent",
 
     overflow: "hidden",
+    pointerEvents: "none",
+};
+
+/* ------------------------------
+   Placement Canvas
+-------------------------------- */
+const ATMOSPHERE_PLACEMENT_STYLE: CSSProperties = {
+    position: "absolute",
+
+    left: 0,
+    right: 0,
+    top: "env(safe-area-inset-top)",
+    bottom: "env(safe-area-inset-bottom)",
+
+    overflow: "visible",
     pointerEvents: "none",
 };
 
@@ -103,10 +118,12 @@ export default function LandingOrbAtmosphere() {
             aria-hidden="true"
             style={ATMOSPHERE_STYLE}
         >
-            <div style={TOP_LEFT_RING_STYLE} />
-            <div style={MIDDLE_LEFT_RING_STYLE} />
-            <div style={RIGHT_RING_STYLE} />
-            <div style={BOTTOM_RIGHT_RING_STYLE} />
+            <div style={ATMOSPHERE_PLACEMENT_STYLE}>
+                <div style={TOP_LEFT_RING_STYLE} />
+                <div style={MIDDLE_LEFT_RING_STYLE} />
+                <div style={RIGHT_RING_STYLE} />
+                <div style={BOTTOM_RIGHT_RING_STYLE} />
+            </div>
         </div>
     );
 }
