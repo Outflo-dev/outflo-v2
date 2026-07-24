@@ -14,7 +14,7 @@ const TAGLINE_STYLE = {
     margin: 0,
 
     fontFamily: "var(--font-family-system)",
-    fontSize: ".95rem",
+    fontSize: ".975rem",
     fontWeight: 400,
     letterSpacing: "0.0em",
 

@@ -56,8 +56,8 @@ const ACTION_STYLE: CSSProperties = {
     borderRadius: "0.75rem",
 
     fontFamily: "var(--font-family-system)",
-    fontSize: "0.95rem",
-    fontWeight: 600,
+    fontSize: "0.85rem",
+    fontWeight: 500,
     lineHeight: 1,
     letterSpacing: "-0.01em",
 
@@ -92,8 +92,8 @@ const EDGE_STYLE: CSSProperties = {
     alignItems: "center",
     justifyContent: "center",
 
-    width: "1.4rem",
-    height: "1.4rem",
+    width: "1.6rem",
+    height: "1.6rem",
 
     transform: "translateY(-50%)",
 };
@@ -106,6 +106,8 @@ const LEADING_STYLE: CSSProperties = {
 const TRAILING_STYLE: CSSProperties = {
     ...EDGE_STYLE,
     right: "1rem",
+
+    transform: "translateY(-50%) scale(0.97)",
 };
 
 const LABEL_STYLE: CSSProperties = {

@@ -3,8 +3,8 @@
    File: src/components/system/primitives/icons/communication/MailIcon.tsx
    Scope: Render the shared paint-neutral email indicator
    Last Updated:
-   - date: 2026-07-22
-   - note: establish the square-geometry mail mark for authentication actions
+   - date: 2026-07-23
+   - note: refine the authentication mail icon with an open-side envelope form
    ========================================================== */
 
 /* ------------------------------
@@ -23,12 +23,15 @@ type MailIconProps = {
    Component
 -------------------------------- */
 export default function MailIcon({
-    size = 20,
+    size = 22,
 }: MailIconProps) {
     const style: CSSProperties = {
         display: "block",
+
         width: size,
         height: size,
+
+        transform: "translate(-0.05rem, -0.02rem)",
     };
 
     return (
@@ -38,19 +41,23 @@ export default function MailIcon({
             fill="none"
             style={style}
         >
-            <rect
-                x="3"
-                y="5"
-                width="18"
-                height="14"
+            <path
+                d="
+                    M3 6H21
+                    M3 6V10.25
+                    M21 6V10.25
+                    M3 13.25V18H21V13.25
+                "
                 stroke="currentColor"
-                strokeWidth="1.75"
+                strokeWidth="1.6"
+                strokeLinecap="square"
+                strokeLinejoin="miter"
             />
 
             <path
-                d="M4 6L12 13L20 6"
+                d="M3.75 6.75L12 13L20.25 6.75"
                 stroke="currentColor"
-                strokeWidth="1.75"
+                strokeWidth="1.6"
                 strokeLinecap="square"
                 strokeLinejoin="miter"
             />

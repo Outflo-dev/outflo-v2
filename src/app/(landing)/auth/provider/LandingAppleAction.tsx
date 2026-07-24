@@ -21,8 +21,9 @@ import ChevronRightIcon from "@/components/system/primitives/icons/navigation/Ch
 const APPLE_MARK_STYLE: CSSProperties = {
     display: "block",
 
-    width: "1.3rem",
-    height: "1.3rem",
+    width: "1.5rem",
+    height: "1.5rem",
+    transform: "translate(-0.08rem, -0.08rem)",
 };
 
 /* ------------------------------

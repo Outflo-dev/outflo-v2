@@ -3,8 +3,8 @@
    File: src/components/system/primitives/icons/identity/UserIcon.tsx
    Scope: Render the shared paint-neutral person indicator
    Last Updated:
-   - date: 2026-07-22
-   - note: establish the identity mark for authentication doorways
+   - date: 2026-07-23
+   - note: refine the identity glyph with a compact head and closed shoulder form
    ========================================================== */
 
 /* ------------------------------
@@ -23,10 +23,11 @@ type UserIconProps = {
    Component
 -------------------------------- */
 export default function UserIcon({
-    size = 20,
+    size = 22,
 }: UserIconProps) {
     const style: CSSProperties = {
         display: "block",
+
         width: size,
         height: size,
     };
@@ -40,17 +41,22 @@ export default function UserIcon({
         >
             <circle
                 cx="12"
-                cy="7"
-                r="4"
+                cy="6.75"
+                r="3.25"
                 stroke="currentColor"
-                strokeWidth="1.75"
+                strokeWidth="1.65"
             />
 
             <path
-                d="M4 21V18C4 14.6863 6.68629 12 10 12H14C17.3137 12 20 14.6863 20 18V21"
+                d="
+                    M4.5 20
+                    C4.5 15.85 7.85 12.5 12 12.5
+                    C16.15 12.5 19.5 15.85 19.5 20
+                    H4.5
+                    Z
+                "
                 stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="square"
+                strokeWidth="1.65"
                 strokeLinejoin="miter"
             />
         </svg>

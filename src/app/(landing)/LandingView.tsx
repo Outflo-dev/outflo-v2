@@ -31,7 +31,7 @@ const VIEW_STYLE = {
     width: "100%",
 
     paddingTop:
-        "calc(env(safe-area-inset-top) + clamp(2.9rem, 7.2dvh, 4.6rem))",
+        "calc(env(safe-area-inset-top) + clamp(2.05rem, 5.1dvh, 3.4rem))",
     paddingBottom:
         "calc(env(safe-area-inset-bottom) + 0.8rem)",
 

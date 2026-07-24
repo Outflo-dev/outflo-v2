@@ -25,7 +25,7 @@ const STORY_STYLE: CSSProperties = {
 
     width: "100%",
 
-    marginTop: "1.35rem",
+    marginTop: "1.6rem",
 };
 
 /* ------------------------------

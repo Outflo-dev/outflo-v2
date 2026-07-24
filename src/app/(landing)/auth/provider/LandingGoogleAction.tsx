@@ -21,8 +21,10 @@ import ChevronRightIcon from "@/components/system/primitives/icons/navigation/Ch
 const GOOGLE_MARK_STYLE: CSSProperties = {
     display: "block",
 
-    width: "1.3rem",
-    height: "1.3rem",
+    width: "1.4rem",
+    height: "1.4rem",
+
+    transform: "translate(-0.15rem, -0.04rem)",
 };
 
 /* ------------------------------
