@@ -13,14 +13,11 @@ import type { CSSProperties } from "react";
    Canvas
 -------------------------------- */
 const ATMOSPHERE_STYLE: CSSProperties = {
-    position: "absolute",
-
-    top: 0,
-    bottom: 0,
-    left: "50%",
+    position: "fixed",
+    inset: 0,
 
     width: "100vw",
-    transform: "translateX(-50%)",
+    height: "100dvh",
 
     background: "transparent",
 

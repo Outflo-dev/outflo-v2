@@ -45,7 +45,8 @@ const CARD_STYLE: CSSProperties = {
     overflow: "hidden",
     isolation: "isolate",
 
-    background: "var(--color-card-surface)",
+    background:
+        "linear-gradient(135deg, var(--color-card-highlight) 0%, transparent 42%), var(--color-card-surface)",
 
     borderWidth: "1px",
     borderStyle: "solid",
@@ -53,7 +54,7 @@ const CARD_STYLE: CSSProperties = {
     borderRadius: ".85rem",
 
     boxShadow:
-        "0 18px 50px var(--color-card-shadow), inset 0 1px 0 var(--color-card-highlight)",
+        "0 14px 38px var(--color-card-shadow), inset 0 1px 0 var(--color-card-highlight)",
 };
 
 const CONTENT_STYLE: CSSProperties = {
