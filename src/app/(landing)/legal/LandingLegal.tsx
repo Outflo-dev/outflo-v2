@@ -21,7 +21,7 @@ const LEGAL_STYLE: CSSProperties = {
     width: "100%",
     maxWidth: "19.5rem",
 
-    marginTop: "1.65rem",
+    marginTop: "2.1rem",
 
     color: "var(--color-text-secondary)",
 
