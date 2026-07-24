@@ -12,6 +12,7 @@
 -------------------------------- */
 import type {
   Metadata,
+  Viewport,
 } from "next";
 
 import type {
@@ -45,6 +46,15 @@ export const metadata: Metadata = {
     title: "Outflō",
     statusBarStyle: "black-translucent",
   },
+};
+
+/* ------------------------------
+   Viewport
+-------------------------------- */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 /* ------------------------------
