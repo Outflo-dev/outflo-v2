@@ -14,14 +14,17 @@ import type { CSSProperties } from "react";
 -------------------------------- */
 const ATMOSPHERE_STYLE: CSSProperties = {
     position: "fixed",
-    inset: 0,
+
+    left: 0,
+    right: 0,
+    top: "calc(-1 * env(safe-area-inset-top))",
+    bottom: 0,
 
     width: "100vw",
-    height: "100dvh",
 
     background: "transparent",
 
-    overflow: "visibile",
+    overflow: "hidden",
     pointerEvents: "none",
 };
 
