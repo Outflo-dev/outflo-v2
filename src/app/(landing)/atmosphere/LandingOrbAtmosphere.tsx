@@ -21,7 +21,7 @@ const ATMOSPHERE_STYLE: CSSProperties = {
 
     background: "transparent",
 
-    overflow: "hidden",
+    overflow: "visibile",
     pointerEvents: "none",
 };
 
