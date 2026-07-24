@@ -67,7 +67,7 @@ const TOP_LEFT_RING_STYLE: CSSProperties = {
     width: "clamp(250px, 66vw, 340px)",
 
     left: "clamp(-165px, -33vw, -115px)",
-    top: "clamp(-205px, -40vw, -145px)",
+    top: "calc(clamp(-205px, -40vw, -145px) + 24px)",
 
     borderColor: "var(--color-accent-primary)",
     opacity: 0.38,
@@ -79,7 +79,7 @@ const MIDDLE_LEFT_RING_STYLE: CSSProperties = {
     width: "clamp(160px, 40vw, 220px)",
 
     left: "clamp(-125px, -27vw, -90px)",
-    top: "26dvh",
+    top: "31dvh",
 
     borderColor: "var(--color-accent-primary)",
     opacity: 0.12,
@@ -91,7 +91,7 @@ const RIGHT_RING_STYLE: CSSProperties = {
     width: "clamp(200px, 52vw, 280px)",
 
     right: "clamp(-120px, -24vw, -90px)",
-    top: "4dvh",
+    top: "calc(4dvh + 20px)",
 
     borderColor: "var(--color-accent-secondary)",
     opacity: 0.38,
@@ -103,7 +103,7 @@ const BOTTOM_RIGHT_RING_STYLE: CSSProperties = {
     width: "clamp(190px, 48vw, 260px)",
 
     right: "clamp(-150px, -30vw, -105px)",
-    bottom: "clamp(-105px, -18vw, -60px)",
+    bottom: "calc(clamp(-105px, -18vw, -60px) - 18px)",
 
     borderColor: "var(--color-accent-primary)",
     opacity: 0.20,
