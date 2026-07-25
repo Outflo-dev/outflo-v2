@@ -79,7 +79,7 @@ const MIDDLE_LEFT_RING_STYLE: CSSProperties = {
     width: "clamp(160px, 40vw, 220px)",
 
     left: "clamp(-125px, -27vw, -90px)",
-    top: "31dvh",
+    top: "27dvh",
 
     borderColor: "var(--color-accent-primary)",
     opacity: 0.12,

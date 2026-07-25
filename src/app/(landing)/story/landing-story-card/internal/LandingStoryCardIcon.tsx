@@ -36,7 +36,7 @@ const ICON_ZONE_STYLE: CSSProperties = {
 
     flexShrink: 0,
 
-    transform: "translate(-.4rem, -0.125rem)",
+    transform: "translate(-.3rem, -0.0rem)",
 };
 
 /* ------------------------------

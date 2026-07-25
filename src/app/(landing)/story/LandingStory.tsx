@@ -38,7 +38,7 @@ export default function LandingStory() {
             style={STORY_STYLE}
         >
             <LandingStoryCard
-                icon={<TimeConceptIcon size={60} />}
+                icon={<TimeConceptIcon size={56} />}
                 title="This is "
                 titleAccent="Time."
                 support="The first living form of Outflō."

@@ -45,7 +45,6 @@ const ACTIVE_DOT_STYLE: CSSProperties = {
     height: 9.5,
 
     background: "var(--color-accent-primary)",
-    boxShadow: "0 0 8px var(--color-accent-primary)",
 };
 
 const INACTIVE_DOT_STYLE: CSSProperties = {
