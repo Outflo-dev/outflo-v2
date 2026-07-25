@@ -3,8 +3,8 @@
    File: src/components/system/primitives/icons/concepts/ResolutionConceptIcon.tsx
    Scope: Render the reusable canonical Resolution concept icon
    Last Updated:
-   - date: 2026-07-24
-   - note: resolve Resolution as concentric forms settling into one center
+   - date: 2026-07-25
+   - note: resolve layered truth inward through restrained three-role paint
    ========================================================== */
 
 /* ------------------------------
@@ -60,8 +60,8 @@ export default function ResolutionConceptIcon({
             <circle
                 cx="32"
                 cy="32"
-                r="10"
-                stroke="var(--color-accent-primary)"
+                r="11"
+                stroke="var(--color-accent-secondary)"
                 strokeWidth="2.25"
             />
 
@@ -69,7 +69,7 @@ export default function ResolutionConceptIcon({
                 cx="32"
                 cy="32"
                 r="3.5"
-                stroke="var(--color-accent-primary)"
+                stroke="var(--color-text-primary)"
                 strokeWidth="2.25"
             />
         </svg>

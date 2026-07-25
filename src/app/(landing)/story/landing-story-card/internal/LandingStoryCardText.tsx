@@ -41,10 +41,10 @@ const TITLE_STYLE: CSSProperties = {
 
     color: "var(--color-text-primary)",
 
-    fontSize: "1rem",
+    fontSize: ".975rem",
     fontWeight: 500,
     lineHeight: 1.2,
-    letterSpacing: "-0.015em",
+    letterSpacing: "-0.01em",
 };
 
 const SUPPORT_STYLE: CSSProperties = {

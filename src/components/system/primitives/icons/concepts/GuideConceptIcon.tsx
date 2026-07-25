@@ -3,8 +3,8 @@
    File: src/components/system/primitives/icons/concepts/GuideConceptIcon.tsx
    Scope: Render the reusable canonical Guide concept icon
    Last Updated:
-   - date: 2026-07-24
-   - note: resolve the Guide as a person held within the Outflō form
+   - date: 2026-07-25
+   - note: distinguish the Guide from the Outflō form through restrained two-tone paint
    ========================================================== */
 
 /* ------------------------------
@@ -51,28 +51,34 @@ export default function GuideConceptIcon({
         >
             <circle
                 cx="32"
-                cy="32"
-                r="20"
+                cy="33"
+                r="19"
                 stroke="var(--color-accent-primary)"
                 strokeWidth="2"
             />
 
+            <path
+                d="M27.5 10.5 H36.5"
+                stroke="var(--color-accent-primary)"
+                strokeWidth="2.25"
+                strokeLinecap="square"
+            />
+
             <circle
                 cx="32"
-                cy="27"
-                r="4"
-                stroke="var(--color-accent-primary)"
+                cy="28"
+                r="4.5"
+                stroke="var(--color-text-primary)"
                 strokeWidth="2.25"
             />
 
             <path
                 d="
-                    M24.5 40
-                    C25.7 35.8 28.2 34 32 34
-                    C35.8 34 38.3 35.8 39.5 40
-                    Z
+                    M23.5 42
+                    C24.8 36.9 27.7 34.8 32 34.8
+                    C36.3 34.8 39.2 36.9 40.5 42
                 "
-                stroke="var(--color-accent-primary)"
+                stroke="var(--color-text-primary)"
                 strokeWidth="2.25"
                 strokeLinecap="square"
                 strokeLinejoin="bevel"

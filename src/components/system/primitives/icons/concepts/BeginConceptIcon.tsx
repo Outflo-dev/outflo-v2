@@ -3,8 +3,8 @@
    File: src/components/system/primitives/icons/concepts/BeginConceptIcon.tsx
    Scope: Render the reusable canonical Begin concept icon
    Last Updated:
-   - date: 2026-07-24
-   - note: resolve Begin as a flat matte horizon and rising form
+   - date: 2026-07-25
+   - note: resolve Begin as an open horizon, rising form, and first light
    ========================================================== */
 
 /* ------------------------------
@@ -49,23 +49,38 @@ export default function BeginConceptIcon({
             fill="none"
             style={style}
         >
-            <circle
-                cx="32"
-                cy="32"
-                r="20"
+            <path
+                d="
+                    M15 39
+                    H49
+
+                    M32 17
+                    V22
+
+                    M20.5 22.5
+                    L24 26
+
+                    M43.5 22.5
+                    L40 26
+
+                    M16.5 31
+                    H21.5
+
+                    M42.5 31
+                    H47.5
+                "
                 stroke="var(--color-accent-primary)"
                 strokeWidth="2"
+                strokeLinecap="square"
+                strokeLinejoin="bevel"
             />
 
             <path
                 d="
-                    M20 37
-                    H44
-
-                    M25 37
-                    A7 7 0 0 1 39 37
+                    M23 39
+                    A9 9 0 0 1 41 39
                 "
-                stroke="var(--color-accent-primary)"
+                stroke="var(--color-accent-secondary)"
                 strokeWidth="2.25"
                 strokeLinecap="square"
                 strokeLinejoin="bevel"
