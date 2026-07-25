@@ -10,6 +10,7 @@
 /* ------------------------------
    Imports
 -------------------------------- */
+import LandingAmbientAtmosphere from "./atmosphere/LandingAmbientAtmosphere";
 import LandingOrbAtmosphere from "./atmosphere/LandingOrbAtmosphere";
 import LandingAuthStack from "./auth/LandingAuthStack";
 import LandingBrand from "./brand/LandingBrand";
@@ -48,6 +49,8 @@ export default function LandingView() {
     return (
         <section style={VIEW_STYLE}>
             <LandingOrbAtmosphere />
+            <LandingAmbientAtmosphere />
+
             <LandingBrand />
             <LandingAuthStack />
             <LandingStory />
