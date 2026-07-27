@@ -3,8 +3,8 @@
    File: src/components/system/primitives/onboarding/page/OnboardingPage.tsx
    Scope: Own the canonical propagated page composition across onboarding
    Last Updated:
-   - date: 2026-07-26
-   - note: establish stable icon, intro, content, action, progress, and secondary landings
+   - date: 2026-07-27
+   - note: isolate stationary navigation from the scrolling onboarding body
    ========================================================== */
 
 /* ------------------------------
@@ -59,39 +59,41 @@ export default function OnboardingPage({
                 </div>
             ) : null}
 
-            <div className={styles.introLanding}>
-                <OnboardingPageIntro
-                    title={title}
-                    support={support}
-                />
-            </div>
-
-            <div className={styles.iconLanding}>
-                <OnboardingPageIcon>
-                    {icon}
-                </OnboardingPageIcon>
-            </div>
-
-            <div className={styles.contentLanding}>
-                {children}
-            </div>
-
-            <div className={styles.actionLanding}>
-                {action}
-            </div>
-
-            <div className={styles.progressLanding}>
-                <OnboardingPageProgress
-                    step={step}
-                    totalSteps={totalSteps}
-                />
-            </div>
-
-            {secondary ? (
-                <div className={styles.secondaryLanding}>
-                    {secondary}
+            <div className={styles.scrollBody}>
+                <div className={styles.introLanding}>
+                    <OnboardingPageIntro
+                        title={title}
+                        support={support}
+                    />
                 </div>
-            ) : null}
+
+                <div className={styles.iconLanding}>
+                    <OnboardingPageIcon>
+                        {icon}
+                    </OnboardingPageIcon>
+                </div>
+
+                <div className={styles.contentLanding}>
+                    {children}
+                </div>
+
+                <div className={styles.actionLanding}>
+                    {action}
+                </div>
+
+                <div className={styles.progressLanding}>
+                    <OnboardingPageProgress
+                        step={step}
+                        totalSteps={totalSteps}
+                    />
+                </div>
+
+                {secondary ? (
+                    <div className={styles.secondaryLanding}>
+                        {secondary}
+                    </div>
+                ) : null}
+            </div>
         </section>
     );
 }

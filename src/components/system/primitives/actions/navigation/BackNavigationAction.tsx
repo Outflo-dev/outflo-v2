@@ -3,8 +3,8 @@
    File: src/components/system/primitives/actions/navigation/BackNavigationAction.tsx
    Scope: Own the canonical backward-navigation action boundary
    Last Updated:
-   - date: 2026-07-26
-   - note: establish the shared icon-only back navigation action
+   - date: 2026-07-27
+   - note: consume the shared directional arrow primitive
    ========================================================== */
 
 /* ------------------------------
@@ -12,7 +12,7 @@
 -------------------------------- */
 import Link from "next/link";
 
-import BackArrowIcon from "@/components/system/primitives/icons/navigation/BackArrowIcon";
+import ArrowIcon from "@/components/system/primitives/icons/navigation/ArrowIcon";
 
 import styles from "./BackNavigationAction.module.css";
 
@@ -37,7 +37,10 @@ export default function BackNavigationAction({
             aria-label={label}
             className={styles.action}
         >
-            <BackArrowIcon size={22} />
+            <ArrowIcon
+                direction="left"
+                size={22}
+            />
         </Link>
     );
 }

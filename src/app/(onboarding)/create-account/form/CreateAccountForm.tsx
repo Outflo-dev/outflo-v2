@@ -5,14 +5,15 @@
    File: src/app/(onboarding)/create-account/form/CreateAccountForm.tsx
    Scope: Own the Create Account field order and local submission boundary
    Last Updated:
-   - date: 2026-07-26
-   - note: connect canonical field identity and visibility icons with local optical alignment
+   - date: 2026-07-27
+   - note: add independent password visibility controls without disturbing field geometry
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
 import type { FormEvent } from "react";
+import { useState } from "react";
 
 import TextInputField from "@/components/system/primitives/fields/text/TextInputField";
 
@@ -34,6 +35,16 @@ export const CREATE_ACCOUNT_FORM_ID =
    Component
 -------------------------------- */
 export default function CreateAccountForm() {
+    const [
+        isPasswordVisible,
+        setIsPasswordVisible,
+    ] = useState(false);
+
+    const [
+        isConfirmPasswordVisible,
+        setIsConfirmPasswordVisible,
+    ] = useState(false);
+
     function handleSubmit(
         event: FormEvent<HTMLFormElement>,
     ) {
@@ -62,7 +73,11 @@ export default function CreateAccountForm() {
                 id="create-account-password"
                 name="password"
                 label="Password"
-                type="password"
+                type={
+                    isPasswordVisible
+                        ? "text"
+                        : "password"
+                }
                 autoComplete="new-password"
                 placeholder="Create a password"
                 leading={
@@ -70,7 +85,26 @@ export default function CreateAccountForm() {
                         <LockIcon />
                     </span>
                 }
-                trailing={<EyeIcon />}
+                trailing={
+                    <button
+                        type="button"
+                        className={styles.visibilityAction}
+                        aria-label={
+                            isPasswordVisible
+                                ? "Hide password"
+                                : "Show password"
+                        }
+                        aria-pressed={isPasswordVisible}
+                        onClick={() => {
+                            setIsPasswordVisible(
+                                (currentValue) =>
+                                    !currentValue,
+                            );
+                        }}
+                    >
+                        <EyeIcon />
+                    </button>
+                }
                 required
             />
 
@@ -78,7 +112,11 @@ export default function CreateAccountForm() {
                 id="create-account-confirm-password"
                 name="confirmPassword"
                 label="Confirm password"
-                type="password"
+                type={
+                    isConfirmPasswordVisible
+                        ? "text"
+                        : "password"
+                }
                 autoComplete="new-password"
                 placeholder="Confirm your password"
                 leading={
@@ -86,7 +124,28 @@ export default function CreateAccountForm() {
                         <LockIcon />
                     </span>
                 }
-                trailing={<EyeIcon />}
+                trailing={
+                    <button
+                        type="button"
+                        className={styles.visibilityAction}
+                        aria-label={
+                            isConfirmPasswordVisible
+                                ? "Hide password confirmation"
+                                : "Show password confirmation"
+                        }
+                        aria-pressed={
+                            isConfirmPasswordVisible
+                        }
+                        onClick={() => {
+                            setIsConfirmPasswordVisible(
+                                (currentValue) =>
+                                    !currentValue,
+                            );
+                        }}
+                    >
+                        <EyeIcon />
+                    </button>
+                }
                 required
             />
 

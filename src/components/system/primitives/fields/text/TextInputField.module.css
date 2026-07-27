@@ -3,8 +3,8 @@
    File: src/components/system/primitives/fields/text/TextInputField.module.css
    Scope: Own the canonical visual and interaction recipe for text entry
    Last Updated:
-   - date: 2026-07-26
-   - note: preserve tuned field geometry and resolve purple leading icons with warm-white visibility icons
+   - date: 2026-07-27
+   - note: preserve tuned field geometry and allow trailing controls to receive interaction
    ========================================================== */
 
 .field {
@@ -52,7 +52,7 @@
     outline: none;
 
     font-family: var(--font-family-system);
-    font-size: .84rem;
+    font-size: 0.84rem;
     font-weight: 430;
     line-height: 1;
 
@@ -80,8 +80,6 @@
     width: 1.5rem;
     height: 1.5rem;
 
-    pointer-events: none;
-
     transform: translateY(-50%);
 }
 
@@ -89,12 +87,16 @@
     left: 0.7rem;
 
     color: var(--color-accent-secondary);
+
+    pointer-events: none;
 }
 
 .trailing {
     right: 0.7rem;
 
     color: var(--color-surface-soft-white);
+
+    pointer-events: auto;
 }
 
 .input::placeholder {
