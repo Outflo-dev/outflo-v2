@@ -24,7 +24,7 @@ export default function CreateAccountSignInPrompt() {
                 type="button"
                 className={styles.action}
             >
-                Sign in
+                Sign in.
             </button>
         </p>
     );

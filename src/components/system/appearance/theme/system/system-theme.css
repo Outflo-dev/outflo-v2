@@ -9,6 +9,7 @@
 
 :root {
     --theme-surface-primary: #020a17;
+    --theme-surface-soft-white: #fffefa;
 
     --theme-card-surface: rgba(7, 17, 33, 0.74);
     --theme-card-border:
@@ -21,7 +22,7 @@
             var(--theme-accent-secondary) 10%,
             transparent);
 
-    --theme-text-primary: #f7f8ff;
+    --theme-text-primary: #FFFEFA;
     --theme-text-secondary: #9ba3bc;
 
     --theme-accent-primary: #4f7cff;

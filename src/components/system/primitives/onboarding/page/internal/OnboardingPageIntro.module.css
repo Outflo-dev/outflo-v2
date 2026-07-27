@@ -20,7 +20,7 @@
 .title {
     margin: 0;
 
-    color: var(--color-text-primary);
+    color: var(--color-surface-soft-white);
 
     font-family: var(--font-family-system);
     font-size: 1.6rem;

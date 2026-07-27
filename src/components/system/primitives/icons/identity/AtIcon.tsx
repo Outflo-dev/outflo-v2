@@ -1,10 +1,10 @@
 /* ==========================================================
-   OUTFLO — BACK ARROW ICON
-   File: src/components/system/primitives/icons/navigation/BackArrowIcon.tsx
-   Scope: Render the reusable canonical backward-navigation icon
+   OUTFLO — AT ICON
+   File: src/components/system/primitives/icons/identity/AtIcon.tsx
+   Scope: Render the reusable canonical username identity icon
    Last Updated:
    - date: 2026-07-26
-   - note: establish the square-cut navigation arrow primitive
+   - note: establish the square-cut at-sign identity primitive
    ========================================================== */
 
 /* ------------------------------
@@ -15,7 +15,7 @@ import type { CSSProperties } from "react";
 /* ------------------------------
    Types
 -------------------------------- */
-type BackArrowIconProps = {
+type AtIconProps = {
     size?: number;
     title?: string;
 };
@@ -23,10 +23,10 @@ type BackArrowIconProps = {
 /* ------------------------------
    Component
 -------------------------------- */
-export default function BackArrowIcon({
-    size = 24,
+export default function AtIcon({
+    size = 18,
     title,
-}: BackArrowIconProps) {
+}: AtIconProps) {
     const isDecorative = title === undefined;
 
     const style: CSSProperties = {
@@ -46,16 +46,21 @@ export default function BackArrowIcon({
             height={size}
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="1.6"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
             aria-hidden={isDecorative}
             aria-label={title}
             role={isDecorative ? undefined : "img"}
             style={style}
         >
-            <path d="M10 5L3 12L10 19" />
-            <path d="M3 12H21" />
+            <circle
+                cx="12"
+                cy="12"
+                r="3.25"
+            />
+
+            <path d="M15.25 12V15.25C15.25 16.63 16.37 17.75 17.75 17.75C20.1 17.75 21.5 15.63 21.5 12.25C21.5 7.06 17.57 3.5 12.25 3.5C6.55 3.5 2.5 7.44 2.5 12.75C2.5 17.66 6.18 21 11.25 21C13.53 21 15.45 20.45 17 19.55" />
         </svg>
     );
 }

@@ -4,7 +4,7 @@
    Scope: Own the canonical visual and interaction recipe for text entry
    Last Updated:
    - date: 2026-07-26
-   - note: tighten the canonical field recipe for dense onboarding entry
+   - note: preserve tuned field geometry and resolve purple leading icons with warm-white visibility icons
    ========================================================== */
 
 .field {
@@ -20,15 +20,21 @@
     color: var(--color-text-secondary);
 
     font-family: var(--font-family-system);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 560;
     line-height: 1;
     letter-spacing: 0.01em;
 }
 
+.control {
+    position: relative;
+
+    width: 100%;
+}
+
 .input {
     width: 100%;
-    min-height: 2.5rem;
+    min-height: 2.6rem;
 
     padding-inline: 0.85rem;
 
@@ -51,6 +57,44 @@
     line-height: 1;
 
     box-sizing: border-box;
+}
+
+.leading+.input {
+    padding-left: 2.65rem;
+}
+
+.input:has(+ .trailing) {
+    padding-right: 2.65rem;
+}
+
+.leading,
+.trailing {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+}
+
+.leading {
+    left: 0.7rem;
+
+    color: var(--color-accent-secondary);
+}
+
+.trailing {
+    right: 0.7rem;
+
+    color: var(--color-surface-soft-white);
 }
 
 .input::placeholder {

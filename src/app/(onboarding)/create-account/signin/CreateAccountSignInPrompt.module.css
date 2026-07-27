@@ -22,8 +22,11 @@
 .action {
     padding: 0;
 
-    color: var(--color-text-primary);
-    background: transparent;
+    color: transparent;
+    background:
+        var(--gradient-brand-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
 
     border: 0;
     outline: none;

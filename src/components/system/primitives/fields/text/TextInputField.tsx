@@ -3,8 +3,8 @@
    File: src/components/system/primitives/fields/text/TextInputField.tsx
    Scope: Own the canonical labeled single-line text-input construction
    Last Updated:
-   - date: 2026-07-25
-   - note: close the shared field recipe and support native interaction states
+   - date: 2026-07-26
+   - note: support canonical leading identity and trailing control slots
    ========================================================== */
 
 /* ------------------------------
@@ -12,6 +12,7 @@
 -------------------------------- */
 import type {
     InputHTMLAttributes,
+    ReactNode,
 } from "react";
 
 import styles from "./TextInputField.module.css";
@@ -22,6 +23,8 @@ import styles from "./TextInputField.module.css";
 type TextInputFieldProps = {
     id: string;
     label: string;
+    leading?: ReactNode;
+    trailing?: ReactNode;
 } & Omit<
     InputHTMLAttributes<HTMLInputElement>,
     "id" | "style" | "className"
@@ -33,6 +36,8 @@ type TextInputFieldProps = {
 export default function TextInputField({
     id,
     label,
+    leading,
+    trailing,
     type = "text",
     ...inputProps
 }: TextInputFieldProps) {
@@ -45,12 +50,26 @@ export default function TextInputField({
                 {label}
             </label>
 
-            <input
-                {...inputProps}
-                id={id}
-                type={type}
-                className={styles.input}
-            />
+            <div className={styles.control}>
+                {leading ? (
+                    <span className={styles.leading}>
+                        {leading}
+                    </span>
+                ) : null}
+
+                <input
+                    {...inputProps}
+                    id={id}
+                    type={type}
+                    className={styles.input}
+                />
+
+                {trailing ? (
+                    <span className={styles.trailing}>
+                        {trailing}
+                    </span>
+                ) : null}
+            </div>
         </div>
     );
 }

@@ -3,11 +3,13 @@
    File: src/components/system/primitives/actions/onboarding/OnboardingPrimaryAction.module.css
    Scope: Own the canonical visual and interaction recipe for onboarding forward actions
    Last Updated:
-   - date: 2026-07-25
-   - note: establish focus, active, and disabled presentation
+   - date: 2026-07-26
+   - note: preserve centered action labels, pin trailing icons, and sharpen button geometry
    ========================================================== */
 
 .action {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +23,7 @@
     background: var(--gradient-brand-primary);
 
     border: 0;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
 
     outline: none;
 
@@ -33,6 +35,24 @@
 
     cursor: pointer;
     box-sizing: border-box;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trailing {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
 }
 
 .action:focus-visible {

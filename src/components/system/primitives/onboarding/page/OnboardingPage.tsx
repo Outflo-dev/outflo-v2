@@ -13,7 +13,6 @@
 import type { ReactNode } from "react";
 
 import OnboardingAtmosphere from "@/components/system/primitives/atmospheres/onboarding/OnboardingAtmosphere";
-import OnboardingCard from "@/components/system/primitives/cards/onboarding/OnboardingCard";
 
 import OnboardingPageIcon from "./internal/OnboardingPageIcon";
 import OnboardingPageIntro from "./internal/OnboardingPageIntro";

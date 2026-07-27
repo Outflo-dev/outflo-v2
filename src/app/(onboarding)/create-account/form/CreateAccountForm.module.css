@@ -4,7 +4,7 @@
    Scope: Own only the field rhythm unique to Create Account
    Last Updated:
    - date: 2026-07-26
-   - note: remove card, action, and page-position ownership
+   - note: retain tuned field rhythm and add local icon optical alignment
    ========================================================== */
 
 .form {
@@ -13,5 +13,13 @@
 
     width: 100%;
 
-    gap: 1rem;
+    gap: 1.1rem;
+}
+
+.leadingOpticalLeft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateX(-0.125rem);
 }

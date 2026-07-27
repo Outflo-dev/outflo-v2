@@ -1,80 +1,78 @@
 /* ==========================================================
    OUTFLO — ONBOARDING PAGE RECIPE
    File: src/components/system/primitives/onboarding/page/OnboardingPage.module.css
-   Scope: Own the canonical coordinates and landings shared across onboarding pages
+   Scope: Own the canonical flowing composition shared across onboarding pages
    Last Updated:
    - date: 2026-07-26
-   - note: establish the first precise propagated onboarding page geometry
+   - note: replace the fixed canvas with natural vertical flow and scroll fallback
    ========================================================== */
 
 .page {
     position: relative;
     isolation: isolate;
 
-    flex: 1;
+    display: flex;
+    flex-direction: column;
 
     width: 100%;
     min-height: 100dvh;
 
+    padding:
+        calc(env(safe-area-inset-top) + 0.5rem) 0 calc(env(safe-area-inset-bottom) + 1rem);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
     color: var(--color-text-primary);
     background: var(--color-surface-primary);
 
-    overflow: hidden;
     box-sizing: border-box;
 }
 
 .navigationLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
-
-    top:
-        calc(env(safe-area-inset-top) + .35rem);
-    left: 0;
 
     display: flex;
     align-items: center;
 
+    width: 100%;
     min-height: 2rem;
+
+    flex: 0 0 auto;
 }
 
 .introLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
-
-    top:
-        calc(env(safe-area-inset-top) + 1.35rem);
-    left: 50%;
 
     width: calc(100% - 4rem);
     max-width: 21rem;
 
-    transform: translateX(-50%);
+    margin: -1rem auto 0;
+
+    flex: 0 0 auto;
 }
 
 .iconLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
 
-    top:
-        calc(env(safe-area-inset-top) + 4.15rem);
-    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     width: 10rem;
     height: 10rem;
 
-    transform: translateX(-50%);
+    margin: -0.45rem auto 0;
+
+    flex: 0 0 auto;
 }
 
 .contentLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
-
-    top:
-        calc(env(safe-area-inset-top) + 14rem);
-    right: 0;
-    bottom:
-        calc(env(safe-area-inset-bottom) + 10rem);
-    left: 0;
 
     display: flex;
     align-items: center;
@@ -83,46 +81,45 @@
     width: calc(100% - 2rem);
     max-width: 20rem;
 
-    margin-inline: auto;
+    margin: 0.25rem auto 0;
 
-    min-height: 0;
+    flex: 0 0 auto;
 }
 
 .actionLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
 
-    right: 0;
-    bottom:
-        calc(env(safe-area-inset-bottom) + 4.35rem);
-    left: 0;
-
-    width: calc(100% - 2rem);
+    width: calc(100% - 1rem);
     max-width: 20rem;
 
-    margin-inline: auto;
+    margin: 1.25rem auto 0;
+
+    flex: 0 0 auto;
 }
 
 .progressLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
 
-    right: 0;
-    bottom:
-        calc(env(safe-area-inset-bottom) + 2.75rem);
-    left: 0;
+    width: 100%;
+
+    margin-top: 1.15rem;
+
+    flex: 0 0 auto;
 }
 
 .secondaryLanding {
-    position: absolute;
+    position: relative;
     z-index: 1;
-
-    right: 0;
-    bottom:
-        calc(env(safe-area-inset-bottom) + 0.9rem);
-    left: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+
+    margin-top: 1.3rem;
+
+    flex: 0 0 auto;
 }

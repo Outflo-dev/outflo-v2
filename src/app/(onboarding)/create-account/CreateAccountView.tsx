@@ -4,7 +4,7 @@
    Scope: Declare Create Account meaning through the propagated onboarding page
    Last Updated:
    - date: 2026-07-26
-   - note: declare backward navigation through the shared onboarding page
+   - note: declare backward navigation and forward progression through shared onboarding actions
    ========================================================== */
 
 /* ------------------------------
@@ -12,6 +12,7 @@
 -------------------------------- */
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
+import ArrowIcon from "@/components/system/primitives/icons/navigation/ArrowIcon";
 import OnboardingPage from "@/components/system/primitives/onboarding/page/OnboardingPage";
 import OutfloMark from "@/components/system/primitives/marks/outflo/OutfloMark";
 
@@ -46,6 +47,12 @@ export default function CreateAccountView() {
                 <OnboardingPrimaryAction
                     type="submit"
                     form={CREATE_ACCOUNT_FORM_ID}
+                    trailing={
+                        <ArrowIcon
+                            direction="right"
+                            size={18}
+                        />
+                    }
                 >
                     Continue
                 </OnboardingPrimaryAction>

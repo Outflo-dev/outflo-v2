@@ -6,7 +6,7 @@
    Scope: Own the Create Account field order and local submission boundary
    Last Updated:
    - date: 2026-07-26
-   - note: remove page, card, and action ownership from the local account form
+   - note: connect canonical field identity and visibility icons with local optical alignment
    ========================================================== */
 
 /* ------------------------------
@@ -15,6 +15,12 @@
 import type { FormEvent } from "react";
 
 import TextInputField from "@/components/system/primitives/fields/text/TextInputField";
+
+import MailIcon from "@/components/system/primitives/icons/communication/MailIcon";
+import AtIcon from "@/components/system/primitives/icons/identity/AtIcon";
+import UserIcon from "@/components/system/primitives/icons/identity/UserIcon";
+import EyeIcon from "@/components/system/primitives/icons/security/EyeIcon";
+import LockIcon from "@/components/system/primitives/icons/security/LockIcon";
 
 import styles from "./CreateAccountForm.module.css";
 
@@ -48,6 +54,7 @@ export default function CreateAccountForm() {
                 autoComplete="email"
                 inputMode="email"
                 placeholder="you@example.com"
+                leading={<MailIcon />}
                 required
             />
 
@@ -58,6 +65,12 @@ export default function CreateAccountForm() {
                 type="password"
                 autoComplete="new-password"
                 placeholder="Create a password"
+                leading={
+                    <span className={styles.leadingOpticalLeft}>
+                        <LockIcon />
+                    </span>
+                }
+                trailing={<EyeIcon />}
                 required
             />
 
@@ -68,6 +81,12 @@ export default function CreateAccountForm() {
                 type="password"
                 autoComplete="new-password"
                 placeholder="Enter it again"
+                leading={
+                    <span className={styles.leadingOpticalLeft}>
+                        <LockIcon />
+                    </span>
+                }
+                trailing={<EyeIcon />}
                 required
             />
 
@@ -78,6 +97,11 @@ export default function CreateAccountForm() {
                 type="text"
                 autoComplete="username"
                 placeholder="Choose a username"
+                leading={
+                    <span className={styles.leadingOpticalLeft}>
+                        <AtIcon />
+                    </span>
+                }
                 required
             />
 
@@ -88,8 +112,12 @@ export default function CreateAccountForm() {
                 type="text"
                 autoComplete="name"
                 placeholder="Your name"
+                leading={
+                    <span className={styles.leadingOpticalLeft}>
+                        <UserIcon />
+                    </span>
+                }
             />
-
         </form>
     );
 }

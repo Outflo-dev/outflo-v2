@@ -3,8 +3,8 @@
    File: src/components/system/primitives/actions/onboarding/OnboardingPrimaryAction.tsx
    Scope: Render the canonical primary forward action across onboarding
    Last Updated:
-   - date: 2026-07-25
-   - note: close the shared action recipe and support native interaction states
+   - date: 2026-07-26
+   - note: add an independent trailing action slot without disturbing centered label ownership
    ========================================================== */
 
 /* ------------------------------
@@ -22,6 +22,7 @@ import styles from "./OnboardingPrimaryAction.module.css";
 -------------------------------- */
 type OnboardingPrimaryActionProps = {
     children: ReactNode;
+    trailing?: ReactNode;
 } & Omit<
     ButtonHTMLAttributes<HTMLButtonElement>,
     "children" | "style" | "className"
@@ -32,6 +33,7 @@ type OnboardingPrimaryActionProps = {
 -------------------------------- */
 export default function OnboardingPrimaryAction({
     children,
+    trailing,
     type = "button",
     ...buttonProps
 }: OnboardingPrimaryActionProps) {
@@ -41,7 +43,18 @@ export default function OnboardingPrimaryAction({
             type={type}
             className={styles.action}
         >
-            {children}
+            <span className={styles.label}>
+                {children}
+            </span>
+
+            {trailing !== undefined && (
+                <span
+                    className={styles.trailing}
+                    aria-hidden="true"
+                >
+                    {trailing}
+                </span>
+            )}
         </button>
     );
 }

@@ -1,10 +1,10 @@
 /* ==========================================================
-   OUTFLO — BACK ARROW ICON
-   File: src/components/system/primitives/icons/navigation/BackArrowIcon.tsx
-   Scope: Render the reusable canonical backward-navigation icon
+   OUTFLO — EYE ICON
+   File: src/components/system/primitives/icons/security/EyeIcon.tsx
+   Scope: Render the reusable canonical visibility icon
    Last Updated:
    - date: 2026-07-26
-   - note: establish the square-cut navigation arrow primitive
+   - note: establish the square-cut password-visibility icon primitive
    ========================================================== */
 
 /* ------------------------------
@@ -15,7 +15,7 @@ import type { CSSProperties } from "react";
 /* ------------------------------
    Types
 -------------------------------- */
-type BackArrowIconProps = {
+type EyeIconProps = {
     size?: number;
     title?: string;
 };
@@ -23,10 +23,10 @@ type BackArrowIconProps = {
 /* ------------------------------
    Component
 -------------------------------- */
-export default function BackArrowIcon({
-    size = 24,
+export default function EyeIcon({
+    size = 18,
     title,
-}: BackArrowIconProps) {
+}: EyeIconProps) {
     const isDecorative = title === undefined;
 
     const style: CSSProperties = {
@@ -46,16 +46,21 @@ export default function BackArrowIcon({
             height={size}
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="1.6"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
             aria-hidden={isDecorative}
             aria-label={title}
             role={isDecorative ? undefined : "img"}
             style={style}
         >
-            <path d="M10 5L3 12L10 19" />
-            <path d="M3 12H21" />
+            <path d="M2.5 12C4.7 7.9 8 5.75 12 5.75C16 5.75 19.3 7.9 21.5 12C19.3 16.1 16 18.25 12 18.25C8 18.25 4.7 16.1 2.5 12Z" />
+
+            <circle
+                cx="12"
+                cy="12"
+                r="2.75"
+            />
         </svg>
     );
 }

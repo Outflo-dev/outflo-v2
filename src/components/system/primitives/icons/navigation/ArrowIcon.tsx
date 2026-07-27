@@ -1,10 +1,10 @@
 /* ==========================================================
-   OUTFLO — BACK ARROW ICON
-   File: src/components/system/primitives/icons/navigation/BackArrowIcon.tsx
-   Scope: Render the reusable canonical backward-navigation icon
+   OUTFLO — ARROW ICON
+   File: src/components/system/primitives/icons/navigation/ArrowIcon.tsx
+   Scope: Render the reusable canonical directional arrow icon
    Last Updated:
    - date: 2026-07-26
-   - note: establish the square-cut navigation arrow primitive
+   - note: unify backward and forward arrow geometry under one directional primitive
    ========================================================== */
 
 /* ------------------------------
@@ -15,7 +15,12 @@ import type { CSSProperties } from "react";
 /* ------------------------------
    Types
 -------------------------------- */
-type BackArrowIconProps = {
+type ArrowIconDirection =
+    | "left"
+    | "right";
+
+type ArrowIconProps = {
+    direction: ArrowIconDirection;
     size?: number;
     title?: string;
 };
@@ -23,10 +28,11 @@ type BackArrowIconProps = {
 /* ------------------------------
    Component
 -------------------------------- */
-export default function BackArrowIcon({
+export default function ArrowIcon({
+    direction,
     size = 24,
     title,
-}: BackArrowIconProps) {
+}: ArrowIconProps) {
     const isDecorative = title === undefined;
 
     const style: CSSProperties = {
@@ -37,6 +43,11 @@ export default function BackArrowIcon({
 
         flexShrink: 0,
     };
+
+    const transform =
+        direction === "right"
+            ? "translate(24 0) scale(-1 1)"
+            : undefined;
 
     return (
         <svg
@@ -54,8 +65,8 @@ export default function BackArrowIcon({
             role={isDecorative ? undefined : "img"}
             style={style}
         >
-            <path d="M10 5L3 12L10 19" />
-            <path d="M3 12H21" />
+            <path d="M13.5 5L20.5 12L13.5 19" />
+            <path d="M4.5 12H20.5" />
         </svg>
     );
 }
