@@ -80,7 +80,7 @@ export default function CreateAccountForm() {
                 label="Confirm password"
                 type="password"
                 autoComplete="new-password"
-                placeholder="Enter it again"
+                placeholder="Confirm your password"
                 leading={
                     <span className={styles.leadingOpticalLeft}>
                         <LockIcon />
