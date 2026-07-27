@@ -3,8 +3,8 @@
    File: src/app/(onboarding)/create-account/form/CreateAccountForm.module.css
    Scope: Own only the field rhythm unique to Create Account
    Last Updated:
-   - date: 2026-07-26
-   - note: retain tuned field rhythm and add local icon optical alignment
+   - date: 2026-07-27
+   - note: retain tuned field rhythm, local icon alignment, and password guidance
    ========================================================== */
 
 .form {
@@ -50,4 +50,50 @@
         0 0 0 2px color-mix(in srgb,
             var(--color-surface-soft-white) 30%,
             transparent);
+}
+
+.passwordRequirement {
+    display: flex;
+    align-items: flex-start;
+
+    margin: -0.45rem 0 0;
+
+    gap: 0.45rem;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.7rem;
+    font-weight: 430;
+    line-height: 1.35;
+    letter-spacing: 0.005em;
+
+    transform: translateX(0.95rem);
+}
+
+.passwordRequirement span {
+    opacity: 0.64;
+}
+
+.passwordRequirement svg {
+    width: 0.9rem;
+    height: 0.9rem;
+
+    margin-top: 0.05rem;
+
+    color: var(--color-accent-secondary);
+
+    opacity: 0.82;
+
+    flex: 0 0 auto;
+}
+
+.usernameAvailable {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-accent-secondary);
+
+    pointer-events: none;
 }

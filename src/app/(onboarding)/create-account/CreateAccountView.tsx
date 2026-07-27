@@ -54,7 +54,7 @@ export default function CreateAccountView() {
                         />
                     }
                 >
-                    Continue
+                    Create acccount
                 </OnboardingPrimaryAction>
             }
             secondary={

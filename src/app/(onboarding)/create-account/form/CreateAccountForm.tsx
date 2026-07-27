@@ -6,7 +6,7 @@
    Scope: Own the Create Account field order and local submission boundary
    Last Updated:
    - date: 2026-07-27
-   - note: add independent password visibility controls without disturbing field geometry
+   - note: group identity before security and retain password guidance
    ========================================================== */
 
 /* ------------------------------
@@ -19,9 +19,10 @@ import TextInputField from "@/components/system/primitives/fields/text/TextInput
 
 import MailIcon from "@/components/system/primitives/icons/communication/MailIcon";
 import AtIcon from "@/components/system/primitives/icons/identity/AtIcon";
-import UserIcon from "@/components/system/primitives/icons/identity/UserIcon";
 import EyeIcon from "@/components/system/primitives/icons/security/EyeIcon";
 import LockIcon from "@/components/system/primitives/icons/security/LockIcon";
+import SecurityIcon from "@/components/system/primitives/icons/security/SecurityIcon";
+import CheckIcon from "@/components/system/primitives/icons/state/CheckIcon";
 
 import styles from "./CreateAccountForm.module.css";
 
@@ -44,6 +45,11 @@ export default function CreateAccountForm() {
         isConfirmPasswordVisible,
         setIsConfirmPasswordVisible,
     ] = useState(false);
+
+    const [
+        username,
+        setUsername,
+    ] = useState("");
 
     function handleSubmit(
         event: FormEvent<HTMLFormElement>,
@@ -70,6 +76,32 @@ export default function CreateAccountForm() {
             />
 
             <TextInputField
+                id="create-account-username"
+                name="username"
+                label="Username"
+                type="text"
+                autoComplete="username"
+                placeholder="Choose a username"
+                value={username}
+                onChange={(event) => {
+                    setUsername(event.target.value);
+                }}
+                leading={
+                    <span className={styles.leadingOpticalLeft}>
+                        <AtIcon />
+                    </span>
+                }
+                trailing={
+                    username.length > 5 ? (
+                        <span className={styles.usernameAvailable}>
+                            <CheckIcon size={18} />
+                        </span>
+                    ) : undefined
+                }
+                required
+            />
+
+            <TextInputField
                 id="create-account-password"
                 name="password"
                 label="Password"
@@ -79,6 +111,7 @@ export default function CreateAccountForm() {
                         : "password"
                 }
                 autoComplete="new-password"
+                minLength={12}
                 placeholder="Create a password"
                 leading={
                     <span className={styles.leadingOpticalLeft}>
@@ -118,6 +151,7 @@ export default function CreateAccountForm() {
                         : "password"
                 }
                 autoComplete="new-password"
+                minLength={12}
                 placeholder="Confirm your password"
                 leading={
                     <span className={styles.leadingOpticalLeft}>
@@ -149,34 +183,15 @@ export default function CreateAccountForm() {
                 required
             />
 
-            <TextInputField
-                id="create-account-username"
-                name="username"
-                label="Username"
-                type="text"
-                autoComplete="username"
-                placeholder="Choose a username"
-                leading={
-                    <span className={styles.leadingOpticalLeft}>
-                        <AtIcon />
-                    </span>
-                }
-                required
-            />
+            <div className={styles.passwordRequirement}>
+                <SecurityIcon />
 
-            <TextInputField
-                id="create-account-name"
-                name="name"
-                label="Name (optional)"
-                type="text"
-                autoComplete="name"
-                placeholder="Your name"
-                leading={
-                    <span className={styles.leadingOpticalLeft}>
-                        <UserIcon />
-                    </span>
-                }
-            />
+                <span>
+                    Use 12+ characters. Spaces are allowed.
+                    <br />
+                    Common or breached passwords will be blocked.
+                </span>
+            </div>
         </form>
     );
 }
