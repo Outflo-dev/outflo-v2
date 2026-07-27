@@ -1,0 +1,31 @@
+/* ==========================================================
+   OUTFLO — BACK NAVIGATION ACTION RECIPE
+   File: src/components/system/primitives/actions/navigation/BackNavigationAction.module.css
+   Scope: Own the canonical interaction recipe for backward navigation
+   Last Updated:
+   - date: 2026-07-26
+   - note: establish the compact icon-only back action
+   ========================================================== */
+
+.action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    color: var(--color-text-primary);
+
+    text-decoration: none;
+
+    outline: none;
+}
+
+.action:focus-visible {
+    color: var(--color-accent-primary);
+}
+
+.action:active {
+    transform: translateY(1px);
+}

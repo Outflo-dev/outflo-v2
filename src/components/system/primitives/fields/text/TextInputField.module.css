@@ -1,0 +1,79 @@
+/* ==========================================================
+   OUTFLO — TEXT INPUT FIELD RECIPE
+   File: src/components/system/primitives/fields/text/TextInputField.module.css
+   Scope: Own the canonical visual and interaction recipe for text entry
+   Last Updated:
+   - date: 2026-07-26
+   - note: tighten the canonical field recipe for dense onboarding entry
+   ========================================================== */
+
+.field {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.label {
+    margin-bottom: 0.3rem;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.7rem;
+    font-weight: 560;
+    line-height: 1;
+    letter-spacing: 0.01em;
+}
+
+.input {
+    width: 100%;
+    min-height: 2.5rem;
+
+    padding-inline: 0.85rem;
+
+    color: var(--color-text-primary);
+    background: transparent;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color:
+        color-mix(in srgb,
+            var(--color-accent-primary) 34%,
+            transparent);
+    border-radius: 0.5rem;
+
+    outline: none;
+
+    font-family: var(--font-family-system);
+    font-size: 0.84rem;
+    font-weight: 430;
+    line-height: 1;
+
+    box-sizing: border-box;
+}
+
+.input::placeholder {
+    color:
+        color-mix(in srgb,
+            var(--color-text-secondary) 62%,
+            transparent);
+}
+
+.input:focus-visible {
+    border-color: var(--color-accent-primary);
+
+    box-shadow:
+        0 0 0 3px color-mix(in srgb,
+            var(--color-accent-primary) 16%,
+            transparent);
+}
+
+.input[aria-invalid="true"] {
+    border-color: var(--color-accent-secondary);
+}
+
+.input:disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}

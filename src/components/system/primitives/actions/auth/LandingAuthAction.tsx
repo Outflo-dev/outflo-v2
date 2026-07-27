@@ -5,13 +5,15 @@
    File: src/components/system/primitives/actions/auth/LandingAuthAction.tsx
    Scope: Own the repeated landing authentication action form
    Last Updated:
-   - date: 2026-07-22
-   - note: support leading identity, centered labels, trailing direction, and theme-bound action tones
+   - date: 2026-07-26
+   - note: support both authentication buttons and declarative route actions
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
+import Link from "next/link";
+
 import type {
     ButtonHTMLAttributes,
     CSSProperties,
@@ -26,15 +28,31 @@ type LandingAuthActionTone =
     | "gradient"
     | "outline";
 
-type LandingAuthActionProps = {
+type LandingAuthActionBaseProps = {
     children: ReactNode;
     leading?: ReactNode;
     trailing?: ReactNode;
     tone?: LandingAuthActionTone;
-} & Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    "children"
->;
+    style?: CSSProperties;
+};
+
+type LandingAuthActionButtonProps =
+    LandingAuthActionBaseProps & {
+        href?: undefined;
+    } & Omit<
+        ButtonHTMLAttributes<HTMLButtonElement>,
+        "children" | "style"
+    >;
+
+type LandingAuthActionLinkProps =
+    LandingAuthActionBaseProps & {
+        href: string;
+        ariaLabel?: string;
+    };
+
+type LandingAuthActionProps =
+    | LandingAuthActionButtonProps
+    | LandingAuthActionLinkProps;
 
 /* ------------------------------
    Styles
@@ -60,6 +78,7 @@ const ACTION_STYLE: CSSProperties = {
     fontWeight: 500,
     lineHeight: 1,
     letterSpacing: "-0.01em",
+    textDecoration: "none",
 
     cursor: "pointer",
     boxSizing: "border-box",
@@ -132,28 +151,16 @@ function resolveToneStyle(
     return LIGHT_STYLE;
 }
 
-/* ------------------------------
-   Component
--------------------------------- */
-export default function LandingAuthAction({
+function LandingAuthActionContent({
     children,
     leading,
     trailing,
-    tone = "light",
-    style,
-    type = "button",
-    ...buttonProps
-}: LandingAuthActionProps) {
+}: Pick<
+    LandingAuthActionBaseProps,
+    "children" | "leading" | "trailing"
+>) {
     return (
-        <button
-            {...buttonProps}
-            type={type}
-            style={{
-                ...ACTION_STYLE,
-                ...resolveToneStyle(tone),
-                ...style,
-            }}
-        >
+        <>
             {leading ? (
                 <span style={LEADING_STYLE}>
                     {leading}
@@ -169,6 +176,64 @@ export default function LandingAuthAction({
                     {trailing}
                 </span>
             ) : null}
+        </>
+    );
+}
+
+/* ------------------------------
+   Component
+-------------------------------- */
+export default function LandingAuthAction(
+    props: LandingAuthActionProps,
+) {
+    const {
+        children,
+        leading,
+        trailing,
+        tone = "light",
+        style,
+    } = props;
+
+    const resolvedStyle: CSSProperties = {
+        ...ACTION_STYLE,
+        ...resolveToneStyle(tone),
+        ...style,
+    };
+
+    if (props.href !== undefined) {
+        return (
+            <Link
+                href={props.href}
+                aria-label={props.ariaLabel}
+                style={resolvedStyle}
+            >
+                <LandingAuthActionContent
+                    leading={leading}
+                    trailing={trailing}
+                >
+                    {children}
+                </LandingAuthActionContent>
+            </Link>
+        );
+    }
+
+    const {
+        type = "button",
+        ...buttonProps
+    } = props;
+
+    return (
+        <button
+            {...buttonProps}
+            type={type}
+            style={resolvedStyle}
+        >
+            <LandingAuthActionContent
+                leading={leading}
+                trailing={trailing}
+            >
+                {children}
+            </LandingAuthActionContent>
         </button>
     );
 }

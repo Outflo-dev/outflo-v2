@@ -3,8 +3,8 @@
    File: src/app/(landing)/auth/email/LandingEmailAction.tsx
    Scope: Render the email account-creation action on the landing surface
    Last Updated:
-   - date: 2026-07-23
-   - note: apply landing-specific optical alignment to the mail identity
+   - date: 2026-07-26
+   - note: route the landing email action into Create Account
    ========================================================== */
 
 /* ------------------------------
@@ -33,6 +33,7 @@ const MAIL_MARK_STYLE: CSSProperties = {
 export default function LandingEmailAction() {
     return (
         <LandingAuthAction
+            href="/create-account"
             tone="gradient"
             leading={
                 <span style={MAIL_MARK_STYLE}>
@@ -40,7 +41,7 @@ export default function LandingEmailAction() {
                 </span>
             }
             trailing={<ChevronRightIcon />}
-            aria-label="Create account with email"
+            ariaLabel="Create account with email"
         >
             Create account with email
         </LandingAuthAction>

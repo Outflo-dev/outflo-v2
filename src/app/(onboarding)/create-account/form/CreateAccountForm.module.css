@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — CREATE ACCOUNT FORM RECIPE
+   File: src/app/(onboarding)/create-account/form/CreateAccountForm.module.css
+   Scope: Own only the field rhythm unique to Create Account
+   Last Updated:
+   - date: 2026-07-26
+   - note: remove card, action, and page-position ownership
+   ========================================================== */
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 1rem;
+}

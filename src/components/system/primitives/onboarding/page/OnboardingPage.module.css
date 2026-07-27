@@ -1,0 +1,128 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE RECIPE
+   File: src/components/system/primitives/onboarding/page/OnboardingPage.module.css
+   Scope: Own the canonical coordinates and landings shared across onboarding pages
+   Last Updated:
+   - date: 2026-07-26
+   - note: establish the first precise propagated onboarding page geometry
+   ========================================================== */
+
+.page {
+    position: relative;
+    isolation: isolate;
+
+    flex: 1;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    color: var(--color-text-primary);
+    background: var(--color-surface-primary);
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.navigationLanding {
+    position: absolute;
+    z-index: 1;
+
+    top:
+        calc(env(safe-area-inset-top) + .35rem);
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 2rem;
+}
+
+.introLanding {
+    position: absolute;
+    z-index: 1;
+
+    top:
+        calc(env(safe-area-inset-top) + 1.35rem);
+    left: 50%;
+
+    width: calc(100% - 4rem);
+    max-width: 21rem;
+
+    transform: translateX(-50%);
+}
+
+.iconLanding {
+    position: absolute;
+    z-index: 1;
+
+    top:
+        calc(env(safe-area-inset-top) + 4.15rem);
+    left: 50%;
+
+    width: 10rem;
+    height: 10rem;
+
+    transform: translateX(-50%);
+}
+
+.contentLanding {
+    position: absolute;
+    z-index: 1;
+
+    top:
+        calc(env(safe-area-inset-top) + 14rem);
+    right: 0;
+    bottom:
+        calc(env(safe-area-inset-bottom) + 10rem);
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 2rem);
+    max-width: 20rem;
+
+    margin-inline: auto;
+
+    min-height: 0;
+}
+
+.actionLanding {
+    position: absolute;
+    z-index: 1;
+
+    right: 0;
+    bottom:
+        calc(env(safe-area-inset-bottom) + 4.35rem);
+    left: 0;
+
+    width: calc(100% - 2rem);
+    max-width: 20rem;
+
+    margin-inline: auto;
+}
+
+.progressLanding {
+    position: absolute;
+    z-index: 1;
+
+    right: 0;
+    bottom:
+        calc(env(safe-area-inset-bottom) + 2.75rem);
+    left: 0;
+}
+
+.secondaryLanding {
+    position: absolute;
+    z-index: 1;
+
+    right: 0;
+    bottom:
+        calc(env(safe-area-inset-bottom) + 0.9rem);
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,52 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PRIMARY ACTION RECIPE
+   File: src/components/system/primitives/actions/onboarding/OnboardingPrimaryAction.module.css
+   Scope: Own the canonical visual and interaction recipe for onboarding forward actions
+   Last Updated:
+   - date: 2026-07-25
+   - note: establish focus, active, and disabled presentation
+   ========================================================== */
+
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 2.9rem;
+
+    padding-inline: 1.5rem;
+
+    color: var(--color-text-primary);
+    background: var(--gradient-brand-primary);
+
+    border: 0;
+    border-radius: 0.75rem;
+
+    outline: none;
+
+    font-family: var(--font-family-system);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.012em;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.action:focus-visible {
+    box-shadow:
+        0 0 0 3px color-mix(in srgb,
+            var(--color-accent-primary) 20%,
+            transparent);
+}
+
+.action:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.action:disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}
