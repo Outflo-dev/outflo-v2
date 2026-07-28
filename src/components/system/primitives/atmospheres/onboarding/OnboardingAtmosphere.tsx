@@ -19,7 +19,6 @@ import OnboardingAmbientAtmosphere from "./internal/OnboardingAmbientAtmosphere"
 -------------------------------- */
 const ATMOSPHERE_STYLE: CSSProperties = {
     position: "fixed",
-    zIndex: 0,
 
     left: 0,
     right: 0,
