@@ -3,8 +3,8 @@
    File: src/components/system/primitives/onboarding/page/OnboardingPage.tsx
    Scope: Own the canonical propagated page composition across onboarding
    Last Updated:
-   - date: 2026-07-27
-   - note: isolate stationary navigation from the scrolling onboarding body
+   - date: 2026-07-29
+   - note: compose the completed onboarding surface, atmosphere, navigation, and scroll owners
    ========================================================== */
 
 /* ------------------------------
@@ -12,26 +12,34 @@
 -------------------------------- */
 import type { ReactNode } from "react";
 
-import OnboardingAtmosphere from "@/components/system/primitives/atmospheres/onboarding/OnboardingAtmosphere";
+import OnboardingPageAction from "./internal/action/OnboardingPageAction";
+import OnboardingPageAtmosphere from "./internal/atmosphere/OnboardingPageAtmosphere";
+import OnboardingPageBody from "./internal/body/OnboardingPageBody";
 
-import OnboardingPageIcon from "./internal/OnboardingPageIcon";
-import OnboardingPageIntro from "./internal/OnboardingPageIntro";
-import OnboardingPageProgress from "./internal/OnboardingPageProgress";
+import type {
+    OnboardingPageIconComponent,
+} from "./internal/icon/module/construction/icon.contract";
 
-import styles from "./OnboardingPage.module.css";
+import OnboardingPageIcon from "./internal/icon/OnboardingPageIcon";
+import OnboardingPageIntro from "./internal/intro/OnboardingPageIntro";
+import OnboardingPageNavigation from "./internal/navigation/OnboardingPageNavigation";
+import OnboardingPageProgress from "./internal/progress/OnboardingPageProgress";
+import OnboardingPageScroll from "./internal/scroll/OnboardingPageScroll";
+import OnboardingPageSurface from "./internal/surface/OnboardingPageSurface";
 
 /* ------------------------------
    Types
 -------------------------------- */
 type OnboardingPageProps = {
-    icon: ReactNode;
+    icon: OnboardingPageIconComponent;
+    iconTitle?: string;
     title: string;
     support: string;
     step: number;
     children: ReactNode;
     action: ReactNode;
     navigation?: ReactNode;
-    secondary?: ReactNode;
+    alternate?: ReactNode;
     totalSteps?: number;
 };
 
@@ -40,60 +48,52 @@ type OnboardingPageProps = {
 -------------------------------- */
 export default function OnboardingPage({
     icon,
+    iconTitle,
     title,
     support,
     step,
     children,
     action,
     navigation,
-    secondary,
+    alternate,
     totalSteps = 7,
 }: OnboardingPageProps) {
     return (
-        <section className={styles.page}>
-            <OnboardingAtmosphere />
+        <OnboardingPageSurface>
+            <OnboardingPageAtmosphere />
 
             {navigation ? (
-                <div className={styles.navigationLanding}>
+                <OnboardingPageNavigation>
                     {navigation}
-                </div>
+                </OnboardingPageNavigation>
             ) : null}
 
-            <div className={styles.scrollBody}>
-                <div className={styles.introLanding}>
-                    <OnboardingPageIntro
-                        title={title}
-                        support={support}
-                    />
-                </div>
+            <OnboardingPageScroll>
+                <OnboardingPageIntro
+                    title={title}
+                    subtitle={support}
+                />
 
-                <div className={styles.iconLanding}>
-                    <OnboardingPageIcon>
-                        {icon}
-                    </OnboardingPageIcon>
-                </div>
+                <OnboardingPageIcon
+                    icon={icon}
+                    title={iconTitle}
+                />
 
-                <div className={styles.contentLanding}>
+                <OnboardingPageBody>
                     {children}
-                </div>
+                </OnboardingPageBody>
 
-                <div className={styles.actionLanding}>
+                <OnboardingPageAction>
                     {action}
-                </div>
+                </OnboardingPageAction>
 
-                <div className={styles.progressLanding}>
-                    <OnboardingPageProgress
-                        step={step}
-                        totalSteps={totalSteps}
-                    />
-                </div>
+                <OnboardingPageProgress
+                    step={step}
+                    totalSteps={totalSteps}
+                />
 
-                {secondary ? (
-                    <div className={styles.secondaryLanding}>
-                        {secondary}
-                    </div>
-                ) : null}
-            </div>
-        </section>
+                {alternate ?? null}
+            </OnboardingPageScroll>
+        </OnboardingPageSurface>
     );
 }

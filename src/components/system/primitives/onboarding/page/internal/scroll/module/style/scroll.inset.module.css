@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL INSET
+   File: src/components/system/primitives/onboarding/page/internal/scroll/module/style/scroll.inset.module.css
+   Scope: Own safe-area-aware content inset within the onboarding scroll region
+   Last Updated:
+   - date: 2026-07-29
+   - note: preserve canonical onboarding top and bottom breathing room
+   ========================================================== */
+
+.inset {
+    padding:
+        calc(env(safe-area-inset-top) + 2.5rem) 0 calc(env(safe-area-inset-bottom) + 1rem);
+}

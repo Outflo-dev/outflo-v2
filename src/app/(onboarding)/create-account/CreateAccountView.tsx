@@ -3,8 +3,8 @@
    File: src/app/(onboarding)/create-account/CreateAccountView.tsx
    Scope: Declare Create Account meaning through the propagated onboarding page
    Last Updated:
-   - date: 2026-07-26
-   - note: declare backward navigation and forward progression through shared onboarding actions
+   - date: 2026-07-29
+   - note: select the local returning-Guide alternate owner without absorbing its meaning
    ========================================================== */
 
 /* ------------------------------
@@ -34,12 +34,8 @@ export default function CreateAccountView() {
                     label="Back to landing"
                 />
             }
-            icon={
-                <OutfloMark
-                    size={165}
-                    title="Outflō"
-                />
-            }
+            icon={OutfloMark}
+            iconTitle="Outflō"
             title="Create account"
             support="Begin your life in time."
             step={1}
@@ -57,7 +53,7 @@ export default function CreateAccountView() {
                     Create account
                 </OnboardingPrimaryAction>
             }
-            secondary={
+            alternate={
                 <CreateAccountSignInPrompt />
             }
         >

@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE PROGRESS DOT SHAPE
+   File: src/components/system/primitives/onboarding/page/internal/progress/module/construction/progress.dot.shape.module.css
+   Scope: Own the canonical geometry of an onboarding progress dot
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate circular dot geometry from size and state paint
+   ========================================================== */
+
+.shape {
+    border-radius: 50%;
+}

@@ -11,6 +11,8 @@
     --theme-surface-primary: #020a17;
     --theme-surface-soft-white: #fffefa;
 
+    --theme-foreground-primary: #fffefa;
+
     --theme-card-surface: rgba(7, 17, 33, 0.74);
     --theme-card-border:
         color-mix(in srgb,

@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SURFACE STACK
+   File: src/components/system/primitives/onboarding/page/internal/surface/module/style/surface.stack.module.css
+   Scope: Own the isolated stacking context of the onboarding surface
+   Last Updated:
+   - date: 2026-07-29
+   - note: contain atmosphere and page-content layering within the surface
+   ========================================================== */
+
+.stack {
+    isolation: isolate;
+}

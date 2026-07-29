@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL TOUCH
+   File: src/components/system/primitives/onboarding/page/internal/scroll/module/behavior/scroll.touch.module.css
+   Scope: Own touch-scrolling behavior within the onboarding page
+   Last Updated:
+   - date: 2026-07-29
+   - note: preserve momentum scrolling for supported touch browsers
+   ========================================================== */
+
+.touch {
+    -webkit-overflow-scrolling: touch;
+}

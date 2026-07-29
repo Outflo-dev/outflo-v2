@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE PROGRESS TRACK
+   File: src/components/system/primitives/onboarding/page/internal/progress/module/style/progress.track.module.css
+   Scope: Own progress-dot arrangement within the onboarding journey indicator
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate canonical progress alignment and spacing
+   ========================================================== */
+
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.85rem;
+}

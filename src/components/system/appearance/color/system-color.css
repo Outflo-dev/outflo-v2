@@ -9,6 +9,7 @@
 
 :root {
     --color-surface-primary: var(--theme-surface-primary);
+    --color-foreground-primary: var(--theme-foreground-primary);
     --color-surface-soft-white: var(--theme-surface-soft-white);
 
     --color-card-surface: var(--theme-card-surface);

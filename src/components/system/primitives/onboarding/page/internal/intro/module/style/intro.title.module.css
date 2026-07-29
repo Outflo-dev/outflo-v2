@@ -1,0 +1,20 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE INTRO TITLE
+   File: src/components/system/primitives/onboarding/page/internal/intro/module/intro.title.module.css
+   Scope: Own the canonical onboarding intro title presentation
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate onboarding title typography and semantic text paint
+   ========================================================== */
+
+.title {
+    margin: 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+}

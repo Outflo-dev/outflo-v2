@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ATMOSPHERE ATTACHMENT
+   File: src/components/system/primitives/onboarding/page/internal/atmosphere/module/style/atmosphere.attachment.module.css
+   Scope: Own atmosphere attachment to the onboarding page surface
+   Last Updated:
+   - date: 2026-07-29
+   - note: fill the supplied surface without reconstructing viewport ownership
+   ========================================================== */
+
+.attachment {
+    position: absolute;
+    inset: 0;
+}
