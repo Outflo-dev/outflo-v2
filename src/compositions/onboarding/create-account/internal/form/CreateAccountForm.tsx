@@ -5,8 +5,8 @@
    File: src/compositions/onboarding/create-account/internal/form/CreateAccountForm.tsx
    Scope: Own the Create Account field order and local submission boundary
    Last Updated:
-   - date: 2026-07-27
-   - note: group identity before security and retain password guidance
+   - date: 2026-07-29
+   - note: consume the completed onboarding text-input field owner
    ========================================================== */
 
 /* ------------------------------
@@ -15,7 +15,7 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 
-import TextInputField from "@/components/system/primitives/fields/text/TextInputField";
+import OnboardingTextInputField from "@/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField";
 
 import MailIcon from "@/components/system/primitives/icons/communication/MailIcon";
 import AtIcon from "@/components/system/primitives/icons/identity/AtIcon";
@@ -63,7 +63,7 @@ export default function CreateAccountForm() {
             className={styles.form}
             onSubmit={handleSubmit}
         >
-            <TextInputField
+            <OnboardingTextInputField
                 id="create-account-email"
                 name="email"
                 label="Email"
@@ -75,7 +75,7 @@ export default function CreateAccountForm() {
                 required
             />
 
-            <TextInputField
+            <OnboardingTextInputField
                 id="create-account-username"
                 name="username"
                 label="Username"
@@ -101,7 +101,7 @@ export default function CreateAccountForm() {
                 required
             />
 
-            <TextInputField
+            <OnboardingTextInputField
                 id="create-account-password"
                 name="password"
                 label="Password"
@@ -141,7 +141,7 @@ export default function CreateAccountForm() {
                 required
             />
 
-            <TextInputField
+            <OnboardingTextInputField
                 id="create-account-confirm-password"
                 name="confirmPassword"
                 label="Confirm password"

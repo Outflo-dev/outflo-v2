@@ -1,10 +1,10 @@
 /* ==========================================================
-   OUTFLO — TEXT INPUT FIELD
-   File: src/components/system/primitives/fields/text/TextInputField.tsx
-   Scope: Own the canonical labeled single-line text-input construction
+   OUTFLO — ONBOARDING TEXT INPUT FIELD
+   File: src/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField.tsx
+   Scope: Own the canonical labeled text-entry construction for onboarding
    Last Updated:
-   - date: 2026-07-26
-   - note: support canonical leading identity and trailing control slots
+   - date: 2026-07-29
+   - note: move the completed text-input field beneath onboarding composition ownership
    ========================================================== */
 
 /* ------------------------------
@@ -15,12 +15,12 @@ import type {
     ReactNode,
 } from "react";
 
-import styles from "./TextInputField.module.css";
+import styles from "./OnboardingTextInputField.module.css";
 
 /* ------------------------------
    Types
 -------------------------------- */
-type TextInputFieldProps = {
+type OnboardingTextInputFieldProps = {
     id: string;
     label: string;
     leading?: ReactNode;
@@ -33,14 +33,14 @@ type TextInputFieldProps = {
 /* ------------------------------
    Component
 -------------------------------- */
-export default function TextInputField({
+export default function OnboardingTextInputField({
     id,
     label,
     leading,
     trailing,
     type = "text",
     ...inputProps
-}: TextInputFieldProps) {
+}: OnboardingTextInputFieldProps) {
     return (
         <div className={styles.field}>
             <label
