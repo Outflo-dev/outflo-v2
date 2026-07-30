@@ -1,0 +1,15 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL FRAME
+   File: src/compositions/onboarding/internal/page/internal/scroll/module/style/scroll.frame.module.css
+   Scope: Own scroll participation within the onboarding page surface
+   Last Updated:
+   - date: 2026-07-29
+   - note: fill the remaining surface space without reconstructing its height
+   ========================================================== */
+
+.frame {
+    width: 100%;
+    min-height: 0;
+
+    flex: 1 1 auto;
+}

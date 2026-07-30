@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL OVERFLOW
+   File: src/compositions/onboarding/internal/page/internal/scroll/module/behavior/scroll.overflow.module.css
+   Scope: Own vertical scrolling behavior within the onboarding page
+   Last Updated:
+   - date: 2026-07-29
+   - note: establish the scroll region as the singular movable page boundary
+   ========================================================== */
+
+.overflow {
+    overflow-y: auto;
+}

@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ICON PAINT
+   File: src/compositions/onboarding/internal/page/internal/icon/module/style/icon.paint.module.css
+   Scope: Own the inherited paint supplied to the selected onboarding icon
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate onboarding icon paint from frame geometry and child alignment
+   ========================================================== */
+
+.paint {
+    color: var(--color-accent-primary);
+}

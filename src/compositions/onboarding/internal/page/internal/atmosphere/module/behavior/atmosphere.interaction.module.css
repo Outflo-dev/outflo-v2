@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ATMOSPHERE INTERACTION
+   File: src/compositions/onboarding/internal/page/internal/atmosphere/module/behavior/atmosphere.interaction.module.css
+   Scope: Own interaction participation for the onboarding page atmosphere
+   Last Updated:
+   - date: 2026-07-29
+   - note: keep ambient paint inert beneath interactive page content
+   ========================================================== */
+
+.interaction {
+    pointer-events: none;
+}

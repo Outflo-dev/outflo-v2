@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE INACTIVE PROGRESS DOT
+   File: src/compositions/onboarding/internal/page/internal/progress/module/style/progress.dot.inactive.module.css
+   Scope: Own the paint of an unvisited onboarding journey position
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate inactive progress-state paint from shared dot construction
+   ========================================================== */
+
+.inactive {
+    background: var(--color-text-secondary);
+    opacity: 0.42;
+}

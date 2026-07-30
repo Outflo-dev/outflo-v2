@@ -1,20 +1,22 @@
 /* ==========================================================
-   OUTFLO — CREATE ACCOUNT ROUTE
+   OUTFLO — CREATE ACCOUNT PAGE
    File: src/app/(onboarding)/create-account/page.tsx
-   Scope: Own the email account-creation route entry
+   Scope: Expose the completed Create Account composition
    Last Updated:
-   - date: 2026-07-25
-   - note: render the canonical Create Account view
+   - date: 2026-07-29
+   - note: consume Create Account through the public onboarding composition boundary
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
-import CreateAccountView from "./CreateAccountView";
+import {
+   CreateAccountComposition,
+} from "@/compositions/onboarding";
 
 /* ------------------------------
-   Route
+   Page
 -------------------------------- */
-export default function CreateAccountRoute() {
-    return <CreateAccountView />;
+export default function CreateAccountPage() {
+   return <CreateAccountComposition />;
 }

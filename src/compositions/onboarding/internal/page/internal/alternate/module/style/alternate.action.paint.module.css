@@ -1,0 +1,18 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ALTERNATE ACTION PAINT
+   File: src/compositions/onboarding/internal/page/internal/alternate/module/style/alternate.action.paint.module.css
+   Scope: Own the default paint of the canonical alternate-route action
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate brand-gradient text paint from control construction and typography
+   ========================================================== */
+
+.paint {
+    color: transparent;
+
+    background:
+        var(--gradient-brand-primary);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+}

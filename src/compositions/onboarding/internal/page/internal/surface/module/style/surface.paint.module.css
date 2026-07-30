@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SURFACE PAINT
+   File: src/compositions/onboarding/internal/page/internal/surface/module/style/surface.paint.module.css
+   Scope: Own the inherited foreground and background paint of the onboarding surface
+   Last Updated:
+   - date: 2026-07-29
+   - note: bind the surface to canonical foreground and surface color roles
+   ========================================================== */
+
+.paint {
+    color: var(--color-foreground-primary);
+    background: var(--color-surface-primary);
+}
