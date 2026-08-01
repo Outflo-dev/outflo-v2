@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING CONTROL SURFACE FOCUS
+   File: src/compositions/onboarding/internal/controls/surface/module/behavior/surface.focus.module.css
+   Scope: Own the canonical visible-focus treatment shared by onboarding control surfaces
+   Last Updated:
+   - date: 2026-07-31
+   - note: establish the shared thematic focus border and halo
+   ========================================================== */
+
+.surface:focus-visible {
+    border-color: var(--color-accent-primary);
+
+    box-shadow:
+        0 0 0 3px color-mix(in srgb,
+            var(--color-accent-primary) 16%,
+            transparent);
+}

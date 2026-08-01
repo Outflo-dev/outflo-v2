@@ -1,0 +1,14 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING CONTROL SURFACE FRAME
+   File: src/compositions/onboarding/internal/controls/surface/module/construction/surface.frame.module.css
+   Scope: Own the canonical border construction and corner form shared by onboarding control surfaces
+   Last Updated:
+   - date: 2026-07-30
+   - note: establish the shared onboarding control-surface frame
+   ========================================================== */
+
+.surface {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.5rem;
+}

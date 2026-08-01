@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING CONTROL SURFACE DISABLED
+   File: src/compositions/onboarding/internal/controls/surface/module/behavior/surface.disabled.module.css
+   Scope: Own the canonical disabled treatment shared by onboarding control surfaces
+   Last Updated:
+   - date: 2026-08-01
+   - note: establish shared disabled interaction and visibility treatment
+   ========================================================== */
+
+.surface:disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}

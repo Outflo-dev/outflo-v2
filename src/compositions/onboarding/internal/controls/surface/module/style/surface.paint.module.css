@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING CONTROL SURFACE PAINT
+   File: src/compositions/onboarding/internal/controls/surface/module/style/surface.paint.module.css
+   Scope: Own the canonical default appearance shared by onboarding control surfaces
+   Last Updated:
+   - date: 2026-07-30
+   - note: establish the shared transparent surface and thematic border paint
+   ========================================================== */
+
+.surface {
+    background: transparent;
+
+    border-color:
+        color-mix(in srgb,
+            var(--color-accent-primary) 34%,
+            transparent);
+}
