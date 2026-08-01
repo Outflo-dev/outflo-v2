@@ -20,6 +20,9 @@ import surfaceFrame from "@/compositions/onboarding/internal/controls/surface/mo
 import surfaceDisabled from "@/compositions/onboarding/internal/controls/surface/module/behavior/surface.disabled.module.css";
 import surfaceFocus from "@/compositions/onboarding/internal/controls/surface/module/behavior/surface.focus.module.css";
 import surfacePaint from "@/compositions/onboarding/internal/controls/surface/module/style/surface.paint.module.css";
+import textInvalid from "@/compositions/onboarding/internal/forms/fields/text/module/behavior/text.invalid.module.css";
+import textPlaceholder from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.placeholder.module.css";
+import textInput from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.input.module.css";
 
 import styles from "./OnboardingTextInputField.module.css";
 
@@ -73,6 +76,9 @@ export default function OnboardingTextInputField({
                         surfaceDisabled.surface,
                         surfaceFocus.surface,
                         surfacePaint.surface,
+                        textInvalid.input,
+                        textPlaceholder.input,
+                        textInput.input,
                         styles.input,
                     ].join(" ")}
                 />

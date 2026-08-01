@@ -36,15 +36,6 @@
 
     padding-inline: 0.85rem;
 
-    color: var(--color-text-primary);
-
-    outline: none;
-
-    font-family: var(--font-family-system);
-    font-size: 0.84rem;
-    font-weight: 430;
-    line-height: 1;
-
 }
 
 .leading+.input {
@@ -85,15 +76,4 @@
     color: var(--color-surface-soft-white);
 
     pointer-events: auto;
-}
-
-.input::placeholder {
-    color:
-        color-mix(in srgb,
-            var(--color-text-secondary) 62%,
-            transparent);
-}
-
-.input[aria-invalid="true"] {
-    border-color: var(--color-accent-secondary);
 }

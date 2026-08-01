@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD INPUT
+   File: src/compositions/onboarding/internal/forms/fields/text/module/style/text.input.module.css
+   Scope: Own the entered-text appearance of the onboarding text field
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate input text paint and typography from field construction
+   ========================================================== */
+
+.input {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.84rem;
+    font-weight: 430;
+    line-height: 1;
+}
