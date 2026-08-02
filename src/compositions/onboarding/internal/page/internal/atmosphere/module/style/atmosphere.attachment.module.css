@@ -1,13 +1,17 @@
 /* ==========================================================
    OUTFLO — ONBOARDING PAGE ATMOSPHERE ATTACHMENT
    File: src/compositions/onboarding/internal/page/internal/atmosphere/module/style/atmosphere.attachment.module.css
-   Scope: Own atmosphere attachment to the onboarding page surface
+   Scope: Own onboarding-atmosphere attachment to the full application viewport
    Last Updated:
-   - date: 2026-07-29
-   - note: fill the supplied surface without reconstructing viewport ownership
+   - date: 2026-08-01
+   - note: mirror Landing viewport attachment so atmosphere remains fixed beneath moving onboarding content
    ========================================================== */
 
 .attachment {
-    position: absolute;
-    inset: 0;
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    top: calc(0px - env(safe-area-inset-top));
+    bottom: calc(0px - env(safe-area-inset-bottom));
 }

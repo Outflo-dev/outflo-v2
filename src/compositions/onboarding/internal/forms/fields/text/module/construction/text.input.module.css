@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD INPUT CONSTRUCTION
+   File: src/compositions/onboarding/internal/forms/fields/text/module/construction/text.input.module.css
+   Scope: Own the base internal spacing of the onboarding text input
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate input construction from text appearance and slot-dependent spacing
+   ========================================================== */
+
+.input {
+    padding-inline: 0.85rem;
+}

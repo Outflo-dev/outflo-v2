@@ -1,0 +1,32 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD SLOT CONSTRUCTION
+   File: src/compositions/onboarding/internal/forms/fields/text/module/construction/text.slot.module.css
+   Scope: Own the geometry and placement of onboarding text-field slots
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate shared slot construction from slot paint and interaction
+   ========================================================== */
+
+.leading,
+.trailing {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    transform: translateY(-50%);
+}
+
+.leading {
+    left: 0.7rem;
+}
+
+.trailing {
+    right: 0.7rem;
+}

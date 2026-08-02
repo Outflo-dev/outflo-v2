@@ -23,8 +23,15 @@ import surfacePaint from "@/compositions/onboarding/internal/controls/surface/mo
 import textInvalid from "@/compositions/onboarding/internal/forms/fields/text/module/behavior/text.invalid.module.css";
 import textPlaceholder from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.placeholder.module.css";
 import textInput from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.input.module.css";
-
-import styles from "./OnboardingTextInputField.module.css";
+import textField from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.field.module.css";
+import textLabel from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.label.module.css";
+import textLabelStyle from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.label.module.css";
+import textControl from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.control.module.css";
+import textInputConstruction from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.input.module.css";
+import textSlotSpacing from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.slot-spacing.module.css";
+import textSlot from "@/compositions/onboarding/internal/forms/fields/text/module/construction/text.slot.module.css";
+import textSlotStyle from "@/compositions/onboarding/internal/forms/fields/text/module/style/text.slot.module.css";
+import textSlotInteraction from "@/compositions/onboarding/internal/forms/fields/text/module/behavior/text.slot-interaction.module.css";
 
 /* ------------------------------
    Types
@@ -51,17 +58,35 @@ export default function OnboardingTextInputField({
     ...inputProps
 }: OnboardingTextInputFieldProps) {
     return (
-        <div className={styles.field}>
+        <div
+            className={[
+                textField.field,
+            ].join(" ")}
+        >
             <label
                 htmlFor={id}
-                className={styles.label}
+                className={[
+                    textLabel.label,
+                    textLabelStyle.label,
+                ].join(" ")}
             >
                 {label}
             </label>
 
-            <div className={styles.control}>
+            <div
+                className={[
+                    textControl.control,
+                ].join(" ")}
+            >
                 {leading ? (
-                    <span className={styles.leading}>
+                    <span
+                        className={[
+                            textSlot.leading,
+                            textSlotSpacing.leading,
+                            textSlotStyle.leading,
+                            textSlotInteraction.leading,
+                        ].join(" ")}
+                    >
                         {leading}
                     </span>
                 ) : null}
@@ -79,12 +104,20 @@ export default function OnboardingTextInputField({
                         textInvalid.input,
                         textPlaceholder.input,
                         textInput.input,
-                        styles.input,
+                        textInputConstruction.input,
+                        textSlotSpacing.input,
                     ].join(" ")}
                 />
 
                 {trailing ? (
-                    <span className={styles.trailing}>
+                    <span
+                        className={[
+                            textSlot.trailing,
+                            textSlotSpacing.trailing,
+                            textSlotStyle.trailing,
+                            textSlotInteraction.trailing,
+                        ].join(" ")}
+                    >
                         {trailing}
                     </span>
                 ) : null}

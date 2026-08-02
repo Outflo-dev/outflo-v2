@@ -1,0 +1,18 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD LABEL STYLE
+   File: src/compositions/onboarding/internal/forms/fields/text/module/style/text.label.module.css
+   Scope: Own the canonical appearance of the onboarding text field label
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate label paint and typography from label placement
+   ========================================================== */
+
+.label {
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.8rem;
+    font-weight: 560;
+    line-height: 1;
+    letter-spacing: 0.01em;
+}

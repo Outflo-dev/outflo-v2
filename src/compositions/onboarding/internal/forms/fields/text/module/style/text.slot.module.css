@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD SLOT STYLE
+   File: src/compositions/onboarding/internal/forms/fields/text/module/style/text.slot.module.css
+   Scope: Own the canonical appearance of onboarding text-field slots
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate leading and trailing slot paint from construction and interaction
+   ========================================================== */
+
+.leading {
+    color: var(--color-accent-secondary);
+}
+
+.trailing {
+    color: var(--color-surface-soft-white);
+}

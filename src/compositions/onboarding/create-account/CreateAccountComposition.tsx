@@ -51,7 +51,7 @@ export default function CreateAccountComposition() {
                         />
                     }
                 >
-                    Create account
+                    Continue
                 </OnboardingPrimaryAction>
             }
             alternate={

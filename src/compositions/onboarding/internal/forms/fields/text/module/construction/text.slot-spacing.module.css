@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD SLOT SPACING
+   File: src/compositions/onboarding/internal/forms/fields/text/module/construction/text.slot-spacing.module.css
+   Scope: Own input spacing created by leading and trailing text-field slots
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate slot-dependent input padding from base input construction
+   ========================================================== */
+
+.leading+.input {
+    padding-left: 2.65rem;
+}
+
+.input:has(+ .trailing) {
+    padding-right: 2.65rem;
+}

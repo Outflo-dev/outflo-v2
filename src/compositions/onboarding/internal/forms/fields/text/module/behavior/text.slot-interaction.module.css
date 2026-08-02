@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING TEXT FIELD SLOT INTERACTION
+   File: src/compositions/onboarding/internal/forms/fields/text/module/behavior/text.slot-interaction.module.css
+   Scope: Own pointer interaction for onboarding text-field slots
+   Last Updated:
+   - date: 2026-08-01
+   - note: isolate slot interaction from slot construction and appearance
+   ========================================================== */
+
+.leading {
+    pointer-events: none;
+}
+
+.trailing {
+    pointer-events: auto;
+}

@@ -17,12 +17,14 @@ import { useState } from "react";
 
 import OnboardingTextInputField from "@/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField";
 
-import MailIcon from "@/components/system/primitives/icons/communication/MailIcon";
-import AtIcon from "@/components/system/primitives/icons/identity/AtIcon";
-import EyeIcon from "@/components/system/primitives/icons/security/EyeIcon";
-import LockIcon from "@/components/system/primitives/icons/security/LockIcon";
-import SecurityIcon from "@/components/system/primitives/icons/security/SecurityIcon";
-import CheckIcon from "@/components/system/primitives/icons/state/CheckIcon";
+import {
+    AtIcon,
+    CheckIcon,
+    EyeIcon,
+    LockIcon,
+    MailIcon,
+    SecurityIcon,
+} from "@/compositions/onboarding/internal/icons";
 
 import styles from "./CreateAccountForm.module.css";
 
