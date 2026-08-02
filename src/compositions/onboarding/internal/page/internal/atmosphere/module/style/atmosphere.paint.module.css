@@ -1,14 +1,16 @@
 /* ==========================================================
    OUTFLO — ONBOARDING PAGE ATMOSPHERE PAINT
    File: src/compositions/onboarding/internal/page/internal/atmosphere/module/style/atmosphere.paint.module.css
-   Scope: Own the ambient paint of the onboarding page atmosphere
+   Scope: Own the complete background paint of the onboarding page atmosphere
    Last Updated:
-   - date: 2026-07-29
-   - note: preserve the canonical three-part onboarding wash
+   - date: 2026-08-01
+   - note: own the fixed base surface and canonical three-part onboarding wash
    ========================================================== */
 
 .paint {
-    background:
+    background-color: var(--color-surface-primary);
+
+    background-image:
         radial-gradient(circle at 50% 12%,
             color-mix(in srgb,
                 var(--color-accent-secondary) 11%,
