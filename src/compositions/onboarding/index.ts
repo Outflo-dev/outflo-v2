@@ -10,3 +10,7 @@
 export {
     default as CreateAccountComposition,
 } from "./create-account/CreateAccountComposition";
+
+export {
+    default as VerifyEmailComposition,
+} from "./verify-email/VerifyEmailComposition";

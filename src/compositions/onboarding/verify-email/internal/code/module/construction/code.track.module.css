@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — VERIFY EMAIL CODE TRACK
+   File: src/compositions/onboarding/verify-email/internal/code/module/construction/code.track.module.css
+   Scope: Own the six-position verification-code track
+   Last Updated:
+   - date: 2026-08-02
+   - note: distribute six equal code cells across the available form width
+   ========================================================== */
+
+.track {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    width: 100%;
+
+    gap: 0.5rem;
+}

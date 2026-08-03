@@ -1,0 +1,23 @@
+/* ==========================================================
+   OUTFLO — VERIFY EMAIL CODE FOCUS
+   File: src/compositions/onboarding/verify-email/internal/code/module/behavior/code.focus.module.css
+   Scope: Own the focused state of one verification-code cell
+   Last Updated:
+   - date: 2026-08-02
+   - note: surface the active code position without changing cell construction
+   ========================================================== */
+
+.focus:focus-visible {
+    border-color:
+        color-mix(in srgb,
+            var(--color-accent-primary) 78%,
+            transparent);
+
+    box-shadow:
+        0 0 0 1px color-mix(in srgb,
+            var(--color-accent-primary) 34%,
+            transparent),
+        0 0 1rem color-mix(in srgb,
+            var(--color-accent-secondary) 18%,
+            transparent);
+}

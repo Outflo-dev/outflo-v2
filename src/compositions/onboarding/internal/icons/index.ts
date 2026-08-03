@@ -3,9 +3,13 @@
    File: src/compositions/onboarding/internal/icons/index.ts
    Scope: Expose the system icon primitives participating in onboarding compositions
    Last Updated:
-   - date: 2026-08-01
-   - note: establish one explicit onboarding icon dependency boundary without wrapping primitive geometry
+   - date: 2026-08-02
+   - note: expose Email Verification concept and navigation geometry through the onboarding boundary
    ========================================================== */
+
+export {
+    default as ArrowIcon,
+} from "@/components/system/primitives/icons/navigation/ArrowIcon";
 
 export {
     default as AtIcon,
@@ -14,6 +18,10 @@ export {
 export {
     default as CheckIcon,
 } from "@/components/system/primitives/icons/state/CheckIcon";
+
+export {
+    default as EmailVerificationConceptIcon,
+} from "@/components/system/primitives/icons/concepts/EmailVerificationConceptIcon";
 
 export {
     default as EyeIcon,

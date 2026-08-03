@@ -13,7 +13,12 @@
    Imports
 -------------------------------- */
 import type { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import {
+    CREATE_ACCOUNT_TEST_BYPASS_ENABLED,
+} from "../testing/createAccountTesting.config";
 
 import OnboardingTextInputField from "@/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField";
 
@@ -38,6 +43,8 @@ export const CREATE_ACCOUNT_FORM_ID =
    Component
 -------------------------------- */
 export default function CreateAccountForm() {
+    const router = useRouter();
+
     const [
         isPasswordVisible,
         setIsPasswordVisible,
@@ -57,12 +64,15 @@ export default function CreateAccountForm() {
         event: FormEvent<HTMLFormElement>,
     ) {
         event.preventDefault();
+
+        router.push("/verify-email");
     }
 
     return (
         <form
             id={CREATE_ACCOUNT_FORM_ID}
             className={styles.form}
+            noValidate={CREATE_ACCOUNT_TEST_BYPASS_ENABLED}
             onSubmit={handleSubmit}
         >
             <OnboardingTextInputField

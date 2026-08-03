@@ -1,0 +1,20 @@
+/* ==========================================================
+   OUTFLO — VERIFY EMAIL CODE CELL
+   File: src/compositions/onboarding/verify-email/internal/code/module/construction/code.cell.module.css
+   Scope: Own the physical construction of one verification-code cell
+   Last Updated:
+   - date: 2026-08-02
+   - note: establish equal responsive digit cells without owning paint or focus
+   ========================================================== */
+
+.cell {
+    width: 100%;
+    min-width: 0;
+    height: 3.5rem;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}

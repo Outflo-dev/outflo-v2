@@ -1,21 +1,17 @@
+"use client";
+
 /* ==========================================================
-   OUTFLO — ONBOARDING PAGE ALTERNATE
-   File: src/compositions/onboarding/internal/page/internal/alternate/OnboardingPageAlternate.tsx
-   Scope: Render the canonical alternate route within an onboarding page
+   OUTFLO — ONBOARDING PAGE ALTERNATE ACTION
+   File: src/compositions/onboarding/internal/page/internal/alternate/OnboardingPageAlternateAction.tsx
+   Scope: Render the canonical alternate action within an onboarding page
    Last Updated:
    - date: 2026-08-02
-   - note: preserve alternate-route ownership beside the alternate-action sibling
+   - note: preserve alternate presentation while separating actions from routes
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
-import Link from "next/link";
-
-import type {
-    OnboardingPageAlternateConfig,
-} from "./module/construction/alternate.contract";
-
 import controlStyles from "./module/construction/alternate.action.control.module.css";
 
 import focusStyles from "./module/style/alternate.action.focus.module.css";
@@ -25,29 +21,42 @@ import frameStyles from "./module/style/alternate.frame.module.css";
 import promptStyles from "./module/style/alternate.prompt.module.css";
 
 /* ------------------------------
+   Types
+-------------------------------- */
+type OnboardingPageAlternateActionProps = {
+    prompt: string;
+    actionLabel: string;
+    onAction: () => void;
+    disabled?: boolean;
+};
+
+/* ------------------------------
    Component
 -------------------------------- */
-export default function OnboardingPageAlternate({
+export default function OnboardingPageAlternateAction({
     prompt,
     actionLabel,
-    href,
-}: OnboardingPageAlternateConfig) {
+    onAction,
+    disabled = false,
+}: OnboardingPageAlternateActionProps) {
     return (
         <div className={frameStyles.frame}>
             <p className={promptStyles.prompt}>
                 {prompt}{" "}
 
-                <Link
-                    href={href}
+                <button
+                    type="button"
                     className={`
                         ${controlStyles.control}
                         ${paintStyles.paint}
                         ${typeStyles.type}
                         ${focusStyles.focus}
                     `}
+                    disabled={disabled}
+                    onClick={onAction}
                 >
                     {actionLabel}
-                </Link>
+                </button>
             </p>
         </div>
     );
