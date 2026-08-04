@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/internal/page/OnboardingPage.tsx
    Scope: Own the stable shared frame surrounding onboarding page compositions
    Last Updated:
-   - date: 2026-08-02
-   - note: separate the invariant onboarding frame from screen-owned content sequencing
+   - date: 2026-08-03
+   - note: preserve the onboarding content frame while returning page movement to the browser
    ========================================================== */
 
 /* ------------------------------
