@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/verify-email/VerifyEmailComposition.tsx
    Scope: Compose the complete visible Verify Email experience
    Last Updated:
-   - date: 2026-08-02
-   - note: instantiate Verify Email through the canonical onboarding page
+   - date: 2026-08-03
+   - note: own the Verify Email sequence within the shared onboarding frame
    ========================================================== */
 
 /* ------------------------------
@@ -12,12 +12,18 @@
 -------------------------------- */
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
+
 import {
     ArrowIcon,
-    EmailVerificationConceptIcon,
 } from "../internal/icons";
 
 import OnboardingPage from "../internal/page/OnboardingPage";
+import OnboardingPageAction from "../internal/page/internal/action/OnboardingPageAction";
+import OnboardingPageBody from "../internal/page/internal/body/OnboardingPageBody";
+import OnboardingPageIntro from "../internal/page/internal/intro/OnboardingPageIntro";
+import OnboardingPageProgress from "../internal/page/internal/progress/OnboardingPageProgress";
+
+import VerifyEmailIcon from "./internal/icon/VerifyEmailIcon";
 
 import VerifyEmailForm, {
     VERIFY_EMAIL_FORM_ID,
@@ -37,12 +43,19 @@ export default function VerifyEmailComposition() {
                     label="Back to create account"
                 />
             }
-            icon={EmailVerificationConceptIcon}
-            iconTitle="Email verification"
-            title="Check your email"
-            support="We sent a 6-digit code to your email."
-            step={2}
-            action={
+        >
+            <VerifyEmailIcon />
+
+            <OnboardingPageIntro
+                title="Check your email"
+                subtitle="We sent a 6-digit code to your email."
+            />
+
+            <OnboardingPageBody>
+                <VerifyEmailForm />
+            </OnboardingPageBody>
+
+            <OnboardingPageAction>
                 <OnboardingPrimaryAction
                     type="submit"
                     form={VERIFY_EMAIL_FORM_ID}
@@ -55,12 +68,14 @@ export default function VerifyEmailComposition() {
                 >
                     Continue
                 </OnboardingPrimaryAction>
-            }
-            alternate={
-                <VerifyEmailResendPrompt />
-            }
-        >
-            <VerifyEmailForm />
+            </OnboardingPageAction>
+
+            <VerifyEmailResendPrompt />
+
+            <OnboardingPageProgress
+                step={2}
+                totalSteps={7}
+            />
         </OnboardingPage>
     );
 }
