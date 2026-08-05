@@ -10,14 +10,14 @@
 .focus:focus-visible {
     border-color:
         color-mix(in srgb,
-            var(--color-accent-primary) 78%,
+            var(--color-accent-primary) 88%,
             transparent);
 
     box-shadow:
         0 0 0 1px color-mix(in srgb,
-            var(--color-accent-primary) 34%,
+            var(--color-accent-primary) 28%,
             transparent),
-        0 0 1rem color-mix(in srgb,
-            var(--color-accent-secondary) 18%,
+        0 0 0.8rem color-mix(in srgb,
+            var(--color-accent-secondary) 16%,
             transparent);
 }

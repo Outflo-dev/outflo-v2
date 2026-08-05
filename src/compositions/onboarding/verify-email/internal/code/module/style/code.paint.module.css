@@ -11,21 +11,16 @@
     color: var(--color-foreground-primary);
 
     background:
-        color-mix(
-            in srgb,
-            var(--color-surface-soft-white) 5%,
-            transparent
-        );
+        color-mix(in srgb,
+            var(--color-accent-primary) 4%,
+            transparent);
 
     border:
-        1px solid
-        color-mix(
-            in srgb,
-            var(--color-surface-soft-white) 16%,
-            transparent
-        );
+        1px solid color-mix(in srgb,
+            var(--color-accent-primary) 30%,
+            transparent);
 
-    border-radius: 0.6rem;
+    border-radius: 0.45rem;
     outline: none;
 
     font-family: var(--font-family-system);

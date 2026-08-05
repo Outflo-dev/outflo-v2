@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ALTERNATE ACTION STACK
+   File: src/components/onboarding/page/internal/alternate/module/construction/alternate.action.stack.module.css
+   Scope: Own the vertical relationship between an alternate-action prompt and control
+   Last Updated:
+   - date: 2026-08-05
+   - note: place the alternate action directly beneath its supporting prompt
+   ========================================================== */
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.1rem;
+}

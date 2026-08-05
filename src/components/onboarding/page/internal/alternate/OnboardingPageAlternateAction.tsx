@@ -1,18 +1,17 @@
-"use client";
-
 /* ==========================================================
    OUTFLO — ONBOARDING PAGE ALTERNATE ACTION
    File: src/components/onboarding/page/internal/alternate/OnboardingPageAlternateAction.tsx
    Scope: Render the canonical alternate action within an onboarding page
    Last Updated:
-   - date: 2026-08-02
-   - note: preserve alternate presentation while separating actions from routes
+   - date: 2026-08-05
+   - note: stack the alternate action directly beneath its supporting prompt
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
 import controlStyles from "./module/construction/alternate.action.control.module.css";
+import stackStyles from "./module/construction/alternate.action.stack.module.css";
 
 import focusStyles from "./module/style/alternate.action.focus.module.css";
 import paintStyles from "./module/style/alternate.action.paint.module.css";
@@ -41,8 +40,10 @@ export default function OnboardingPageAlternateAction({
 }: OnboardingPageAlternateActionProps) {
     return (
         <div className={frameStyles.frame}>
-            <p className={promptStyles.prompt}>
-                {prompt}{" "}
+            <div className={stackStyles.stack}>
+                <p className={promptStyles.prompt}>
+                    {prompt}
+                </p>
 
                 <button
                     type="button"
@@ -57,7 +58,7 @@ export default function OnboardingPageAlternateAction({
                 >
                     {actionLabel}
                 </button>
-            </p>
+            </div>
         </div>
     );
 }
