@@ -11,7 +11,9 @@
    Imports
 -------------------------------- */
 
-import OnboardingPageAlternate from "@/compositions/onboarding/internal/page/internal/alternate/OnboardingPageAlternate";
+import {
+    OnboardingPageAlternate,
+} from "@/components/onboarding/page";
 
 /* ------------------------------
    Component

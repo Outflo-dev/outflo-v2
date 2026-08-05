@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE NAVIGATION LAYER
+   File: src/components/onboarding/page/internal/navigation/module/style/navigation.layer.module.css
+   Scope: Own navigation depth within the onboarding page stacking context
+   Last Updated:
+   - date: 2026-07-29
+   - note: place navigation above atmosphere and scrolling page content
+   ========================================================== */
+
+.layer {
+    z-index: 2;
+}

@@ -1,0 +1,23 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ALTERNATE FRAME
+   File: src/components/onboarding/page/internal/alternate/module/style/alternate.frame.module.css
+   Scope: Own alternate-route participation within the onboarding page composition
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate canonical alternate-route alignment and page placement
+   ========================================================== */
+
+.frame {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 1.4rem;
+
+    flex: 0 0 auto;
+}

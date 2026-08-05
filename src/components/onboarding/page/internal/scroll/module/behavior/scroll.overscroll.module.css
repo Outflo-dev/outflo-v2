@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL OVERSCROLL
+   File: src/components/onboarding/page/internal/scroll/module/behavior/scroll.overscroll.module.css
+   Scope: Own overscroll containment within the onboarding page
+   Last Updated:
+   - date: 2026-07-29
+   - note: contain vertical scroll propagation within the onboarding surface
+   ========================================================== */
+
+.overscroll {
+    overscroll-behavior-y: contain;
+}

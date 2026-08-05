@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL BOX
+   File: src/components/onboarding/page/internal/scroll/module/construction/scroll.box.module.css
+   Scope: Own box-model construction for the onboarding scroll region
+   Last Updated:
+   - date: 2026-07-29
+   - note: keep safe-area padding inside the scroll region’s declared width
+   ========================================================== */
+
+.box {
+    box-sizing: border-box;
+}

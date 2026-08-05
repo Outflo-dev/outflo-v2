@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLL COLUMN
+   File: src/components/onboarding/page/internal/scroll/module/style/scroll.column.module.css
+   Scope: Own vertical child arrangement within the onboarding scroll region
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate canonical column composition from surface participation and scrolling behavior
+   ========================================================== */
+
+.column {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,17 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ICON LANDING
+   File: src/components/onboarding/page/internal/icon/module/style/icon.landing.module.css
+   Scope: Own how the selected onboarding icon fills and aligns within its supplied frame
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate icon landing geometry from page placement and icon paint
+   ========================================================== */
+
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}

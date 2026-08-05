@@ -1,0 +1,20 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ACTION FRAME
+   File: src/components/onboarding/page/internal/action/module/style/action.frame.module.css
+   Scope: Own primary-action participation within the onboarding page composition
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate canonical action measure and page placement
+   ========================================================== */
+
+.frame {
+    position: relative;
+    z-index: 1;
+
+    width: calc(100% - 1rem);
+    max-width: 20rem;
+
+    margin: 1.4rem auto 0;
+
+    flex: 0 0 auto;
+}

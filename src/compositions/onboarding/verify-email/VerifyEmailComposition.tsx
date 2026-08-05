@@ -17,11 +17,13 @@ import {
     ArrowIcon,
 } from "../internal/icons";
 
-import OnboardingPage from "../internal/page/OnboardingPage";
-import OnboardingPageAction from "../internal/page/internal/action/OnboardingPageAction";
-import OnboardingPageBody from "../internal/page/internal/body/OnboardingPageBody";
-import OnboardingPageIntro from "../internal/page/internal/intro/OnboardingPageIntro";
-import OnboardingPageProgress from "../internal/page/internal/progress/OnboardingPageProgress";
+import {
+    OnboardingPage,
+    OnboardingPageAction,
+    OnboardingPageBody,
+    OnboardingPageIntro,
+    OnboardingPageProgress,
+} from "@/components/onboarding/page";
 
 import VerifyEmailIcon from "./internal/icon/VerifyEmailIcon";
 

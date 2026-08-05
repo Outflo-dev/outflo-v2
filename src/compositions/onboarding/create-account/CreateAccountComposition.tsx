@@ -18,12 +18,14 @@ import {
     ArrowIcon,
 } from "../internal/icons";
 
-import OnboardingPage from "../internal/page/OnboardingPage";
-import OnboardingPageAction from "../internal/page/internal/action/OnboardingPageAction";
-import OnboardingPageBody from "../internal/page/internal/body/OnboardingPageBody";
-import OnboardingPageIcon from "../internal/page/internal/icon/OnboardingPageIcon";
-import OnboardingPageIntro from "../internal/page/internal/intro/OnboardingPageIntro";
-import OnboardingPageProgress from "../internal/page/internal/progress/OnboardingPageProgress";
+import {
+    OnboardingPage,
+    OnboardingPageAction,
+    OnboardingPageBody,
+    OnboardingPageIcon,
+    OnboardingPageIntro,
+    OnboardingPageProgress,
+} from "@/components/onboarding/page";
 
 import CreateAccountForm, {
     CREATE_ACCOUNT_FORM_ID,

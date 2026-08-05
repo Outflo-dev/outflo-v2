@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE SCROLLBAR
+   File: src/components/onboarding/page/internal/scroll/module/behavior/scroll.scrollbar.module.css
+   Scope: Own scrollbar visibility within the onboarding page scroll region
+   Last Updated:
+   - date: 2026-07-29
+   - note: hide browser scrollbar chrome without disabling scrolling
+   ========================================================== */
+
+.scrollbar {
+    scrollbar-width: none;
+}
+
+.scrollbar::-webkit-scrollbar {
+    display: none;
+}

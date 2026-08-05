@@ -12,7 +12,9 @@
 /* ------------------------------
    Imports
 -------------------------------- */
-import OnboardingPageAlternateAction from "@/compositions/onboarding/internal/page/internal/alternate/OnboardingPageAlternateAction";
+import {
+    OnboardingPageAlternateAction,
+} from "@/components/onboarding/page";
 
 /* ------------------------------
    Component

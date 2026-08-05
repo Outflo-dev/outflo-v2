@@ -1,0 +1,15 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE NAVIGATION FRAME
+   File: src/components/onboarding/page/internal/navigation/module/style/navigation.frame.module.css
+   Scope: Own local alignment and measurable participation within the onboarding navigation
+   Last Updated:
+   - date: 2026-07-29
+   - note: isolate navigation alignment and minimum control height from attachment and layer depth
+   ========================================================== */
+
+.frame {
+    display: flex;
+    align-items: center;
+
+    min-height: 2rem;
+}

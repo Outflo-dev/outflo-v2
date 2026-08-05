@@ -1,0 +1,20 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ALTERNATE PROMPT
+   File: src/components/onboarding/page/internal/alternate/module/style/alternate.prompt.module.css
+   Scope: Own the supporting text presentation of the canonical alternate route
+   Last Updated:
+   - date: 2026-07-29
+   - note: migrate reusable alternate-route prompt typography and paint
+   ========================================================== */
+
+.prompt {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.76rem;
+    font-weight: 430;
+    line-height: 1.4;
+    text-align: center;
+}

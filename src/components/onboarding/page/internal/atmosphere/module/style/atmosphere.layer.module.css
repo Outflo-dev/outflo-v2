@@ -1,0 +1,12 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ATMOSPHERE LAYER
+   File: src/components/onboarding/page/internal/atmosphere/module/style/atmosphere.layer.module.css
+   Scope: Own atmosphere depth within the onboarding page stacking context
+   Last Updated:
+   - date: 2026-07-29
+   - note: place ambient paint beneath navigation and scroll content
+   ========================================================== */
+
+.layer {
+    z-index: 0;
+}

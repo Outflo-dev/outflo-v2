@@ -1,0 +1,20 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE ALTERNATE ACTION CONTROL
+   File: src/components/onboarding/page/internal/alternate/module/construction/alternate.action.control.module.css
+   Scope: Own the control construction of the canonical alternate-route action
+   Last Updated:
+   - date: 2026-07-29
+   - note: normalize the routed action independently from paint, typography, and focus state
+   ========================================================== */
+
+.control {
+    padding: 0;
+
+    border: 0;
+    outline: none;
+
+    font: inherit;
+    text-decoration: none;
+
+    cursor: pointer;
+}

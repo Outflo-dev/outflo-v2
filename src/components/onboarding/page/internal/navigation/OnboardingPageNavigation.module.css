@@ -1,0 +1,23 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE NAVIGATION RECIPE
+   File: src/components/onboarding/page/internal/navigation/OnboardingPageNavigation.module.css
+   Scope: Own the navigation landing internal to the onboarding page surface
+   Last Updated:
+   - date: 2026-07-28
+   - note: position onboarding navigation within the supplied application frame
+   ========================================================== */
+
+.navigation {
+    position: absolute;
+    z-index: 2;
+
+    top:
+        calc(env(safe-area-inset-top) + 0.5rem);
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 2rem;
+}
