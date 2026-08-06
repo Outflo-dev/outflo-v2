@@ -1,22 +1,22 @@
+"use client";
+
 /* ==========================================================
    OUTFLO — CREATE ACCOUNT COMPOSITION
    File: src/compositions/onboarding/create-account/CreateAccountComposition.tsx
    Scope: Compose the complete visible Create Account experience
    Last Updated:
-   - date: 2026-08-02
-   - note: own the Create Account sequence within the shared onboarding frame
+   - date: 2026-08-05
+   - note: route the temporary Create Account Continue action directly to Verify Email
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
+import { useRouter } from "next/navigation";
+
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 import OutfloMark from "@/components/system/primitives/marks/outflo/OutfloMark";
-
-import {
-    ArrowIcon,
-} from "../internal/icons";
 
 import {
     OnboardingPage,
@@ -27,16 +27,19 @@ import {
     OnboardingPageProgress,
 } from "@/components/onboarding/page";
 
-import CreateAccountForm, {
-    CREATE_ACCOUNT_FORM_ID,
-} from "./internal/form/CreateAccountForm";
+import {
+    ArrowIcon,
+} from "../internal/icons";
 
+import CreateAccountForm from "./internal/form/CreateAccountForm";
 import CreateAccountSignInPrompt from "./internal/signin/CreateAccountSignInPrompt";
 
 /* ------------------------------
    Component
 -------------------------------- */
 export default function CreateAccountComposition() {
+    const router = useRouter();
+
     return (
         <OnboardingPage
             navigation={
@@ -62,8 +65,10 @@ export default function CreateAccountComposition() {
 
             <OnboardingPageAction>
                 <OnboardingPrimaryAction
-                    type="submit"
-                    form={CREATE_ACCOUNT_FORM_ID}
+                    type="button"
+                    onClick={() => {
+                        router.push("/verify-email");
+                    }}
                     trailing={
                         <ArrowIcon
                             direction="right"
