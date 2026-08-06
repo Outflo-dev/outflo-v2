@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: center;
 
-    transform: translateY(-50%);
+    transform: translateY(calc(-50% + 1.25px));
 }
 
 .action:focus-visible {

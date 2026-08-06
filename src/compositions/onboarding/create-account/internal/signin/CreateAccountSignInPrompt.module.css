@@ -1,4 +1,14 @@
+/* ==========================================================
+   OUTFLO — CREATE ACCOUNT SIGN-IN PROMPT FRAME
+   File: src/compositions/onboarding/create-account/internal/signin/CreateAccountSignInPrompt.module.css
+   Scope: Own the local placement of the Create Account sign-in prompt
+   Last Updated:
+   - date: 2026-08-05
+   - note: lower the Create Account sign-in prompt slightly
+   ========================================================== */
+
 .frame {
     width: 100%;
-    margin-top: 0.35rem;
+
+    margin-top: 0.5rem;
 }

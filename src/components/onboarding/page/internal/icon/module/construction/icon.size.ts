@@ -10,4 +10,4 @@
 /* ------------------------------
    Constants
 -------------------------------- */
-export const ONBOARDING_PAGE_ICON_SIZE_PX = 165;
+export const ONBOARDING_PAGE_ICON_SIZE_PX = 170;

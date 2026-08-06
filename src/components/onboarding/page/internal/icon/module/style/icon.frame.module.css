@@ -3,18 +3,20 @@
    File: src/components/onboarding/page/internal/icon/module/style/icon.frame.module.css
    Scope: Own the icon zone geometry and participation within the onboarding page composition
    Last Updated:
-   - date: 2026-07-29
-   - note: isolate canonical icon dimensions and page placement under one explicit unit owner
+   - date: 2026-08-05
+   - note: enlarge the icon frame to fully contain the canonical onboarding icon
    ========================================================== */
 
 .frame {
     position: relative;
     z-index: 1;
 
-    width: 10rem;
-    height: 10rem;
+    width: 10.75rem;
+    height: 10.75rem;
 
     margin: -0.45rem auto 0;
+
+    overflow: visible;
 
     flex: 0 0 auto;
 }
