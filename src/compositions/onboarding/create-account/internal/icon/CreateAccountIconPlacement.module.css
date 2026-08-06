@@ -1,0 +1,14 @@
+/* ==========================================================
+   OUTFLO — CREATE ACCOUNT ICON PLACEMENT
+   File: src/compositions/onboarding/create-account/internal/icon/CreateAccountIconPlacement.module.css
+   Scope: Own the local vertical placement of the Create Account mark
+   Last Updated:
+   - date: 2026-08-05
+   - note: increase the separation above the Create Account mark slightly
+   ========================================================== */
+
+.frame {
+    width: 100%;
+
+    margin-top: 0.5rem;
+}

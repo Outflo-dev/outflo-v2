@@ -17,6 +17,8 @@ import { useRouter } from "next/navigation";
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 import OutfloMark from "@/components/system/primitives/marks/outflo/OutfloMark";
+import introPlacementStyles from "./internal/intro/CreateAccountIntroPlacement.module.css";
+import iconPlacementStyles from "./internal/icon/CreateAccountIconPlacement.module.css";
 
 import {
     OnboardingPage,
@@ -49,15 +51,19 @@ export default function CreateAccountComposition() {
                 />
             }
         >
-            <OnboardingPageIntro
-                title="Create account"
-                subtitle="Begin your life in time."
-            />
+            <div className={introPlacementStyles.frame}>
+                <OnboardingPageIntro
+                    title="Create account"
+                    subtitle="Begin your life in time."
+                />
+            </div>
 
-            <OnboardingPageIcon
-                icon={OutfloMark}
-                title="Outflō"
-            />
+            <div className={iconPlacementStyles.frame}>
+                <OnboardingPageIcon
+                    icon={OutfloMark}
+                    title="Outflō"
+                />
+            </div>
 
             <OnboardingPageBody>
                 <CreateAccountForm />

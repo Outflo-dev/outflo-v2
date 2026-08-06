@@ -10,7 +10,7 @@
 .subtitle {
     max-width: 16rem;
 
-    margin: 0;
+    margin: 0.2rem 0 0;
 
     color: var(--color-text-secondary);
 
