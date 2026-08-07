@@ -12,6 +12,9 @@
 -------------------------------- */
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
+import introStyles from "./internal/intro/VerifyEmailIntro.module.css";
+import progressPlacementStyles from "./internal/progress/VerifyEmailProgressPlacement.module.css";
+import contentPlacementStyles from "./internal/layout/VerifyEmailContentPlacement.module.css";
 
 import {
     ArrowIcon,
@@ -46,38 +49,45 @@ export default function VerifyEmailComposition() {
                 />
             }
         >
-            <VerifyEmailIcon />
+            <div className={contentPlacementStyles.frame}>
+                <VerifyEmailIcon />
 
-            <OnboardingPageIntro
-                title="Check your email"
-                subtitle="We sent a 6-digit code to your email."
-            />
+                <div className={introStyles.frame}>
+                    <OnboardingPageIntro
+                        title="Check your email"
+                        subtitle={`We sent a 6-digit code to
+you@example.com`}
+                    />
+                </div>
 
-            <OnboardingPageBody>
-                <VerifyEmailForm />
-            </OnboardingPageBody>
+                <OnboardingPageBody>
+                    <VerifyEmailForm />
+                </OnboardingPageBody>
 
-            <OnboardingPageAction>
-                <OnboardingPrimaryAction
-                    type="submit"
-                    form={VERIFY_EMAIL_FORM_ID}
-                    trailing={
-                        <ArrowIcon
-                            direction="right"
-                            size={18}
-                        />
-                    }
-                >
-                    Continue
-                </OnboardingPrimaryAction>
-            </OnboardingPageAction>
+                <OnboardingPageAction>
+                    <OnboardingPrimaryAction
+                        type="submit"
+                        form={VERIFY_EMAIL_FORM_ID}
+                        trailing={
+                            <ArrowIcon
+                                direction="right"
+                                size={18}
+                            />
+                        }
+                    >
+                        Continue
+                    </OnboardingPrimaryAction>
+                </OnboardingPageAction>
 
-            <VerifyEmailResendPrompt />
+                <VerifyEmailResendPrompt />
 
-            <OnboardingPageProgress
-                step={2}
-                totalSteps={7}
-            />
+                <div className={progressPlacementStyles.frame}>
+                    <OnboardingPageProgress
+                        step={2}
+                        totalSteps={7}
+                    />
+                </div>
+            </div>
         </OnboardingPage>
     );
 }

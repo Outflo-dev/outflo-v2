@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/verify-email/internal/code/module/construction/code.track.module.css
    Scope: Own the six-position verification-code track
    Last Updated:
-   - date: 2026-08-02
-   - note: distribute six equal code cells across the available form width
+   - date: 2026-08-07
+   - note: open the six-cell verification track slightly for the final composition
    ========================================================== */
 
 .track {
@@ -13,5 +13,5 @@
 
     width: 100%;
 
-    gap: 0.4rem;
+    gap: 0.45rem;
 }

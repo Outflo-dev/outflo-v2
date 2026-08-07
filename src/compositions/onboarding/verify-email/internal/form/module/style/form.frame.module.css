@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/verify-email/internal/form/module/style/form.frame.module.css
    Scope: Own the relationship between Verify Email code entry and expiry
    Last Updated:
-   - date: 2026-08-02
-   - note: establish the complete-width verification form stack
+   - date: 2026-08-06
+   - note: create the lower separation between verification expiry and primary action
    ========================================================== */
 
 .frame {
@@ -14,7 +14,8 @@
 
     width: 100%;
 
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 6rem;
+
     gap: 1rem;
 }
