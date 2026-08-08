@@ -10,7 +10,7 @@
 .card {
     position: relative;
 
-    min-height: 14.5rem;
+    min-height: 15.25rem;
 
     display: flex;
     flex-direction: column;
