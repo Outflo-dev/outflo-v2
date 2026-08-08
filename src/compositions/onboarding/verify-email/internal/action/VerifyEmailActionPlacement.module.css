@@ -1,0 +1,14 @@
+/* ==========================================================
+   OUTFLO — VERIFY EMAIL ACTION PLACEMENT
+   File: src/compositions/onboarding/verify-email/internal/action/VerifyEmailActionPlacement.module.css
+   Scope: Own the local vertical placement of the Verify Email primary action
+   Last Updated:
+   - date: 2026-08-07
+   - note: lower the Verify Email Continue action slightly without changing shared onboarding action geometry
+   ========================================================== */
+
+.frame {
+    width: 100%;
+
+    margin-top: 0.35rem;
+}

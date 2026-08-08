@@ -15,6 +15,7 @@ import OnboardingPrimaryAction from "@/components/system/primitives/actions/onbo
 import introStyles from "./internal/intro/VerifyEmailIntro.module.css";
 import progressPlacementStyles from "./internal/progress/VerifyEmailProgressPlacement.module.css";
 import contentPlacementStyles from "./internal/layout/VerifyEmailContentPlacement.module.css";
+import actionPlacementStyles from "./internal/action/VerifyEmailActionPlacement.module.css";
 
 import {
     ArrowIcon,
@@ -73,20 +74,22 @@ export default function VerifyEmailComposition() {
                     <VerifyEmailForm />
                 </OnboardingPageBody>
 
-                <OnboardingPageAction>
-                    <OnboardingPrimaryAction
-                        type="submit"
-                        form={VERIFY_EMAIL_FORM_ID}
-                        trailing={
-                            <ArrowIcon
-                                direction="right"
-                                size={18}
-                            />
-                        }
-                    >
-                        Continue
-                    </OnboardingPrimaryAction>
-                </OnboardingPageAction>
+                <div className={actionPlacementStyles.frame}>
+                    <OnboardingPageAction>
+                        <OnboardingPrimaryAction
+                            type="submit"
+                            form={VERIFY_EMAIL_FORM_ID}
+                            trailing={
+                                <ArrowIcon
+                                    direction="right"
+                                    size={18}
+                                />
+                            }
+                        >
+                            Continue
+                        </OnboardingPrimaryAction>
+                    </OnboardingPageAction>
+                </div>
 
                 <VerifyEmailResendPrompt />
 
