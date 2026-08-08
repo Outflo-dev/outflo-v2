@@ -4,20 +4,21 @@
    Scope: Own the local presentation and vertical placement of the Verify Email resend prompt
    Last Updated:
    - date: 2026-08-07
-   - note: increase resend legibility and separation for the final Verify Email composition
+   - note: finalize resend prompt scale and lower-page spacing
    ========================================================== */
 
 .frame {
     width: 100%;
 
-    margin-top: 1rem;
-}
-
-.frame p,
-.frame button {
-    font-size: 0.86rem;
+    margin-top: 1.15rem;
 }
 
 .frame p {
     margin-bottom: 0.3rem;
+
+    font-size: 0.9rem;
+}
+
+.frame button {
+    font-size: 0.86rem;
 }

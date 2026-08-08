@@ -4,18 +4,24 @@
    Scope: Own the local Verify Email intro presentation
    Last Updated:
    - date: 2026-08-07
-   - note: preserve final support scale and apply primary text paint to the email line
+   - note: finalize Verify Email title, support, and email spacing
    ========================================================== */
 
 .frame {
     width: 100%;
 }
 
-.frame p {
-    margin-top: 0.35rem;
+.frame h1 {
+    margin-top: 0.3rem;
 
-    font-size: 0.98rem;
-    line-height: 1.35;
+    font-size: 1.42rem;
+}
+
+.frame p {
+    margin-top: 0.42rem;
+
+    font-size: 1rem;
+    line-height: 1.38;
 }
 
 .support,
@@ -24,7 +30,7 @@
 }
 
 .frame .email {
-    margin-top: 0.35rem;
+    margin-top: 0.28rem;
 
     color: var(--color-text-primary);
 }

@@ -1,14 +1,16 @@
 /* ==========================================================
    OUTFLO — VERIFY EMAIL CONTENT PLACEMENT
    File: src/compositions/onboarding/verify-email/internal/layout/VerifyEmailContentPlacement.module.css
-   Scope: Own the local optical placement of the complete Verify Email content sequence
+   Scope: Own the local placement of the complete Verify Email content sequence
    Last Updated:
    - date: 2026-08-07
-   - note: lower the complete Verify Email content sequence without changing its internal rhythm
+   - note: lower Verify Email through layout flow so the complete sequence remains scroll-reachable
    ========================================================== */
 
 .frame {
     width: 100%;
 
-    transform: translateY(1.45rem);
+    padding-top: 1.95rem;
+
+    box-sizing: border-box;
 }
