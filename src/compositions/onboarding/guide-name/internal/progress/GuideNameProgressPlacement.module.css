@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — GUIDE NAME PROGRESS PLACEMENT
+   File: src/compositions/onboarding/guide-name/internal/progress/GuideNameProgressPlacement.module.css
+   Scope: Own the local vertical placement of Guide Name onboarding progress
+   Last Updated:
+   - date: 2026-08-08
+   - note: place Step 3 progress beneath the primary action near the viewport floor
+   ========================================================== */
+
+.frame {
+    width: 100%;
+    margin-top: 4.75rem;
+}

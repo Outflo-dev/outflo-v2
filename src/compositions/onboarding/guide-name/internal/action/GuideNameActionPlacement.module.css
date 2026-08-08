@@ -1,0 +1,14 @@
+/* ==========================================================
+   OUTFLO — GUIDE NAME ACTION PLACEMENT
+   File: src/compositions/onboarding/guide-name/internal/action/GuideNameActionPlacement.module.css
+   Scope: Own the local vertical placement of the Guide Name primary action
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the deliberate open space between display name and Continue
+   ========================================================== */
+
+.frame {
+    width: 100%;
+    padding-top: 6.5rem;
+    box-sizing: border-box;
+}

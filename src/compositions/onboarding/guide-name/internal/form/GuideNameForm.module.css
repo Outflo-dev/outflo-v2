@@ -1,0 +1,13 @@
+/* ==========================================================
+   OUTFLO — GUIDE NAME FORM
+   File: src/compositions/onboarding/guide-name/internal/form/GuideNameForm.module.css
+   Scope: Own the local Guide Name form frame and placement
+   Last Updated:
+   - date: 2026-08-08
+   - note: place the single display-name field beneath the Guide Name intro
+   ========================================================== */
+
+.form {
+    width: 100%;
+    margin-top: 2.75rem;
+}

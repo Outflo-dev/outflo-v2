@@ -24,6 +24,10 @@ export {
 } from "@/components/system/primitives/icons/concepts/EmailVerificationConceptIcon";
 
 export {
+    default as GuideNameConceptIcon,
+} from "@/components/system/primitives/icons/concepts/GuideNameConceptIcon";
+
+export {
     default as EyeIcon,
 } from "@/components/system/primitives/icons/security/EyeIcon";
 

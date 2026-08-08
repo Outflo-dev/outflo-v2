@@ -14,3 +14,7 @@ export {
 export {
     default as VerifyEmailComposition,
 } from "./verify-email/VerifyEmailComposition";
+
+export {
+    default as GuideNameComposition,
+} from "./guide-name/GuideNameComposition";
