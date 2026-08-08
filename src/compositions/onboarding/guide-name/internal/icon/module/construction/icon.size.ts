@@ -10,4 +10,4 @@
 /* ------------------------------
    Constants
 -------------------------------- */
-export const GUIDE_NAME_ICON_SIZE_PX = 175;
+export const GUIDE_NAME_ICON_SIZE_PX = 200;
