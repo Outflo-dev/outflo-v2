@@ -10,9 +10,7 @@
 /* ------------------------------
    Imports
 -------------------------------- */
-import {
-    ArrowIcon,
-} from "@/compositions/onboarding/internal/icons";
+import ChevronRightIcon from "@/components/system/primitives/icons/navigation/ChevronRightIcon";
 
 import MakeYoursLanguageIcon from "@/compositions/onboarding/make-yours/internal/icons/MakeYoursLanguageIcon";
 import MakeYoursThemeIcon from "@/compositions/onboarding/make-yours/internal/icons/MakeYoursThemeIcon";
@@ -38,10 +36,9 @@ export default function MakeYoursOptions() {
                     English
                 </span>
 
-                <ArrowIcon
-                    direction="right"
-                    size={16}
-                />
+                <span className={styles.chevron}>
+                <ChevronRightIcon size={16} />
+            </span>
             </div>
 
             <div className={styles.row}>
@@ -57,10 +54,9 @@ export default function MakeYoursOptions() {
                     Dark
                 </span>
 
-                <ArrowIcon
-                    direction="right"
-                    size={16}
-                />
+                <span className={styles.chevron}>
+                <ChevronRightIcon size={16} />
+            </span>
             </div>
         </div>
     );

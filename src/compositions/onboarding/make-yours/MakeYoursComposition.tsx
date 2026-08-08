@@ -46,7 +46,12 @@ export default function MakeYoursComposition() {
             <div className={styles.intro}>
                 <OnboardingPageIntro
                     title="Make Outflō yours"
-                    subtitle="Set your language and theme."
+                    subtitle={
+                        <span className={styles.subtitle}>
+                            <span>Set your language</span>
+                            <span>and theme.</span>
+                        </span>
+                    }
                 />
             </div>
 

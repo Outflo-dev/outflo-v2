@@ -28,12 +28,9 @@
 
     box-sizing: border-box;
 
-    border: 1px solid
-        color-mix(
-            in srgb,
+    border: 1px solid color-mix(in srgb,
             var(--color-accent-primary) 34%,
-            transparent
-        );
+            transparent);
     border-radius: 0.55rem;
 }
 
@@ -61,4 +58,15 @@
     font-family: var(--font-family-system);
     font-size: 0.92rem;
     font-weight: 500;
+}
+
+.themeRow {
+    min-height: 3.8rem;
+}
+.chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-accent-secondary);
 }
