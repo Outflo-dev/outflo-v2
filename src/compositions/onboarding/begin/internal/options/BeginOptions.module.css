@@ -1,0 +1,73 @@
+/* ==========================================================
+   OUTFLO — BEGIN OPTIONS
+   File: src/compositions/onboarding/begin/internal/options/BeginOptions.module.css
+   Scope: Own the local construction of the Step 6 Begin selector rows
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the static Begin selector geometry
+   ========================================================== */
+
+.frame {
+    width: 100%;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 30%,
+            transparent
+        );
+
+    border-radius: 0.65rem;
+
+    overflow: hidden;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto 1fr 1.25rem;
+    align-items: center;
+
+    width: 100%;
+    min-height: 3.55rem;
+
+    padding-inline: 1rem;
+
+    box-sizing: border-box;
+}
+
+.row + .row {
+    border-top: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 18%,
+            transparent
+        );
+}
+
+.label {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.value {
+    justify-self: end;
+
+    padding-right: 0.55rem;
+
+    color: var(--color-accent-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-accent-secondary);
+}

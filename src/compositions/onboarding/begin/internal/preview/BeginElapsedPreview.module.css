@@ -1,0 +1,116 @@
+/* ==========================================================
+   OUTFLO — BEGIN ELAPSED PREVIEW
+   File: src/compositions/onboarding/begin/internal/preview/BeginElapsedPreview.module.css
+   Scope: Own the local construction of the Step 6 elapsed preview
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the infinity-led elapsed preview hierarchy
+   ========================================================== */
+
+.card {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 7rem;
+
+    padding: 1rem 1.1rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 26%,
+            transparent
+        );
+
+    border-radius: 0.65rem;
+
+    gap: 1rem;
+}
+
+.infinity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 4rem;
+    height: 4rem;
+
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+
+    border: 1.8px solid var(--color-accent-secondary);
+    border-radius: 50%;
+
+    color: var(--color-accent-secondary);
+
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.content {
+    min-width: 0;
+}
+
+.eyebrow {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.primary {
+    display: flex;
+    align-items: baseline;
+
+    margin: 0.35rem 0 0;
+
+    gap: 0.35rem;
+}
+
+.value {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1.85rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.unit {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.secondary {
+    margin: 0.35rem 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.76rem;
+    font-weight: 400;
+}
+
+
+.infinityGlyph {
+    display: block;
+
+    line-height: 1;
+
+    transform: translateY(-0.32rem);
+}

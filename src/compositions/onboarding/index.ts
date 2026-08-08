@@ -25,3 +25,7 @@ export {
 export {
     default as TimeSettingsComposition,
 } from "./time-settings/TimeSettingsComposition";
+
+export {
+    default as BeginComposition,
+} from "./begin/BeginComposition";

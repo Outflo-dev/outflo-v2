@@ -1,0 +1,47 @@
+/* ==========================================================
+   OUTFLO — BEGIN NOTE
+   File: src/compositions/onboarding/begin/internal/note/BeginNote.module.css
+   Scope: Own the local presentation of the Step 6 Begin anchor note
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish restrained Begin guidance beneath the selector card
+   ========================================================== */
+
+.frame {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    padding: 0.15rem 0.35rem;
+
+    box-sizing: border-box;
+
+    gap: 0.65rem;
+}
+
+.mark {
+    flex: 0 0 auto;
+
+    margin-top: 0.05rem;
+
+    color: var(--color-accent-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.76rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
