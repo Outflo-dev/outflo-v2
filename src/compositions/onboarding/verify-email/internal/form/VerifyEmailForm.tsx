@@ -13,6 +13,7 @@
    Imports
 -------------------------------- */
 import type { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import VerifyEmailCodeInput from "../code/VerifyEmailCodeInput";
@@ -30,6 +31,8 @@ export const VERIFY_EMAIL_FORM_ID =
    Component
 -------------------------------- */
 export default function VerifyEmailForm() {
+    const router = useRouter();
+
     const [
         code,
         setCode,
@@ -39,6 +42,8 @@ export default function VerifyEmailForm() {
         event: FormEvent<HTMLFormElement>,
     ) {
         event.preventDefault();
+
+        router.push("/guide-name");
     }
 
     return (

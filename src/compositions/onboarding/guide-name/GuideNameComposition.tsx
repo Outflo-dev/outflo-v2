@@ -4,12 +4,13 @@
    Scope: Compose the complete visible Guide Name experience
    Last Updated:
    - date: 2026-08-08
-   - note: resolve Step 3 through the completed Guide Name visual hierarchy
+   - note: preserve temporary backward navigation while completing the onboarding sequence
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
+import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 
 import {
@@ -36,7 +37,14 @@ import progressPlacementStyles from "@/compositions/onboarding/guide-name/intern
 -------------------------------- */
 export default function GuideNameComposition() {
     return (
-        <OnboardingPage>
+        <OnboardingPage
+            navigation={
+                <BackNavigationAction
+                    href="/verify-email"
+                    label="Back to verify email"
+                />
+            }
+        >
             <GuideNameIcon />
 
             <div className={introStyles.frame}>
