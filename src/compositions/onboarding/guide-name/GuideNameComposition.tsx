@@ -1,3 +1,5 @@
+"use client";
+
 /* ==========================================================
    OUTFLO — GUIDE NAME COMPOSITION
    File: src/compositions/onboarding/guide-name/GuideNameComposition.tsx
@@ -10,6 +12,8 @@
 /* ------------------------------
    Imports
 -------------------------------- */
+import { useRouter } from "next/navigation";
+
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 
@@ -36,6 +40,8 @@ import progressPlacementStyles from "@/compositions/onboarding/guide-name/intern
    Component
 -------------------------------- */
 export default function GuideNameComposition() {
+    const router = useRouter();
+
     return (
         <OnboardingPage
             navigation={
@@ -72,6 +78,9 @@ export default function GuideNameComposition() {
                 <OnboardingPageAction>
                     <OnboardingPrimaryAction
                         type="button"
+                        onClick={() => {
+                            router.push("/make-yours");
+                        }}
                         trailing={
                             <ArrowIcon
                                 direction="right"

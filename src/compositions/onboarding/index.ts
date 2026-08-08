@@ -18,3 +18,6 @@ export {
 export {
     default as GuideNameComposition,
 } from "./guide-name/GuideNameComposition";
+export {
+    default as MakeYoursComposition,
+} from "./make-yours/MakeYoursComposition";
