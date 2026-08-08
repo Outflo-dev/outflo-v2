@@ -29,3 +29,7 @@ export {
 export {
     default as BeginComposition,
 } from "./begin/BeginComposition";
+
+export {
+default as ReadyComposition,
+} from "./ready/ReadyComposition";

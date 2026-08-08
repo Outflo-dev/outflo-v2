@@ -1,0 +1,18 @@
+/* ==========================================================
+   OUTFLO — READY ICON
+   File: src/compositions/onboarding/ready/internal/icon/ReadyIcon.module.css
+   Scope: Own local placement of the Step 7 Time concept icon
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish restrained final icon placement
+   ========================================================== */
+
+.frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 4.5rem;
+}

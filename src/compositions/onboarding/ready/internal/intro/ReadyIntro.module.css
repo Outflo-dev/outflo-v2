@@ -1,0 +1,21 @@
+/* ==========================================================
+   OUTFLO — READY INTRO
+   File: src/compositions/onboarding/ready/internal/intro/ReadyIntro.module.css
+   Scope: Own local placement and support treatment for Step 7 introduction
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the final onboarding statement
+   ========================================================== */
+
+.frame {
+    width: 100%;
+
+    margin-top: 1.6rem;
+}
+
+.support {
+    display: block;
+
+    font-size: 1rem;
+    line-height: 1.45;
+}
