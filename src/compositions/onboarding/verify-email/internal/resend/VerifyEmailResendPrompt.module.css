@@ -10,15 +10,15 @@
 .frame {
     width: 100%;
 
-    margin-top: 1.15rem;
+    margin-top: 1.65rem;
 }
 
 .frame p {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 
     font-size: 0.9rem;
 }
 
 .frame button {
-    font-size: 0.86rem;
+    font-size: 0.9rem;
 }

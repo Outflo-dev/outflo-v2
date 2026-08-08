@@ -10,4 +10,4 @@
 /* ------------------------------
    Constants
 -------------------------------- */
-export const VERIFY_EMAIL_ICON_SIZE_PX = 112;
+export const VERIFY_EMAIL_ICON_SIZE_PX = 105;
