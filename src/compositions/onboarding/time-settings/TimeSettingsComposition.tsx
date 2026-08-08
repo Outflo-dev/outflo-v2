@@ -1,12 +1,12 @@
 "use client";
 
 /* ==========================================================
-   OUTFLO — MAKE YOURS COMPOSITION
-   File: src/compositions/onboarding/make-yours/MakeYoursComposition.tsx
-   Scope: Compose the complete visible Make Outflō Yours experience
+   OUTFLO — TIME SETTINGS COMPOSITION
+   File: src/compositions/onboarding/time-settings/TimeSettingsComposition.tsx
+   Scope: Compose the complete visible Time Settings onboarding experience
    Last Updated:
    - date: 2026-08-08
-   - note: establish the static Step 4 language, theme, and preview surface
+   - note: establish the static Step 5 Time presentation surface
    ========================================================== */
 
 /* ------------------------------
@@ -29,33 +29,32 @@ import {
     OnboardingPageProgress,
 } from "@/components/onboarding/page";
 
-import MakeYoursOptions from "@/compositions/onboarding/make-yours/internal/options/MakeYoursOptions";
-import MakeYoursPreview from "@/compositions/onboarding/make-yours/internal/preview/MakeYoursPreview";
+import TimeSettingsOptions from "@/compositions/onboarding/time-settings/internal/options/TimeSettingsOptions";
+import TimeSettingsPreview from "@/compositions/onboarding/time-settings/internal/preview/TimeSettingsPreview";
 
-import styles from "@/compositions/onboarding/make-yours/internal/layout/MakeYoursLayout.module.css";
+import styles from "@/compositions/onboarding/time-settings/internal/layout/TimeSettingsLayout.module.css";
 
 /* ------------------------------
    Component
 -------------------------------- */
-export default function MakeYoursComposition() {
+export default function TimeSettingsComposition() {
     const router = useRouter();
 
     return (
         <OnboardingPage
             navigation={
                 <BackNavigationAction
-                    href="/guide-name"
-                    label="Back to Guide Name"
+                    href="/make-yours"
+                    label="Back to Make Outflō yours"
                 />
             }
         >
             <div className={styles.intro}>
                 <OnboardingPageIntro
-                    title="Make Outflō yours"
+                    title={"How should\nTime appear?"}
                     subtitle={
                         <span className={styles.subtitle}>
-                            <span>Set your language</span>
-                            <span>and theme.</span>
+                            You can change these anytime.
                         </span>
                     }
                 />
@@ -63,8 +62,8 @@ export default function MakeYoursComposition() {
 
             <OnboardingPageBody>
                 <div className={styles.body}>
-                    <MakeYoursOptions />
-                    <MakeYoursPreview />
+                    <TimeSettingsOptions />
+                    <TimeSettingsPreview />
                 </div>
             </OnboardingPageBody>
 
@@ -72,7 +71,7 @@ export default function MakeYoursComposition() {
                 <OnboardingPageAction>
                     <OnboardingPrimaryAction
                         type="button"
-                        onClick={() => router.push("/time-settings")}
+                        onClick={() => router.push("/begin")}
                         trailing={
                             <ArrowIcon
                                 direction="right"
@@ -87,7 +86,7 @@ export default function MakeYoursComposition() {
 
             <div className={styles.progress}>
                 <OnboardingPageProgress
-                    step={4}
+                    step={5}
                     totalSteps={7}
                 />
             </div>

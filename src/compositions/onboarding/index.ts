@@ -21,3 +21,7 @@ export {
 export {
     default as MakeYoursComposition,
 } from "./make-yours/MakeYoursComposition";
+
+export {
+    default as TimeSettingsComposition,
+} from "./time-settings/TimeSettingsComposition";

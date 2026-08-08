@@ -1,0 +1,86 @@
+/* ==========================================================
+   OUTFLO — TIME SETTINGS PREVIEW
+   File: src/compositions/onboarding/time-settings/internal/preview/TimeSettingsPreview.module.css
+   Scope: Own the local appearance of the Step 5 Time preview
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the static Time preview composition
+   ========================================================== */
+
+.card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 11rem;
+
+    padding: 1rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 30%,
+            transparent
+        );
+
+    border-radius: 0.65rem;
+}
+
+.label {
+    position: absolute;
+
+    top: 0.85rem;
+    left: 1rem;
+
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.78rem;
+}
+
+.time {
+    display: flex;
+    align-items: baseline;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.meridiem {
+    margin-left: 0.35rem;
+
+    color: var(--color-accent-secondary);
+
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.date {
+    margin: 0.8rem 0 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.95rem;
+}
+
+.zone {
+    margin: 0.4rem 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.72rem;
+}

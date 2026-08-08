@@ -1,0 +1,67 @@
+/* ==========================================================
+   OUTFLO — TIME SETTINGS OPTIONS
+   File: src/compositions/onboarding/time-settings/internal/options/TimeSettingsOptions.module.css
+   Scope: Own the local construction of the Step 5 Time presentation rows
+   Last Updated:
+   - date: 2026-08-08
+   - note: establish the static Time settings geometry
+   ========================================================== */
+
+.stack {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 0.65rem;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto 1fr 1.25rem;
+    align-items: center;
+
+    width: 100%;
+    min-height: 3.8rem;
+
+    padding-inline: 1rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 34%,
+            transparent
+        );
+
+    border-radius: 0.55rem;
+}
+
+.label {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.value {
+    justify-self: end;
+
+    padding-right: 0.55rem;
+
+    color: var(--color-accent-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+.chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-accent-secondary);
+}
