@@ -10,6 +10,7 @@
 /* ------------------------------
    Imports
 -------------------------------- */
+import type { ReactNode } from "react";
 import frameStyles from "./module/style/intro.frame.module.css";
 import subtitleStyles from "./module/style/intro.subtitle.module.css";
 import titleStyles from "./module/style/intro.title.module.css";
@@ -19,7 +20,7 @@ import titleStyles from "./module/style/intro.title.module.css";
 -------------------------------- */
 type OnboardingPageIntroProps = {
     title: string;
-    subtitle: string;
+    subtitle: ReactNode;
 };
 
 /* ------------------------------

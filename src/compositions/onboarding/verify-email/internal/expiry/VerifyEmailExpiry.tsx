@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/verify-email/internal/expiry/VerifyEmailExpiry.tsx
    Scope: Render the local verification-code expiry message
    Last Updated:
-   - date: 2026-08-02
-   - note: establish the visible expiry unit beneath code entry
+   - date: 2026-08-07
+   - note: separate the remaining duration for explicit expiry emphasis
    ========================================================== */
 
 /* ------------------------------

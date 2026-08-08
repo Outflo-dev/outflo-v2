@@ -55,8 +55,17 @@ export default function VerifyEmailComposition() {
                 <div className={introStyles.frame}>
                     <OnboardingPageIntro
                         title="Check your email"
-                        subtitle={`We sent a 6-digit code to
-you@example.com`}
+                        subtitle={
+                            <>
+                                <span className={introStyles.support}>
+                                    We sent a 6-digit code to
+                                </span>
+
+                                <span className={introStyles.email}>
+                                    you@example.com
+                                </span>
+                            </>
+                        }
                     />
                 </div>
 

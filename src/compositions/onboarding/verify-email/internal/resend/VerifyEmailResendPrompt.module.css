@@ -1,14 +1,23 @@
 /* ==========================================================
    OUTFLO — VERIFY EMAIL RESEND PROMPT PLACEMENT
    File: src/compositions/onboarding/verify-email/internal/resend/VerifyEmailResendPrompt.module.css
-   Scope: Own the local vertical placement of the Verify Email resend prompt
+   Scope: Own the local presentation and vertical placement of the Verify Email resend prompt
    Last Updated:
-   - date: 2026-08-06
-   - note: lower the resend prompt beneath the primary verification action
+   - date: 2026-08-07
+   - note: increase resend legibility and separation for the final Verify Email composition
    ========================================================== */
 
 .frame {
     width: 100%;
 
-    margin-top: .75rem;
+    margin-top: 1rem;
+}
+
+.frame p,
+.frame button {
+    font-size: 0.86rem;
+}
+
+.frame p {
+    margin-bottom: 0.3rem;
 }
