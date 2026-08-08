@@ -10,6 +10,7 @@
 /* ------------------------------
    Imports
 -------------------------------- */
+import BeginElapsedIcon from "./BeginElapsedIcon";
 import styles from "./BeginElapsedPreview.module.css";
 
 /* ------------------------------
@@ -18,11 +19,8 @@ import styles from "./BeginElapsedPreview.module.css";
 export default function BeginElapsedPreview() {
     return (
         <div className={styles.card}>
-            <div
-                className={styles.infinity}
-                aria-hidden="true"
-            >
-                ∞
+            <div className={styles.infinity}>
+                <BeginElapsedIcon />
             </div>
 
             <div className={styles.content}>
