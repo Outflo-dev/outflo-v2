@@ -67,7 +67,7 @@ export default function ReadyComposition() {
                     <OnboardingPrimaryAction
                         type="button"
                         onClick={() => {
-                            router.push("/");
+                            router.push("/time");
                         }}
                         trailing={
                             <ArrowIcon

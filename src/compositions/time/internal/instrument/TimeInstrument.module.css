@@ -1,0 +1,124 @@
+/* ==========================================================
+   OUTFLO — TIME INSTRUMENT
+   File: src/compositions/time/internal/instrument/TimeInstrument.module.css
+   Scope: Own the exact geometry and presentation of the primary elapsed-Time instrument
+   Last Updated:
+   - date: 2026-08-09
+   - note: establish mathematically circular instrument geometry
+   ========================================================== */
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+
+.instrument {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: min(18.5rem, 82vw);
+    aspect-ratio: 1 / 1;
+
+    flex: 0 0 auto;
+}
+
+.ring {
+    position: absolute;
+    inset: 0;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background: var(--gradient-brand-primary);
+
+    filter:
+        drop-shadow(
+            0 0 0.7rem
+            color-mix(
+                in srgb,
+                var(--color-accent-primary) 34%,
+                transparent
+            )
+        );
+}
+
+.ring::after {
+    content: "";
+
+    position: absolute;
+    inset: 3px;
+
+    border-radius: 50%;
+
+    background: var(--color-surface-primary);
+}
+
+.readout {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 6.4rem;
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+}
+
+.unit {
+    margin-top: 1rem;
+
+    color: var(--color-accent-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+
+    margin-top: 1.45rem;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.separator {
+    margin-inline: 0.6rem;
+
+    color: var(--color-accent-secondary);
+}
+
+.caption {
+    margin-top: 1.8rem;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    font-weight: 400;
+}

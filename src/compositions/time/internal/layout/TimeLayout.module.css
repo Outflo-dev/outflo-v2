@@ -1,0 +1,26 @@
+/* ==========================================================
+   OUTFLO — TIME LAYOUT
+   File: src/compositions/time/internal/layout/TimeLayout.module.css
+   Scope: Own local placement of the first Time product surface
+   Last Updated:
+   - date: 2026-08-09
+   - note: establish the initial dark Time entrance frame
+   ========================================================== */
+
+.surface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    padding:
+        calc(env(safe-area-inset-top) + 5.5rem)
+        0
+        calc(env(safe-area-inset-bottom) + 2rem);
+
+    box-sizing: border-box;
+
+    background: var(--color-surface-primary);
+}
