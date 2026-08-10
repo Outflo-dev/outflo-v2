@@ -87,8 +87,8 @@ export default function MakeYoursComposition() {
 
             <div className={styles.progress}>
                 <OnboardingPageProgress
-                    step={4}
-                    totalSteps={7}
+                    step={2}
+                    totalSteps={6}
                 />
             </div>
         </OnboardingPage>

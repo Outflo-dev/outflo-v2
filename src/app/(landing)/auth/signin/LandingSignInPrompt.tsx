@@ -38,7 +38,8 @@ export default function LandingSignInPrompt() {
                 </span>
             }
             trailing={<ChevronRightIcon />}
-            aria-label="Sign in"
+            href="/sign-in"
+            ariaLabel="Sign in"
         >
             Sign in
         </LandingAuthAction>

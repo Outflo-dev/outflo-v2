@@ -96,9 +96,10 @@ export default function VerifyEmailComposition() {
                 <div className={progressPlacementStyles.frame}>
                     <OnboardingPageProgress
                         step={2}
-                        totalSteps={7}
+                        totalSteps={2}
                     />
                 </div>
+
             </div>
         </OnboardingPage>
     );

@@ -71,7 +71,7 @@ export default function TimeSettingsComposition() {
                 <OnboardingPageAction>
                     <OnboardingPrimaryAction
                         type="button"
-                        onClick={() => router.push("/begin")}
+                        onClick={() => router.push("/orbit")}
                         trailing={
                             <ArrowIcon
                                 direction="right"
@@ -86,8 +86,8 @@ export default function TimeSettingsComposition() {
 
             <div className={styles.progress}>
                 <OnboardingPageProgress
-                    step={5}
-                    totalSteps={7}
+                    step={3}
+                    totalSteps={6}
                 />
             </div>
         </OnboardingPage>

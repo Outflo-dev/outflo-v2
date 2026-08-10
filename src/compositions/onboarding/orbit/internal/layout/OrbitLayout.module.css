@@ -1,0 +1,47 @@
+/* ==========================================================
+   OUTFLO — ORBIT LAYOUT
+   File: src/compositions/onboarding/orbit/internal/layout/OrbitLayout.module.css
+   Scope: Own local Orbit page placement without changing shared onboarding geometry
+   Last Updated:
+   - date: 2026-08-09
+   - note: establish the first complete Orbit onboarding composition
+   ========================================================== */
+
+.intro {
+    width: 100%;
+
+    margin-top: 2.25rem;
+}
+
+.subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(100% + 0.75rem);
+    max-width: 20.75rem;
+
+    margin: 1.8rem auto 0;
+
+    gap: 0.75rem;
+}
+
+.action {
+    width: 100%;
+
+    margin-top: 1.25rem;
+}
+
+.progress {
+    width: 100%;
+
+    margin-top: 2.35rem;
+}

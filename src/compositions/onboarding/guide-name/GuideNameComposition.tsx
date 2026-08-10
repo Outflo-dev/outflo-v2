@@ -95,8 +95,8 @@ export default function GuideNameComposition() {
 
             <div className={progressPlacementStyles.frame}>
                 <OnboardingPageProgress
-                    step={3}
-                    totalSteps={7}
+                    step={1}
+                    totalSteps={6}
                 />
             </div>
         </OnboardingPage>

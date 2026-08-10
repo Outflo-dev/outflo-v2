@@ -88,7 +88,7 @@ export default function CreateAccountComposition() {
 
             <OnboardingPageProgress
                 step={1}
-                totalSteps={7}
+                totalSteps={2}
             />
 
             <CreateAccountSignInPrompt />

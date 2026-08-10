@@ -1,0 +1,102 @@
+/* ==========================================================
+   OUTFLO — ORBIT OPTIONS
+   File: src/compositions/onboarding/orbit/internal/options/OrbitOptions.module.css
+   Scope: Own the local construction and selected state of Time Orbit choices
+   Last Updated:
+   - date: 2026-08-09
+   - note: establish restrained selectable geometry for the Orbit step
+   ========================================================== */
+
+.stack {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 0.7rem;
+}
+
+.option {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    width: 100%;
+    min-height: 4.15rem;
+
+    padding-inline: 1rem;
+
+    box-sizing: border-box;
+
+    color: inherit;
+    background: transparent;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 28%,
+            transparent
+        );
+
+    border-radius: 0.55rem;
+
+    outline: none;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.option:hover {
+    border-color:
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 48%,
+            transparent
+        );
+}
+
+.option:focus-visible {
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 18%,
+            transparent
+        );
+}
+
+.selected {
+    border-color:
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 72%,
+            transparent
+        );
+
+    background:
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 7%,
+            transparent
+        );
+}
+
+.label {
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.detail {
+    color: var(--color-accent-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.025em;
+}

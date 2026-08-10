@@ -46,8 +46,8 @@ export default function BeginComposition() {
         <OnboardingPage
             navigation={
                 <BackNavigationAction
-                    href="/time-settings"
-                    label="Back to Time settings"
+                    href="/orbit"
+                    label="Back to Orbit"
                 />
             }
         >
@@ -91,8 +91,8 @@ export default function BeginComposition() {
 
             <div className={styles.progress}>
                 <OnboardingPageProgress
-                    step={6}
-                    totalSteps={7}
+                    step={5}
+                    totalSteps={6}
                 />
             </div>
         </OnboardingPage>

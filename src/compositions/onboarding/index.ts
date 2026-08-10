@@ -27,9 +27,18 @@ export {
 } from "./time-settings/TimeSettingsComposition";
 
 export {
+    default as OrbitComposition,
+} from "./orbit/OrbitComposition";
+
+export {
     default as BeginComposition,
 } from "./begin/BeginComposition";
 
 export {
 default as ReadyComposition,
 } from "./ready/ReadyComposition";
+
+
+export {
+    default as SignInComposition,
+} from "./sign-in/SignInComposition";

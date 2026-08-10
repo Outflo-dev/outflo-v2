@@ -1,0 +1,36 @@
+/* ==========================================================
+   OUTFLO — SIGN IN LAYOUT
+   File: src/compositions/onboarding/sign-in/internal/layout/SignInLayout.module.css
+   Scope: Own local Sign In placement without changing shared onboarding geometry
+   Last Updated:
+   - date: 2026-08-09
+   - note: establish the first complete Sign In access composition
+   ========================================================== */
+
+.intro {
+    width: 100%;
+
+    margin-top: 2.25rem;
+}
+
+.body {
+    margin-top: 1.8rem;
+}
+
+.action {
+    width: 100%;
+
+    margin-top: 1.45rem;
+}
+
+.progress {
+    width: 100%;
+
+    margin-top: 2.35rem;
+}
+
+.alternate {
+    width: 100%;
+
+    margin-top: 1.65rem;
+}
