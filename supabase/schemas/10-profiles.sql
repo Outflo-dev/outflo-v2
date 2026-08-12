@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — PROFILES
    File: supabase/schemas/10-profiles.sql
-   Scope: Own the completed Outflō account shell and immutable Outflō Begin
+   Scope: Own the completed Outflō profile and immutable Outflō Begin
    Last Updated:
    - date: 2026-08-11
-   - note: establish auth identity binding and server-observed Outflō Begin
+   - note: add canonical Guide profile identity and username ownership
    ========================================================== */
 
 /* ------------------------------
@@ -17,9 +17,23 @@ create table public.profiles (
         references auth.users(id)
         on delete cascade,
 
+    username text
+        not null,
+
+    display_name text,
+
     entered_at_ms bigint
         not null
-        default (floor(extract(epoch from clock_timestamp()) * 1000)::bigint)
+        default (floor(extract(epoch from clock_timestamp()) * 1000)::bigint),
+
+    constraint profiles_username_length
+        check (char_length(username) between 3 and 30),
+
+    constraint profiles_username_format
+        check (username ~ '^[a-z0-9_.]+$'),
+
+    constraint profiles_username_unique
+        unique (username)
 );
 
 /* ------------------------------
@@ -27,7 +41,7 @@ create table public.profiles (
 -------------------------------- */
 
 alter table public.profiles
-    enable row level security;
+enable row level security;
 
 /* ------------------------------
    Grants
@@ -53,10 +67,16 @@ using (user_id = (select auth.uid()));
 -------------------------------- */
 
 comment on table public.profiles is
-    'Completed Outflō account shell. A row exists only after Enter Time succeeds.';
+'Completed Outflō profile. A row exists only after Enter Time succeeds.';
 
 comment on column public.profiles.user_id is
-    'Immutable authentication identity binding owned canonically by auth.users.id.';
+'Immutable authentication identity binding owned canonically by auth.users.id.';
+
+comment on column public.profiles.username is
+'Mutable canonical Guide username. Three to thirty lowercase letters, digits, underscores, or periods. Globally unique while claimed.';
+
+comment on column public.profiles.display_name is
+'Optional mutable Guide display name. NULL represents no display name.';
 
 comment on column public.profiles.entered_at_ms is
-    'Immutable Outflō Begin: the server-observed Unix millisecond instant when the Guide entered Outflō.';
+'Immutable Outflō Begin: the server-observed Unix millisecond instant when the Guide entered Outflō.';
