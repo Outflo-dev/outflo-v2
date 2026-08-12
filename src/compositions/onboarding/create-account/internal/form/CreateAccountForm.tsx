@@ -1,12 +1,10 @@
-"use client";
-
 /* ==========================================================
    OUTFLO — CREATE ACCOUNT FORM
    File: src/compositions/onboarding/create-account/internal/form/CreateAccountForm.tsx
    Scope: Own the Create Account field order and local submission boundary
    Last Updated:
-   - date: 2026-07-29
-   - note: consume the completed onboarding text-input field owner
+   - date: 2026-08-12
+   - note: reduce Create Account to email and password access fields
    ========================================================== */
 
 /* ------------------------------
@@ -23,8 +21,6 @@ import {
 import OnboardingTextInputField from "@/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField";
 
 import {
-    AtIcon,
-    CheckIcon,
     EyeIcon,
     LockIcon,
     MailIcon,
@@ -55,11 +51,6 @@ export default function CreateAccountForm() {
         setIsConfirmPasswordVisible,
     ] = useState(false);
 
-    const [
-        username,
-        setUsername,
-    ] = useState("");
-
     function handleSubmit(
         event: FormEvent<HTMLFormElement>,
     ) {
@@ -84,32 +75,6 @@ export default function CreateAccountForm() {
                 inputMode="email"
                 placeholder="you@example.com"
                 leading={<MailIcon />}
-                required
-            />
-
-            <OnboardingTextInputField
-                id="create-account-username"
-                name="username"
-                label="Username"
-                type="text"
-                autoComplete="username"
-                placeholder="Choose a username"
-                value={username}
-                onChange={(event) => {
-                    setUsername(event.target.value);
-                }}
-                leading={
-                    <span className={styles.leadingOpticalLeft}>
-                        <AtIcon />
-                    </span>
-                }
-                trailing={
-                    username.length > 5 ? (
-                        <span className={styles.usernameAvailable}>
-                            <CheckIcon size={18} />
-                        </span>
-                    ) : undefined
-                }
                 required
             />
 

@@ -3,19 +3,31 @@
    File: src/compositions/onboarding/internal/controls/surface/module/behavior/surface.focus.module.css
    Scope: Own the canonical visible-focus treatment shared by onboarding control surfaces
    Last Updated:
-   - date: 2026-08-01
-   - note: establish the shared thematic focus border and halo
+   - date: 2026-08-12
+   - note: resolve focus through a restrained thematic halo without activating the frame border
    ========================================================== */
 
 .surface {
     outline: none;
+
+    transition:
+        box-shadow 140ms ease;
 }
 
-.surface:focus-visible {
-    border-color: var(--color-accent-primary);
+.surface:focus {
+    border-color: transparent;
 
     box-shadow:
-        0 0 0 3px color-mix(in srgb,
-            var(--color-accent-primary) 16%,
-            transparent);
+        0 0 0 1px
+            color-mix(
+                in srgb,
+                var(--color-accent-primary) 14%,
+                transparent
+            ),
+        0 0 12px
+            color-mix(
+                in srgb,
+                var(--color-accent-secondary) 13%,
+                transparent
+            );
 }

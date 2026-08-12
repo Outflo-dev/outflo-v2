@@ -3,13 +3,13 @@
    File: src/compositions/onboarding/internal/controls/surface/module/construction/surface.box.module.css
    Scope: Own the canonical physical box shared by onboarding control surfaces
    Last Updated:
-   - date: 2026-07-30
-   - note: establish shared control-surface width, height, and box construction
+   - date: 2026-08-12
+   - note: slightly increase the canonical onboarding control height
    ========================================================== */
 
 .surface {
     width: 100%;
-    min-height: 2.85rem;
+    min-height: 3rem;
 
     box-sizing: border-box;
 }
