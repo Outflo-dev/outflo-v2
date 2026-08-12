@@ -4,14 +4,32 @@
    Scope: Own the canonical default appearance shared by onboarding control surfaces
    Last Updated:
    - date: 2026-08-12
-   - note: establish the quiet theme-responsive onboarding control surface
+   - note: resolve onboarding controls as restrained midnight-blue surfaces with thematic sheen
    ========================================================== */
 
 .surface {
-    background:
-        color-mix(in srgb,
-            var(--color-foreground-primary) 7%,
-            transparent);
+    background-color:
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 12%,
+            var(--color-surface-primary)
+        );
+
+    background-image:
+        linear-gradient(
+            135deg,
+            color-mix(
+                in srgb,
+                var(--color-accent-primary) 7%,
+                transparent
+            ) 0%,
+            color-mix(
+                in srgb,
+                var(--color-accent-secondary) 3%,
+                transparent
+            ) 55%,
+            transparent 100%
+        );
 
     border-color: transparent;
 }

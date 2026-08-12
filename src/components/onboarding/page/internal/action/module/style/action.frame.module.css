@@ -4,17 +4,17 @@
    Scope: Own primary-action participation within the onboarding page composition
    Last Updated:
    - date: 2026-08-12
-   - note: widen the canonical onboarding action frame while preserving vertical rhythm
+   - note: align the canonical onboarding action with form measure and lower its placement
    ========================================================== */
 
 .frame {
     position: relative;
     z-index: 1;
 
-    width: calc(100% - 0.5rem);
-    max-width: 22rem;
+    width: calc(100% - 1.25rem);
+    max-width: 20.75rem;
 
-    margin: 0.9rem auto 0;
+    margin: 1.75rem auto 0;
 
     flex: 0 0 auto;
 }
