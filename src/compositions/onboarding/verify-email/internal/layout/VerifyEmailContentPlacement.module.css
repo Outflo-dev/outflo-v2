@@ -3,14 +3,20 @@
    File: src/compositions/onboarding/verify-email/internal/layout/VerifyEmailContentPlacement.module.css
    Scope: Own the local placement of the complete Verify Email content sequence
    Last Updated:
-   - date: 2026-08-07
-   - note: lower Verify Email through layout flow so the complete sequence remains scroll-reachable
+   - date: 2026-08-12
+   - note: allow Verify Email to fill the onboarding column for shared bottom progress
    ========================================================== */
 
 .frame {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
+    min-height: 0;
 
     padding-top: 2.1rem;
+
+    flex: 1 1 auto;
 
     box-sizing: border-box;
 }

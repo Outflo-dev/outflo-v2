@@ -5,8 +5,8 @@
    File: src/compositions/onboarding/create-account/CreateAccountComposition.tsx
    Scope: Compose the complete visible Create Account experience
    Last Updated:
-   - date: 2026-08-05
-   - note: route the temporary Create Account Continue action directly to Verify Email
+   - date: 2026-08-12
+   - note: attach Access progress through the canonical bottom progress channel
    ========================================================== */
 
 /* ------------------------------
@@ -17,8 +17,6 @@ import { useRouter } from "next/navigation";
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 import OutfloMark from "@/components/system/primitives/marks/outflo/OutfloMark";
-import introPlacementStyles from "./internal/intro/CreateAccountIntroPlacement.module.css";
-import iconPlacementStyles from "./internal/icon/CreateAccountIconPlacement.module.css";
 
 import {
     OnboardingPage,
@@ -36,6 +34,9 @@ import {
 import CreateAccountForm from "./internal/form/CreateAccountForm";
 import CreateAccountSignInPrompt from "./internal/signin/CreateAccountSignInPrompt";
 
+import iconPlacementStyles from "./internal/icon/CreateAccountIconPlacement.module.css";
+import introPlacementStyles from "./internal/intro/CreateAccountIntroPlacement.module.css";
+
 /* ------------------------------
    Component
 -------------------------------- */
@@ -48,6 +49,12 @@ export default function CreateAccountComposition() {
                 <BackNavigationAction
                     href="/"
                     label="Back to landing"
+                />
+            }
+            progress={
+                <OnboardingPageProgress
+                    step={1}
+                    totalSteps={2}
                 />
             }
         >
@@ -87,13 +94,6 @@ export default function CreateAccountComposition() {
             </OnboardingPageAction>
 
             <CreateAccountSignInPrompt />
-
-            <OnboardingPageProgress
-                step={1}
-                totalSteps={2}
-            />
-
-
         </OnboardingPage>
     );
 }

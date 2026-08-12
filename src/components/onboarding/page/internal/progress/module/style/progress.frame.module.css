@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — ONBOARDING PAGE PROGRESS FRAME
    File: src/components/onboarding/page/internal/progress/module/style/progress.frame.module.css
-   Scope: Own progress participation within the onboarding page composition
+   Scope: Own progress participation within the canonical onboarding progress band
    Last Updated:
-   - date: 2026-07-29
-   - note: isolate canonical progress width and page placement
+   - date: 2026-08-12
+   - note: return progress to neutral participation within the dedicated bottom band
    ========================================================== */
 
 .frame {
@@ -12,8 +12,6 @@
     z-index: 1;
 
     width: 100%;
-
-    margin-top: 1.95rem;
 
     flex: 0 0 auto;
 }

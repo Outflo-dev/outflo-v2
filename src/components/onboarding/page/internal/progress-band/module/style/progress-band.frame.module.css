@@ -1,0 +1,34 @@
+/* ==========================================================
+   OUTFLO — ONBOARDING PAGE PROGRESS BAND FRAME
+   File: src/components/onboarding/page/internal/progress-band/module/style/progress-band.frame.module.css
+   Scope: Own the canonical safe-area-aware bottom band for onboarding progress
+   Last Updated:
+   - date: 2026-08-12
+   - note: reserve stable bottom geometry while allowing independent progress placement
+   ========================================================== */
+
+.frame {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    min-height:
+        calc(env(safe-area-inset-bottom) + 2.5rem);
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+}
+
+.position {
+    width: 100%;
+
+    transform: translateY(1.5rem);
+}

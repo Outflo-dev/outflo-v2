@@ -13,7 +13,6 @@
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 import introStyles from "./internal/intro/VerifyEmailIntro.module.css";
-import progressPlacementStyles from "./internal/progress/VerifyEmailProgressPlacement.module.css";
 import contentPlacementStyles from "./internal/layout/VerifyEmailContentPlacement.module.css";
 import actionPlacementStyles from "./internal/action/VerifyEmailActionPlacement.module.css";
 
@@ -47,6 +46,12 @@ export default function VerifyEmailComposition() {
                 <BackNavigationAction
                     href="/create-account"
                     label="Back to create account"
+                />
+            }
+            progress={
+                <OnboardingPageProgress
+                    step={2}
+                    totalSteps={2}
                 />
             }
         >
@@ -92,13 +97,6 @@ export default function VerifyEmailComposition() {
                 </div>
 
                 <VerifyEmailResendPrompt />
-
-                <div className={progressPlacementStyles.frame}>
-                    <OnboardingPageProgress
-                        step={2}
-                        totalSteps={2}
-                    />
-                </div>
 
             </div>
         </OnboardingPage>
