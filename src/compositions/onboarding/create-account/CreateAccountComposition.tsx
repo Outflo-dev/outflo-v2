@@ -86,12 +86,14 @@ export default function CreateAccountComposition() {
                 </OnboardingPrimaryAction>
             </OnboardingPageAction>
 
+            <CreateAccountSignInPrompt />
+
             <OnboardingPageProgress
                 step={1}
                 totalSteps={2}
             />
 
-            <CreateAccountSignInPrompt />
+
         </OnboardingPage>
     );
 }
