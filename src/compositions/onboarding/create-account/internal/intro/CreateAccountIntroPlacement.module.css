@@ -1,15 +1,15 @@
 /* ==========================================================
-   OUTFLO — CREATE ACCOUNT ICON PLACEMENT
-   File: src/compositions/onboarding/create-account/internal/icon/CreateAccountIconPlacement.module.css
-   Scope: Own the local vertical placement of the Create Account mark
+   OUTFLO — CREATE ACCOUNT INTRO PLACEMENT
+   File: src/compositions/onboarding/create-account/internal/intro/CreateAccountIntroPlacement.module.css
+   Scope: Own the local vertical placement of the Create Account intro
    Last Updated:
-   - date: 2026-08-05
-   - note: lower the mark while tightening its separation from the form
+   - date: 2026-08-12
+   - note: lower the intro slightly and restore breathing room beneath it
    ========================================================== */
 
 .frame {
     width: 100%;
 
-    margin-top: 0.45rem;
-    margin-bottom: -0.4rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.35rem;
 }

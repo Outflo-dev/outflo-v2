@@ -3,16 +3,16 @@
    File: src/components/onboarding/page/internal/action/module/style/action.frame.module.css
    Scope: Own primary-action participation within the onboarding page composition
    Last Updated:
-   - date: 2026-08-05
-   - note: widen the onboarding action frame and tighten its distance from the preceding body
+   - date: 2026-08-12
+   - note: widen the canonical onboarding action frame while preserving vertical rhythm
    ========================================================== */
 
 .frame {
     position: relative;
     z-index: 1;
 
-    width: calc(100% - 1.25rem);
-    max-width: 20.75rem;
+    width: calc(100% - 0.5rem);
+    max-width: 22rem;
 
     margin: 0.9rem auto 0;
 

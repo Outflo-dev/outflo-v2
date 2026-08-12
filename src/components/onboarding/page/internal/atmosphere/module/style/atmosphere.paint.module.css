@@ -3,8 +3,8 @@
    File: src/components/onboarding/page/internal/atmosphere/module/style/atmosphere.paint.module.css
    Scope: Own the complete background paint of the onboarding page atmosphere
    Last Updated:
-   - date: 2026-08-01
-   - note: own the fixed base surface and canonical three-part onboarding wash
+   - date: 2026-08-12
+   - note: slightly brighten the canonical onboarding blue-violet wash
    ========================================================== */
 
 .paint {
@@ -13,17 +13,17 @@
     background-image:
         radial-gradient(circle at 50% 12%,
             color-mix(in srgb,
-                var(--color-accent-secondary) 11%,
+                var(--color-accent-secondary) 13%,
                 transparent) 0%,
             transparent 34%),
         radial-gradient(ellipse at 50% 48%,
             color-mix(in srgb,
-                var(--color-accent-primary) 6%,
+                var(--color-accent-primary) 8%,
                 transparent) 0%,
             transparent 50%),
         radial-gradient(circle at 50% 100%,
             color-mix(in srgb,
-                var(--color-accent-secondary) 5%,
+                var(--color-accent-secondary) 6%,
                 transparent) 0%,
             transparent 42%);
 }
