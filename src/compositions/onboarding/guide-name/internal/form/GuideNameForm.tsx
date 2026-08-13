@@ -1,16 +1,20 @@
 /* ==========================================================
    OUTFLO — GUIDE NAME FORM
    File: src/compositions/onboarding/guide-name/internal/form/GuideNameForm.tsx
-   Scope: Own the Guide Name display-name field
+   Scope: Own the Guide Name username field
    Last Updated:
-   - date: 2026-08-08
-   - note: establish the single display-name field for Step 3 onboarding
+   - date: 2026-08-12
+   - note: resolve Guide Name as the required Outflō username choice
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
 import OnboardingTextInputField from "@/compositions/onboarding/internal/forms/fields/text/OnboardingTextInputField";
+
+import {
+    AtIcon,
+} from "@/compositions/onboarding/internal/icons";
 
 import styles from "./GuideNameForm.module.css";
 
@@ -30,12 +34,14 @@ export default function GuideNameForm() {
             className={styles.form}
         >
             <OnboardingTextInputField
-                id="guide-name-display-name"
-                name="displayName"
-                label="Display name"
+                id="guide-name-username"
+                name="username"
+                label="Guide Name"
                 type="text"
-                autoComplete="name"
-                placeholder="enter"
+                autoComplete="username"
+                placeholder="choose your Guide Name"
+                leading={<AtIcon />}
+                required
             />
         </form>
     );

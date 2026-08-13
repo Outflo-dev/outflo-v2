@@ -5,8 +5,8 @@
    File: src/compositions/onboarding/begin/BeginComposition.tsx
    Scope: Compose the complete visible Begin onboarding experience
    Last Updated:
-   - date: 2026-08-08
-   - note: establish the static Step 6 Begin surface
+   - date: 2026-08-12
+   - note: reduce Begin to Guide Begin choice and Enter Time
    ========================================================== */
 
 /* ------------------------------
@@ -31,8 +31,6 @@ import {
 
 import BeginMoment from "@/compositions/onboarding/begin/internal/moment/BeginMoment";
 import BeginOptions from "@/compositions/onboarding/begin/internal/options/BeginOptions";
-import BeginNote from "@/compositions/onboarding/begin/internal/note/BeginNote";
-import BeginElapsedPreview from "@/compositions/onboarding/begin/internal/preview/BeginElapsedPreview";
 
 import styles from "@/compositions/onboarding/begin/internal/layout/BeginLayout.module.css";
 
@@ -46,29 +44,25 @@ export default function BeginComposition() {
         <OnboardingPage
             navigation={
                 <BackNavigationAction
-                    href="/orbit"
-                    label="Back to Orbit"
+                    href="/guide-name"
+                    label="Back to Guide Name"
                 />
             }
         >
+            <div className={styles.mark}>
+                <BeginMoment />
+            </div>
+
             <div className={styles.intro}>
                 <OnboardingPageIntro
-                    title="Set Begin"
-                    subtitle={
-                        <span className={styles.subtitle}>
-                            <span>Choose the moment</span>
-                            <span>Time begins.</span>
-                        </span>
-                    }
+                    title="Begin"
+                    subtitle="When does your Time begin?"
                 />
             </div>
 
             <OnboardingPageBody>
                 <div className={styles.body}>
-                    <BeginMoment />
                     <BeginOptions />
-                    <BeginNote />
-                    <BeginElapsedPreview />
                 </div>
             </OnboardingPageBody>
 
@@ -76,7 +70,7 @@ export default function BeginComposition() {
                 <OnboardingPageAction>
                     <OnboardingPrimaryAction
                         type="button"
-                        onClick={() => router.push("/ready")}
+                        onClick={() => router.push("/time")}
                         trailing={
                             <ArrowIcon
                                 direction="right"
@@ -84,15 +78,15 @@ export default function BeginComposition() {
                             />
                         }
                     >
-                        Continue
+                        Enter Time
                     </OnboardingPrimaryAction>
                 </OnboardingPageAction>
             </div>
 
             <div className={styles.progress}>
                 <OnboardingPageProgress
-                    step={5}
-                    totalSteps={6}
+                    step={2}
+                    totalSteps={2}
                 />
             </div>
         </OnboardingPage>

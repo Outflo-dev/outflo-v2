@@ -59,7 +59,7 @@ export default function GuideNameComposition() {
                     subtitle={
                         <>
                             <span className={introStyles.question}>
-                                What should we call you?
+                                Choose how you’ll be known in Outflō.
                             </span>
 
                             <span className={introStyles.support}>
@@ -79,7 +79,7 @@ export default function GuideNameComposition() {
                     <OnboardingPrimaryAction
                         type="button"
                         onClick={() => {
-                            router.push("/make-yours");
+                            router.push("/begin");
                         }}
                         trailing={
                             <ArrowIcon
@@ -96,7 +96,7 @@ export default function GuideNameComposition() {
             <div className={progressPlacementStyles.frame}>
                 <OnboardingPageProgress
                     step={1}
-                    totalSteps={6}
+                    totalSteps={2}
                 />
             </div>
         </OnboardingPage>

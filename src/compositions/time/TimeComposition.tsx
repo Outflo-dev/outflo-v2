@@ -23,8 +23,8 @@ export default function TimeComposition() {
     return (
         <main className={styles.surface}>
             <BackNavigationAction
-                href="/ready"
-                label="Back to Ready"
+                href="/begin"
+                label="Back to Begin"
             />
 
             <TimeInstrument />
