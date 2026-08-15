@@ -3,22 +3,37 @@
    File: src/compositions/onboarding/verify-email/internal/code/module/style/code.paint.module.css
    Scope: Own the resting visual treatment of one verification-code cell
    Last Updated:
-   - date: 2026-08-02
-   - note: establish canonical surface, border, foreground, and digit typography
+   - date: 2026-08-15
+   - note: align verification cells with the quiet onboarding control surface
    ========================================================== */
 
 .paint {
     color: var(--color-foreground-primary);
 
-    background:
-        color-mix(in srgb,
-            var(--color-accent-primary) 4%,
-            transparent);
+    background-color:
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 12%,
+            var(--color-surface-primary)
+        );
 
-    border:
-        1px solid color-mix(in srgb,
-            var(--color-accent-primary) 30%,
-            transparent);
+    background-image:
+        linear-gradient(
+            135deg,
+            color-mix(
+                in srgb,
+                var(--color-accent-primary) 7%,
+                transparent
+            ) 0%,
+            color-mix(
+                in srgb,
+                var(--color-accent-secondary) 3%,
+                transparent
+            ) 55%,
+            transparent 100%
+        );
+
+    border: 1px solid transparent;
 
     border-radius: 0.45rem;
     outline: none;
