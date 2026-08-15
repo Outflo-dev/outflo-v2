@@ -1,7 +1,7 @@
 /* ==========================================================
-   OUTFLO — TIME CONCEPT ICON
-   File: src/components/system/primitives/icons/concepts/TimeConceptIcon.tsx
-   Scope: Render the reusable canonical Time concept icon
+   OUTFLO — CALENDAR CONCEPT ICON
+   File: src/components/system/primitives/icons/concepts/CalendarConceptIcon.tsx
+   Scope: Render the reusable canonical calendar concept icon
    Last Updated:
    - date: 2026-08-15
    - note: allow Begin to opt into canonical accent-gradient paint
@@ -18,7 +18,7 @@ import {
 /* ------------------------------
    Types
 -------------------------------- */
-type TimeConceptIconProps = {
+type CalendarConceptIconProps = {
     size?: number;
     title?: string;
     gradient?: boolean;
@@ -27,11 +27,11 @@ type TimeConceptIconProps = {
 /* ------------------------------
    Component
 -------------------------------- */
-export default function TimeConceptIcon({
+export default function CalendarConceptIcon({
     size = 64,
     title,
     gradient = false,
-}: TimeConceptIconProps) {
+}: CalendarConceptIconProps) {
     const isDecorative = title === undefined;
     const gradientId = useId();
 
@@ -82,20 +82,40 @@ export default function TimeConceptIcon({
                 </defs>
             )}
 
-            <circle
-                cx="32"
-                cy="32"
-                r="20"
+            <rect
+                x="16"
+                y="18"
+                width="32"
+                height="28"
+                rx="2"
                 stroke={stroke}
                 strokeWidth="2"
             />
 
             <path
                 d="
-                    M32 22
-                    V31.2
-                    C32 31.75 32.2 32.1 32.65 32.42
-                    L39 37
+                    M24 14
+                    V22
+
+                    M40 14
+                    V22
+
+                    M16 26
+                    H48
+                "
+                stroke={stroke}
+                strokeWidth="2"
+                strokeLinecap="square"
+                strokeLinejoin="bevel"
+            />
+
+            <path
+                d="
+                    M27 34
+                    H37
+
+                    M27 38
+                    H34
                 "
                 stroke={stroke}
                 strokeWidth="2.25"

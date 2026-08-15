@@ -56,7 +56,11 @@ export default function BeginComposition() {
             <div className={styles.intro}>
                 <OnboardingPageIntro
                     title="Begin"
-                    subtitle="When does your Time begin?"
+                    subtitle={
+                        <span className={styles.subtitle}>
+                            When does your Time begin?
+                        </span>
+                    }
                 />
             </div>
 
