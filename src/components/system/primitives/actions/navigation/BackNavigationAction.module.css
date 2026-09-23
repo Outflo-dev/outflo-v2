@@ -3,19 +3,25 @@
    File: src/components/system/primitives/actions/navigation/BackNavigationAction.module.css
    Scope: Own the canonical interaction recipe for backward navigation
    Last Updated:
-   - date: 2026-07-26
-   - note: establish the compact icon-only back action
+   - date: 2026-09-23
+   - note: expand the canonical back action to support arrow + visible Back label
    ========================================================== */
 
 .action {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 0.45rem;
 
-    width: 2rem;
-    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
 
     color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1;
 
     text-decoration: none;
 
@@ -28,4 +34,13 @@
 
 .action:active {
     transform: translateY(1px);
+}
+
+.label {
+    display: inline-block;
+}
+
+.chevron {
+    display: inline-flex;
+    transform: rotate(180deg);
 }

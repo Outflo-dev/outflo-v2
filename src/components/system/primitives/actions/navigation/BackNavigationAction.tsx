@@ -3,30 +3,21 @@
    File: src/components/system/primitives/actions/navigation/BackNavigationAction.tsx
    Scope: Own the canonical backward-navigation action boundary
    Last Updated:
-   - date: 2026-07-27
-   - note: consume the shared directional arrow primitive
+   - date: 2026-09-23
+   - note: render the canonical chevron + Back language
    ========================================================== */
 
-/* ------------------------------
-   Imports
--------------------------------- */
 import Link from "next/link";
 
-import ArrowIcon from "@/components/system/primitives/icons/navigation/ArrowIcon";
+import ChevronRightIcon from "@/components/system/primitives/icons/navigation/ChevronRightIcon";
 
 import styles from "./BackNavigationAction.module.css";
 
-/* ------------------------------
-   Types
--------------------------------- */
 type BackNavigationActionProps = {
     href: string;
     label?: string;
 };
 
-/* ------------------------------
-   Component
--------------------------------- */
 export default function BackNavigationAction({
     href,
     label = "Go back",
@@ -37,10 +28,13 @@ export default function BackNavigationAction({
             aria-label={label}
             className={styles.action}
         >
-            <ArrowIcon
-                direction="left"
-                size={22}
-            />
+            <span className={styles.chevron}>
+                <ChevronRightIcon />
+            </span>
+
+            <span className={styles.label}>
+                Back
+            </span>
         </Link>
     );
 }

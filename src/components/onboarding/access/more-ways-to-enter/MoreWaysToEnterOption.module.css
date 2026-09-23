@@ -1,0 +1,61 @@
+.option {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.9rem;
+
+    min-height: 4.75rem;
+    padding: 0.9rem 1rem;
+
+    border: 1px solid
+        color-mix(in srgb, var(--color-accent-primary) 28%, transparent);
+    border-radius: 0.875rem;
+
+    background: transparent;
+}
+
+.mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy {
+    min-width: 0;
+}
+
+.name {
+    margin: 0;
+
+    color: var(--color-text-primary);
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.detail {
+    margin: 0.3rem 0 0;
+
+    color: color-mix(
+        in srgb,
+        var(--color-text-primary) 58%,
+        transparent
+    );
+
+    font-size: 0.82rem;
+}
+
+.status {
+    color: color-mix(
+        in srgb,
+        var(--color-text-primary) 52%,
+        transparent
+    );
+
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.available {
+    color: var(--color-accent-primary);
+}

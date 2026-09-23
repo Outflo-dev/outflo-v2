@@ -1,0 +1,12 @@
+.intro {
+    margin-top: 1.25rem;
+}
+
+.options {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+
+    width: 100%;
+}

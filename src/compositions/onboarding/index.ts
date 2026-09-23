@@ -9,36 +9,28 @@
 
 export {
     default as CreateAccountComposition,
-} from "./create-account/CreateAccountComposition";
+} from "./access/create-account/CreateAccountComposition";
 
 export {
     default as VerifyEmailComposition,
-} from "./verify-email/VerifyEmailComposition";
+} from "./access/verify-email/VerifyEmailComposition";
 
 export {
     default as GuideNameComposition,
-} from "./guide-name/GuideNameComposition";
-export {
-    default as MakeYoursComposition,
-} from "./make-yours/MakeYoursComposition";
+} from "./outflo-onboarding/guide-name/GuideNameComposition";
 
-export {
-    default as TimeSettingsComposition,
-} from "./time-settings/TimeSettingsComposition";
 
-export {
-    default as OrbitComposition,
-} from "./orbit/OrbitComposition";
 
 export {
     default as BeginComposition,
-} from "./begin/BeginComposition";
+} from "./outflo-onboarding/begin/BeginComposition";
 
-export {
-default as ReadyComposition,
-} from "./ready/ReadyComposition";
 
 
 export {
     default as SignInComposition,
-} from "./sign-in/SignInComposition";
+} from "./access/sign-in/SignInComposition";
+
+export {
+    default as MoreWaysToEnterComposition,
+} from "./access/more-ways-to-enter/MoreWaysToEnterComposition";

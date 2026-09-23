@@ -1,0 +1,39 @@
+/* ==========================================================
+   OUTFLO — BEGIN OPTIONS INTERACTION
+   File: src/compositions/onboarding/begin/internal/options/BeginOptionsInteraction.module.css
+   Scope: Own native interaction and state-indicator behavior for Guide Begin choices
+   Last Updated:
+   - date: 2026-08-19
+   - note: let canonical state indicators communicate Begin completion without selected-card paint
+   ========================================================== */
+
+.option {
+    appearance: none;
+
+    margin: 0;
+
+    color: inherit;
+    font: inherit;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.option:focus-visible {
+    outline: 2px solid
+        color-mix(
+            in srgb,
+            var(--color-accent-primary) 68%,
+            transparent
+        );
+
+    outline-offset: 2px;
+}
+
+.positive {
+    color: var(--color-state-positive);
+}
+
+.neutral {
+    color: var(--color-accent-secondary);
+}

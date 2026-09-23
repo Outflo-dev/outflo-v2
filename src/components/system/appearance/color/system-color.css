@@ -22,4 +22,6 @@
 
     --color-accent-primary: var(--theme-accent-primary);
     --color-accent-secondary: var(--theme-accent-secondary);
+
+    --color-state-positive: var(--theme-state-positive);
 }

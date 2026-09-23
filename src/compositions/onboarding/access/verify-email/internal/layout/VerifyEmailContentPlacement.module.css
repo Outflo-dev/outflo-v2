@@ -1,0 +1,16 @@
+/* ==========================================================
+   OUTFLO — VERIFY EMAIL CONTENT PLACEMENT
+   File: src/compositions/onboarding/verify-email/internal/layout/VerifyEmailContentPlacement.module.css
+   Scope: Own the local placement of the complete Verify Email content sequence
+   Last Updated:
+   - date: 2026-08-12
+   - note: restore the proven Verify Email content geometry beneath the independent progress band
+   ========================================================== */
+
+.frame {
+    width: 100%;
+
+    padding-top: 2.1rem;
+
+    box-sizing: border-box;
+}
