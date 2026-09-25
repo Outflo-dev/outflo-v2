@@ -3,10 +3,10 @@
 /* ==========================================================
    OUTFLO — TIME INSTRUMENT
    File: src/compositions/time/internal/instrument/TimeInstrument.tsx
-   Scope: Project one Begin against live observed Now
+   Scope: Project one canonical Guide Begin against live observed Now
    Last Updated:
-   - date: 2026-08-19
-   - note: replace the static Time scaffold with the first live Begin projection
+   - date: 2026-09-25
+   - note: wire persisted Guide Begin directly to the canonical Outflō Clock
    ========================================================== */
 
 /* ------------------------------
@@ -14,12 +14,29 @@
 -------------------------------- */
 
 import {
-    useLiveNowUnixMs,
-} from "@/runtime/begin/time/live/useLiveNowUnixMs";
+    useEffect,
+    useState,
+} from "react";
+
+import {
+    parseTemporalInstant128,
+} from "@/machine/clock/serialization/parseTemporalInstant128";
+
+import {
+    serializeTemporalDuration128,
+} from "@/machine/clock/serialization/serializeTemporalDuration128";
 
 import {
     resolveBeginTemporalRelationship,
-} from "@/runtime/begin/time/relationship/resolveBeginTemporalRelationship";
+} from "@/runtime/begin/relationship/resolveBeginTemporalRelationship";
+
+import {
+    readCurrentTemporalInstant128,
+} from "@/runtime/clock/now/readCurrentTemporalInstant128";
+
+import type {
+    TemporalInstant128,
+} from "@/machine/clock/instant/TemporalInstant128";
 
 import styles from "./TimeInstrument.module.css";
 
@@ -28,7 +45,7 @@ import styles from "./TimeInstrument.module.css";
 -------------------------------- */
 
 type TimeInstrumentProps = {
-    beginUnixMs?: number | null;
+    beginInstant?: string | null;
 };
 
 /* ------------------------------
@@ -36,26 +53,47 @@ type TimeInstrumentProps = {
 -------------------------------- */
 
 export default function TimeInstrument({
-    beginUnixMs,
+    beginInstant,
 }: TimeInstrumentProps) {
-    const nowUnixMs =
-        useLiveNowUnixMs();
+    const [observedInstant, setObservedInstant] =
+        useState<TemporalInstant128 | null>(null);
+
+    useEffect(() => {
+        const observe = () => {
+            setObservedInstant(
+                readCurrentTemporalInstant128(),
+            );
+        };
+
+        observe();
+
+        const interval =
+            window.setInterval(observe, 50);
+
+        return () => {
+            window.clearInterval(interval);
+        };
+    }, []);
+
+    const parsedBeginInstant =
+        beginInstant
+            ? parseTemporalInstant128(beginInstant)
+            : null;
 
     const relationship =
-        beginUnixMs !== null &&
-        beginUnixMs !== undefined &&
-        nowUnixMs !== null
+        parsedBeginInstant !== null &&
+        observedInstant !== null
             ? resolveBeginTemporalRelationship({
-                  beginUnixMs,
-                  nowUnixMs,
+                  beginInstant: parsedBeginInstant,
+                  observedInstant,
               })
             : null;
 
-    const seconds =
+    const value =
         relationship === null
-            ? null
-            : Math.floor(
-                  relationship.distanceMs / 1000,
+            ? "—"
+            : serializeTemporalDuration128(
+                  relationship.distance,
               );
 
     const caption =
@@ -74,11 +112,11 @@ export default function TimeInstrument({
 
                 <div className={styles.readout}>
                     <span className={styles.value}>
-                        {seconds ?? "—"}
+                        {value}
                     </span>
 
                     <span className={styles.unit}>
-                        Seconds
+                        Nanoseconds
                     </span>
                 </div>
             </div>

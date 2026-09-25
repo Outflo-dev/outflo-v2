@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — TIME ROUTE
    File: src/app/(time)/time/page.tsx
-   Scope: Expose Begin Home from persisted Guide Begin truth
+   Scope: Expose Time from persisted canonical Guide Begin truth
    Last Updated:
-   - date: 2026-08-19
-   - note: read the authenticated Guide's persisted Begin and pass it into the live Begin surface
+   - date: 2026-09-25
+   - note: read canonical Guide Begin and pass exact serialization into Time
    ========================================================== */
 
 /* ------------------------------
@@ -14,20 +14,20 @@
 import TimeComposition from "@/compositions/time/TimeComposition";
 
 import {
-    readGuideBeginUnixMs,
-} from "@/runtime/begin/read/readGuideBeginUnixMs";
+    readGuideBeginSerializedInstant,
+} from "@/runtime/begin/read/readGuideBeginSerializedInstant";
 
 /* ------------------------------
    Route
 -------------------------------- */
 
 export default async function TimePage() {
-    const beginUnixMs =
-        await readGuideBeginUnixMs();
+    const beginInstant =
+        await readGuideBeginSerializedInstant();
 
     return (
         <TimeComposition
-            beginUnixMs={beginUnixMs}
+            beginInstant={beginInstant}
         />
     );
 }

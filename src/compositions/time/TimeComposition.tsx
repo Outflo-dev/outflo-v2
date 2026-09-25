@@ -1,17 +1,15 @@
 /* ==========================================================
    OUTFLO — TIME COMPOSITION
    File: src/compositions/time/TimeComposition.tsx
-   Scope: Compose the first visible Begin Home surface
+   Scope: Compose the first visible canonical Begin surface
    Last Updated:
-   - date: 2026-08-19
-   - note: project the persisted Guide Begin through the live Begin instrument
+   - date: 2026-09-25
+   - note: project persisted canonical Guide Begin through the live Time instrument
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
-
-import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 
 import TimeInstrument from "@/compositions/time/internal/instrument/TimeInstrument";
 
@@ -22,7 +20,7 @@ import styles from "@/compositions/time/internal/layout/TimeLayout.module.css";
 -------------------------------- */
 
 type TimeCompositionProps = {
-    beginUnixMs: number | null;
+    beginInstant: string | null;
 };
 
 /* ------------------------------
@@ -30,17 +28,12 @@ type TimeCompositionProps = {
 -------------------------------- */
 
 export default function TimeComposition({
-    beginUnixMs,
+    beginInstant,
 }: TimeCompositionProps) {
     return (
         <main className={styles.surface}>
-            <BackNavigationAction
-                href="/begin"
-                label="Back to Begin"
-            />
-
             <TimeInstrument
-                beginUnixMs={beginUnixMs}
+                beginInstant={beginInstant}
             />
         </main>
     );
