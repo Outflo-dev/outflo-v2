@@ -12,8 +12,6 @@
 /* ------------------------------
    Imports
 -------------------------------- */
-import { useRouter } from "next/navigation";
-
 import BackNavigationAction from "@/components/system/primitives/actions/navigation/BackNavigationAction";
 import OnboardingPrimaryAction from "@/components/system/primitives/actions/onboarding/OnboardingPrimaryAction";
 
@@ -40,13 +38,20 @@ import {
     getEnterTimeEligibility,
 } from "@/runtime/onboarding/enter-time/eligibility/getEnterTimeEligibility";
 
+import {
+    useEnterTimeSubmission,
+} from "@/runtime/onboarding/enter-time/submission/useEnterTimeSubmission";
+
 import styles from "@/compositions/onboarding/outflo-onboarding/begin/internal/layout/BeginLayout.module.css";
 
 /* ------------------------------
    Component
 -------------------------------- */
 export default function BeginComposition() {
-    const router = useRouter();
+    const {
+        isSubmitting,
+        submitEnterTime,
+    } = useEnterTimeSubmission();
 
     const {
         guideBeginSelection,
@@ -93,8 +98,10 @@ export default function BeginComposition() {
                 <OnboardingPageAction>
                     <OnboardingPrimaryAction
                         type="button"
-                        disabled={!isEnterTimeEligible}
-                        onClick={() => router.push("/time")}
+                        disabled={!isEnterTimeEligible || isSubmitting}
+                        onClick={() => {
+                            void submitEnterTime();
+                        }}
                         trailing={
                             <ArrowIcon
                                 direction="right"

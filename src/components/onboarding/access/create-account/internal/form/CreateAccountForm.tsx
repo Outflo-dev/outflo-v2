@@ -34,6 +34,10 @@ import {
     useCreateAccountSubmission,
 } from "@/runtime/onboarding/access/create-account/CreateAccountRuntimeIndex";
 
+import {
+    validateAccessPassword,
+} from "@/runtime/onboarding/access/password/validateAccessPassword";
+
 import styles from "./CreateAccountForm.module.css";
 
 /* ------------------------------
@@ -85,6 +89,30 @@ export default function CreateAccountForm() {
             typeof confirmPassword !== "string"
         ) {
             return;
+        }
+
+        const passwordInput =
+            form.elements.namedItem(
+                "password",
+            );
+
+        const passwordValidation =
+            validateAccessPassword(password);
+
+        if (
+            passwordInput instanceof HTMLInputElement
+        ) {
+            passwordInput.setCustomValidity(
+                passwordValidation.valid
+                    ? ""
+                    : passwordValidation.message,
+            );
+
+            if (!passwordValidation.valid) {
+                passwordInput.reportValidity();
+
+                return;
+            }
         }
 
         const confirmPasswordInput =
@@ -223,9 +251,9 @@ export default function CreateAccountForm() {
                 <SecurityIcon />
 
                 <span>
-                    Use 12+ characters. Spaces are allowed.
+                    Use 12+ characters with at least one letter.
                     <br />
-                    Common or breached passwords will be blocked.
+                    Spaces are allowed.
                 </span>
             </div>
         </form>
