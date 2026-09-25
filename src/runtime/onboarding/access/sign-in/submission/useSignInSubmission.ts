@@ -5,8 +5,8 @@
    File: src/runtime/onboarding/access/sign-in/submission/useSignInSubmission.ts
    Scope: Own successful Sign In submission lifecycle
    Last Updated:
-   - date: 2026-08-19
-   - note: authenticate existing Access identity and transition to Begin Home
+   - date: 2026-09-25
+   - note: authenticate Access identity and resolve entry from persisted Outflō existence
    ========================================================== */
 
 /* ------------------------------
@@ -16,6 +16,10 @@
 import {
     useRouter,
 } from "next/navigation";
+
+import {
+    resolveSignInDestination,
+} from "@/runtime/onboarding/access/sign-in/destination/resolveSignInDestination";
 
 import {
     signInEmailAccessIdentity,
@@ -54,11 +58,21 @@ export function useSignInSubmission() {
             };
         }
 
-        router.push("/time");
+        try {
+            const destination =
+                await resolveSignInDestination();
 
-        return {
-            error: null,
-        };
+            router.replace(destination);
+            router.refresh();
+
+            return {
+                error: null,
+            };
+        } catch (error) {
+            return {
+                error,
+            };
+        }
     }
 
     return {
