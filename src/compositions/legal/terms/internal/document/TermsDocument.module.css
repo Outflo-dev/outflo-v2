@@ -1,0 +1,25 @@
+/* ==========================================================
+   OUTFLO — TERMS DOCUMENT
+   File: src/compositions/legal/terms/internal/document/TermsDocument.module.css
+   Scope: Own the continuous reading frame for the Terms document
+   ========================================================== */
+
+.document {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 22rem;
+
+    margin: 0 auto;
+    padding: 0 0 4rem;
+
+    box-sizing: border-box;
+
+    scroll-margin-top:
+        calc(env(safe-area-inset-top) + 1.5rem);
+}
+
+.document > section:first-child {
+    padding-top: 0;
+}

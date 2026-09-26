@@ -21,7 +21,7 @@ describe("createTemporalDuration128", () => {
     ).toBe(0n);
   });
 
-  it("accepts one nanosecond", () => {
+  it("accepts one Outflōsecond", () => {
     expect(createTemporalDuration128(1n)).toBe(1n);
   });
 

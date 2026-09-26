@@ -1,55 +1,56 @@
 /* ==========================================================
    OUTFLO — RESOLVE UNIX MILLISECONDS TO TEMPORAL INSTANT 128 TEST
    File: src/machine/resolution/unix/resolveUnixMillisecondsToTemporalInstant128.test.ts
-   Scope: Prove deterministic Unix-to-Clock temporal resolution
-   Last Updated:
-   - note: prove Unix epoch, modern UTC/TAI resolution, and millisecond precision mapping
+   Scope: Prove deterministic Unix-to-Clock resolution in canonical Outflōseconds
    ========================================================== */
 
 import { describe, expect, it } from "vitest";
 
-import { resolveUnixMillisecondsToTemporalInstant128 } from "./resolveUnixMillisecondsToTemporalInstant128";
+import {
+  resolveUnixMillisecondsToTemporalInstant128,
+} from "./resolveUnixMillisecondsToTemporalInstant128";
 
 describe("resolveUnixMillisecondsToTemporalInstant128", () => {
-  it("resolves the Unix epoch using the historical TAI-minus-UTC relationship", () => {
-    const unixMilliseconds = 0n;
-    const taiMinusUtcNanoseconds = 8_000_082_000n;
-
+  it("resolves the Unix epoch using the historical 8.000082 SI-second TAI-minus-UTC relationship", () => {
     expect(
       resolveUnixMillisecondsToTemporalInstant128(
-        unixMilliseconds,
-        taiMinusUtcNanoseconds,
+        0n,
+        8_000_082n,
+        1_000_000n,
       ),
-    ).toBe(378_691_208_000_082_000n);
+    ).toBe(
+      147_948_858_308_526_302_739_422_230_175n,
+    );
   });
 
-  it("resolves 2017-01-01 UTC using TAI minus UTC of 37 seconds", () => {
-    const unixMilliseconds = 1_483_228_800_000n;
-    const taiMinusUtcNanoseconds = 37_000_000_000n;
-
+  it("resolves 2017-01-01 UTC using TAI minus UTC of 37 SI seconds", () => {
     expect(
       resolveUnixMillisecondsToTemporalInstant128(
-        unixMilliseconds,
-        taiMinusUtcNanoseconds,
+        1_483_228_800_000n,
+        37n,
       ),
-    ).toBe(1_861_920_037_000_000_000n);
+    ).toBe(
+      727_423_657_894_532_904_688_167_168_824n,
+    );
   });
 
-  it("maps one Unix millisecond to one million Clock nanoseconds", () => {
-    const taiMinusUtcNanoseconds = 37_000_000_000n;
-
+  it("resolves one additional Unix millisecond onto the Outflō number line", () => {
     const first =
       resolveUnixMillisecondsToTemporalInstant128(
         1_483_228_800_000n,
-        taiMinusUtcNanoseconds,
+        37n,
       );
 
     const second =
       resolveUnixMillisecondsToTemporalInstant128(
         1_483_228_800_001n,
-        taiMinusUtcNanoseconds,
+        37n,
       );
 
-    expect(second - first).toBe(1_000_000n);
+    expect(
+      second - first,
+    ).toBe(
+      390_684_692_918_707_177n,
+    );
   });
 });

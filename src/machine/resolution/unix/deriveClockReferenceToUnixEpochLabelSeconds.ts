@@ -1,9 +1,7 @@
 /* ==========================================================
    OUTFLO — DERIVE CLOCK REFERENCE TO UNIX EPOCH LABEL SECONDS
    File: src/machine/resolution/unix/deriveClockReferenceToUnixEpochLabelSeconds.ts
-   Scope: Derive the nominal civil-label displacement between the Outflō Clock reference and the Unix Epoch
-   Last Updated:
-   - note: replace precomputed 378,691,200-second displacement with transparent derivation
+   Scope: Derive the nominal SI-second displacement between the Outflō Clock reference and the Unix Epoch
    ========================================================== */
 
 /*
@@ -15,8 +13,6 @@
   This derives the nominal Gregorian label displacement only.
   TAI-minus-UTC is resolved separately.
 */
-
-import { NANOSECONDS_PER_SECOND } from "../../clock/unit/temporalUnit.constants";
 
 const CLOCK_REFERENCE_YEAR = 1958;
 const UNIX_EPOCH_YEAR = 1970;
@@ -55,6 +51,5 @@ export function deriveClockReferenceToUnixEpochLabelSeconds(): bigint {
   return days * SECONDS_PER_NOMINAL_DAY;
 }
 
-export const CLOCK_REFERENCE_TO_UNIX_EPOCH_LABEL_NANOSECONDS =
-  deriveClockReferenceToUnixEpochLabelSeconds() *
-  NANOSECONDS_PER_SECOND;
+export const CLOCK_REFERENCE_TO_UNIX_EPOCH_LABEL_SI_SECONDS =
+  deriveClockReferenceToUnixEpochLabelSeconds();

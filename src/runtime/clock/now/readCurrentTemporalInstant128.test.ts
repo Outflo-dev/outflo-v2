@@ -1,25 +1,41 @@
 /* ==========================================================
    OUTFLO — READ CURRENT TEMPORAL INSTANT 128 TEST
    File: src/runtime/clock/now/readCurrentTemporalInstant128.test.ts
-   Scope: Prove runtime observation of the current platform instant onto the Outflō Clock
+   Scope: Prove high-resolution runtime observation of platform now onto the Outflō Clock
    Last Updated:
-   - note: establish deterministic Date.now observation at the runtime boundary
+   - note: prove wall-clock anchoring plus monotonic sub-millisecond advancement in canonical Outflōseconds
    ========================================================== */
 
-import { afterEach, describe, expect, it, vi } from "vitest";
-
-import { readCurrentTemporalInstant128 } from "./readCurrentTemporalInstant128";
+import {
+  afterEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.resetModules();
 });
 
 describe("readCurrentTemporalInstant128", () => {
-  it("observes platform now and resolves it onto the Clock", () => {
-    vi.spyOn(Date, "now").mockReturnValue(1_483_228_800_000);
+  it("anchors wall time and advances Now through canonical Outflōseconds", async () => {
+    vi.spyOn(Date, "now")
+      .mockReturnValue(1_483_228_800_000);
+
+    vi.spyOn(performance, "now")
+      .mockReturnValueOnce(1_000)
+      .mockReturnValueOnce(1_000.125);
+
+    const {
+      readCurrentTemporalInstant128,
+    } = await import("./readCurrentTemporalInstant128");
 
     expect(
       readCurrentTemporalInstant128(),
-    ).toBe(1_861_920_037_000_000_000n);
+    ).toBe(
+      727_423_657_894_581_740_274_782_007_221n,
+    );
   });
 });

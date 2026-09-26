@@ -62,7 +62,7 @@ export default function LandingLegal() {
                     href="/terms"
                     style={TERMS_STYLE}
                 >
-                    Terms of Service
+                    Terms of Use
                 </Link>
 
                 {" and "}

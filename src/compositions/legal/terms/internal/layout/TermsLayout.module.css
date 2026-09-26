@@ -1,0 +1,41 @@
+/* ==========================================================
+   OUTFLO — TERMS LAYOUT
+   File: src/compositions/legal/terms/internal/layout/TermsLayout.module.css
+   Scope: Own the complete Terms of Use surface and page placement
+   ========================================================== */
+
+.surface {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    padding:
+        calc(env(safe-area-inset-top) + 1rem)
+        0
+        calc(env(safe-area-inset-bottom) + 2rem);
+
+    box-sizing: border-box;
+
+    background: var(--color-surface-primary);
+}
+
+.navigation {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: flex-start;
+
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}

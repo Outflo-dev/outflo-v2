@@ -1,0 +1,168 @@
+/* ==========================================================
+   OUTFLO — TERMS ARRIVAL
+   File: src/compositions/legal/terms/internal/arrival/TermsArrival.module.css
+   Scope: Own the first-screen composition of the Terms of Use
+   ========================================================== */
+
+.arrival {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height:
+        calc(
+            100dvh
+            - env(safe-area-inset-top)
+            - env(safe-area-inset-bottom)
+            - 3.5rem
+        );
+
+    padding: 1.7rem 0 1.75rem;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mark {
+    display: flex;
+
+    margin-bottom: -1.25rem;
+}
+
+.wordmark {
+    line-height: 1;
+}
+
+.identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 2.65rem;
+}
+
+.title {
+    margin: 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+}
+
+.timeLabel {
+    margin: 1.15rem 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.instant {
+    max-width: 100%;
+
+    margin: 0.45rem 0 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+
+    overflow-wrap: anywhere;
+}
+
+.unit {
+    margin: 0.35rem 0 0;
+
+    color: var(--color-accent-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.66rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.reference {
+    margin: 0.45rem 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.divider {
+    width: 76%;
+    max-width: 17rem;
+    height: 1px;
+
+    margin: 1.65rem 0 1.45rem;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            color-mix(
+                in srgb,
+                var(--color-accent-primary) 55%,
+                transparent
+            ),
+            color-mix(
+                in srgb,
+                var(--color-accent-secondary) 42%,
+                transparent
+            ),
+            transparent
+        );
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    width: 100%;
+    max-width: 19rem;
+
+    margin: 0 auto;
+}
+
+.introduction p {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
+    font-size: 0.86rem;
+    font-weight: 400;
+    line-height: 1.52;
+    letter-spacing: -0.003em;
+}
+
+.enter {
+    margin-top: auto;
+    padding-top: 2rem;
+}

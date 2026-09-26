@@ -1,21 +1,45 @@
 /* ==========================================================
    OUTFLO — TEMPORAL UNIT CONSTANTS
    File: src/machine/clock/unit/temporalUnit.constants.ts
-   Scope: Own exact temporal unit relationships used by the Outflō Clock
-   Last Updated:
-   - note: establish SI-derived nanosecond scale relationships
+   Scope: Own exact SI-second relationships used by the Outflō Clock
    ========================================================== */
 
-/*
-  Provenance:
-  - BIPM International System of Units (SI)
-  - milli = 10^-3
-  - nano  = 10^-9
+import {
+  OUTFLO_SECOND_V1_SI_SECONDS_DENOMINATOR,
+  OUTFLO_SECOND_V1_SI_SECONDS_NUMERATOR,
+} from "../definition/clockDefinitionV1.constants";
 
-  Therefore:
-  - 1 millisecond = 10^6 nanoseconds
-  - 1 second = 10^9 nanoseconds
+/*
+  Clock Definition v1
+
+  1 Outflōsecond
+  =
+  OUTFLO_SECOND_V1_SI_SECONDS_NUMERATOR
+  /
+  OUTFLO_SECOND_V1_SI_SECONDS_DENOMINATOR
+  SI seconds
+
+  The inverse relationship is therefore:
+
+  1 SI second
+  =
+  OUTFLO_SECOND_V1_SI_SECONDS_DENOMINATOR
+  /
+  OUTFLO_SECOND_V1_SI_SECONDS_NUMERATOR
+  Outflōseconds
+
+  Both relationships remain exact rational quantities.
+  No floating-point approximation belongs in the Machine.
 */
 
-export const NANOSECONDS_PER_MILLISECOND = 10n ** 6n;
-export const NANOSECONDS_PER_SECOND = 10n ** 9n;
+export const SI_SECONDS_PER_OUTFLOSECOND_NUMERATOR =
+  OUTFLO_SECOND_V1_SI_SECONDS_NUMERATOR;
+
+export const SI_SECONDS_PER_OUTFLOSECOND_DENOMINATOR =
+  OUTFLO_SECOND_V1_SI_SECONDS_DENOMINATOR;
+
+export const OUTFLOSECONDS_PER_SI_SECOND_NUMERATOR =
+  OUTFLO_SECOND_V1_SI_SECONDS_DENOMINATOR;
+
+export const OUTFLOSECONDS_PER_SI_SECOND_DENOMINATOR =
+  OUTFLO_SECOND_V1_SI_SECONDS_NUMERATOR;

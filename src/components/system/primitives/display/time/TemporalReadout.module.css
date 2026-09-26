@@ -1,0 +1,22 @@
+/* ==========================================================
+   OUTFLO — TEMPORAL READOUT
+   File: src/components/system/primitives/display/time/TemporalReadout.module.css
+   Scope: Own the canonical visual posture of a temporal readout
+   ========================================================== */
+
+.value {
+    display: inline-block;
+
+    max-width: 100%;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
