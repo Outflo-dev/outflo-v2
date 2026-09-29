@@ -59,7 +59,7 @@ export default function LandingLegal() {
 
             <span style={LINE_STYLE}>
                 <Link
-                    href="/terms"
+                    href="/coming-soon"
                     style={TERMS_STYLE}
                 >
                     Terms of Use
@@ -68,7 +68,7 @@ export default function LandingLegal() {
                 {" and "}
 
                 <Link
-                    href="/privacy"
+                    href="/coming-soon"
                     style={PRIVACY_STYLE}
                 >
                     Privacy Policy

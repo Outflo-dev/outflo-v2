@@ -14,7 +14,7 @@ const APPLE_MARK_STYLE: CSSProperties = {
 export default function LandingAppleAction() {
     return (
         <LandingAuthAction
-            href="/more-ways-to-enter"
+            href="/coming-soon"
             leading={
                 <span style={APPLE_MARK_STYLE}>
                     <AppleIcon />

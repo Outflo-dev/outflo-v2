@@ -3,8 +3,8 @@
    File: src/components/onboarding/page/OnboardingPage.tsx
    Scope: Own the stable shared frame surrounding onboarding page compositions
    Last Updated:
-   - date: 2026-08-12
-   - note: establish navigation, content, and progress as distinct page channels
+   - date: 2026-09-29
+   - note: allow a surface composition to supply an alternate atmosphere
    ========================================================== */
 
 /* ------------------------------
@@ -23,6 +23,7 @@ import OnboardingPageSurface from "./internal/surface/OnboardingPageSurface";
 -------------------------------- */
 type OnboardingPageProps = {
     children: ReactNode;
+    atmosphere?: ReactNode;
     navigation?: ReactNode;
     progress?: ReactNode;
 };
@@ -32,12 +33,13 @@ type OnboardingPageProps = {
 -------------------------------- */
 export default function OnboardingPage({
     children,
+    atmosphere,
     navigation,
     progress,
 }: OnboardingPageProps) {
     return (
         <OnboardingPageSurface>
-            <OnboardingPageAtmosphere />
+            {atmosphere ?? <OnboardingPageAtmosphere />}
 
             {navigation ? (
                 <OnboardingPageNavigation>

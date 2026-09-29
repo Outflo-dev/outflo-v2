@@ -30,7 +30,3 @@ export {
 export {
     default as SignInComposition,
 } from "./access/sign-in/SignInComposition";
-
-export {
-    default as MoreWaysToEnterComposition,
-} from "./access/more-ways-to-enter/MoreWaysToEnterComposition";

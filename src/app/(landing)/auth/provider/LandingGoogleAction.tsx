@@ -14,7 +14,7 @@ const GOOGLE_MARK_STYLE: CSSProperties = {
 export default function LandingGoogleAction() {
     return (
         <LandingAuthAction
-            href="/more-ways-to-enter"
+            href="/coming-soon"
             leading={
                 <span style={GOOGLE_MARK_STYLE}>
                     <GoogleIcon />
