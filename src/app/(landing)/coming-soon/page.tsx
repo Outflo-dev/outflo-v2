@@ -165,7 +165,7 @@ export default function ComingSoonPage() {
                 <div style={BRAND_STYLE}>
                     <div style={MARK_STYLE}>
                         <OutfloMark
-                            size={125}
+                            size={150}
                             title="Outflō"
                         />
                     </div>
