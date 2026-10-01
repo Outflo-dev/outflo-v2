@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — SUPABASE SESSION PROXY
    File: src/lib/supabase/proxy.ts
-   Scope: Refresh and propagate the authenticated Supabase session
+   Scope: Refresh, propagate, and verify the authenticated Supabase session
    Last Updated:
-   - date: 2026-08-11
-   - note: establish the canonical request-level Supabase session owner
+   - date: 2026-09-30
+   - note: expose verified authenticated identity to the request proxy
    ========================================================== */
 
 /* ------------------------------
@@ -12,13 +12,27 @@
 -------------------------------- */
 
 import { createServerClient } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
+import {
+    NextResponse,
+    type NextRequest,
+} from "next/server";
+
+/* ------------------------------
+   Types
+-------------------------------- */
+
+export type SupabaseSessionUpdate = {
+    response: NextResponse;
+    authenticatedUserId: string | null;
+};
 
 /* ------------------------------
    Session
 -------------------------------- */
 
-export async function updateSession(request: NextRequest) {
+export async function updateSession(
+    request: NextRequest,
+): Promise<SupabaseSessionUpdate> {
     let response = NextResponse.next({
         request,
     });
@@ -33,23 +47,39 @@ export async function updateSession(request: NextRequest) {
                 },
 
                 setAll(cookiesToSet, headers) {
-                    cookiesToSet.forEach(({ name, value }) => {
-                        request.cookies.set(name, value);
-                    });
+                    cookiesToSet.forEach(
+                        ({ name, value }) => {
+                            request.cookies.set(
+                                name,
+                                value,
+                            );
+                        },
+                    );
 
                     response = NextResponse.next({
                         request,
                     });
 
                     cookiesToSet.forEach(
-                        ({ name, value, options }) => {
-                            response.cookies.set(name, value, options);
+                        ({
+                            name,
+                            value,
+                            options,
+                        }) => {
+                            response.cookies.set(
+                                name,
+                                value,
+                                options,
+                            );
                         },
                     );
 
                     Object.entries(headers).forEach(
                         ([key, value]) => {
-                            response.headers.set(key, value);
+                            response.headers.set(
+                                key,
+                                value,
+                            );
                         },
                     );
                 },
@@ -57,7 +87,16 @@ export async function updateSession(request: NextRequest) {
         },
     );
 
-    await supabase.auth.getClaims();
+    const {
+        data,
+        error,
+    } = await supabase.auth.getClaims();
 
-    return response;
+    return {
+        response,
+        authenticatedUserId:
+            error === null && data !== null
+                ? data.claims.sub
+                : null,
+    };
 }

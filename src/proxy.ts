@@ -1,26 +1,77 @@
 /* ==========================================================
    OUTFLO — REQUEST PROXY
    File: src/proxy.ts
-   Scope: Route requests through the canonical Supabase session owner
+   Scope: Refresh authenticated session and gate protected Outflō routes
    Last Updated:
-   - date: 2026-08-11
-   - note: wire request-level Supabase session refresh
+   - date: 2026-09-30
+   - note: require verified Access identity outside explicit public routes
    ========================================================== */
 
 /* ------------------------------
    Imports
 -------------------------------- */
 
-import type { NextRequest } from "next/server";
+import {
+    NextResponse,
+    type NextRequest,
+} from "next/server";
 
-import { updateSession } from "@/lib/supabase/proxy";
+import {
+    updateSession,
+} from "@/lib/supabase/proxy";
+
+/* ------------------------------
+   Public Routes
+-------------------------------- */
+
+const PUBLIC_PATHS = new Set([
+    "/",
+    "/coming-soon",
+    "/terms",
+    "/create-account",
+    "/sign-in",
+    "/verify-email",
+    "/manifest.webmanifest",
+]);
 
 /* ------------------------------
    Proxy
 -------------------------------- */
 
-export async function proxy(request: NextRequest) {
-    return updateSession(request);
+export async function proxy(
+    request: NextRequest,
+) {
+    const {
+        response,
+        authenticatedUserId,
+    } = await updateSession(request);
+
+    const pathname =
+        request.nextUrl.pathname;
+
+    if (
+        PUBLIC_PATHS.has(pathname) ||
+        authenticatedUserId !== null
+    ) {
+        return response;
+    }
+
+    const signInUrl =
+        request.nextUrl.clone();
+
+    signInUrl.pathname = "/sign-in";
+    signInUrl.search = "";
+
+    const redirectResponse =
+        NextResponse.redirect(signInUrl);
+
+    response.cookies
+        .getAll()
+        .forEach((cookie) => {
+            redirectResponse.cookies.set(cookie);
+        });
+
+    return redirectResponse;
 }
 
 /* ------------------------------
