@@ -15,10 +15,6 @@ export {
     default as VerifyEmailComposition,
 } from "./access/verify-email/VerifyEmailComposition";
 
-export {
-    default as GuideNameComposition,
-} from "./outflo-onboarding/guide-name/GuideNameComposition";
-
 
 
 export {

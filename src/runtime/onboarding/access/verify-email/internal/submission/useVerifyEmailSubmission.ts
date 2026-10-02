@@ -5,8 +5,8 @@
    File: src/runtime/onboarding/access/verify-email/submission/useVerifyEmailSubmission.ts
    Scope: Own the successful Verify Email submission lifecycle
    Last Updated:
-   - date: 2026-08-19
-   - note: connect volatile verification email and entered code to authenticated Access
+   - Outflō Time: 847627357828824664966983192303
+   - note: route verified Access identity directly into Begin
    ========================================================== */
 
 /* ------------------------------
@@ -68,7 +68,7 @@ export function useVerifyEmailSubmission() {
             };
         }
 
-        router.push("/guide-name");
+        router.push("/begin");
 
         return {
             error: null,

@@ -7,8 +7,8 @@ import "server-only";
    File: src/runtime/onboarding/enter-time/creation/createOutfloAtEnterTime.ts
    Scope: Own trusted authenticated Outflō creation at the Enter Time boundary
    Last Updated:
-   - date: 2026-09-24
-   - note: verify authenticated identity, observe canonical Now once, and atomically create Outflō
+   - Outflō Time: 847627357828824664966983192303
+   - note: remove Guide Name dependency from trusted Outflō creation
    ========================================================== */
 
 /* ------------------------------
@@ -35,13 +35,6 @@ import {
    Types
 -------------------------------- */
 
-type CreateOutfloAtEnterTimeInput = {
-    username: string;
-    guideBeginSelection:
-        | "now"
-        | "another-date";
-};
-
 export type CreateOutfloAtEnterTimeResult =
     | {
           success: true;
@@ -56,18 +49,7 @@ export type CreateOutfloAtEnterTimeResult =
    Creation
 -------------------------------- */
 
-export async function createOutfloAtEnterTime({
-    username,
-    guideBeginSelection,
-}: CreateOutfloAtEnterTimeInput): Promise<CreateOutfloAtEnterTimeResult> {
-    if (guideBeginSelection !== "now") {
-        return {
-            success: false,
-            error:
-                "Another date does not yet have a canonical temporal resolver.",
-        };
-    }
-
+export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTimeResult> {
     const authenticatedSupabase =
         await createAuthenticatedSupabaseClient();
 
@@ -105,7 +87,6 @@ export async function createOutfloAtEnterTime({
         "enter_time",
         {
             p_user_id: user.id,
-            p_username: username,
             p_guide_begin_instant:
                 serializedInstant,
             p_outflo_begin_instant:
