@@ -3,8 +3,8 @@
    File: src/compositions/onboarding/access/verify-email/VerifyEmailComposition.tsx
    Scope: Compose the complete visible Verify Email experience
    Last Updated:
-   - date: 2026-08-03
-   - note: own the Verify Email sequence within the shared onboarding frame
+   - Outflō Time: 847627357828824664966983192303
+   - note: preserve the Verify Email concept mark
    ========================================================== */
 
 /* ------------------------------

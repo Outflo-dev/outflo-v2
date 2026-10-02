@@ -3,7 +3,7 @@
    File: src/compositions/legal/terms/terms-document.record.ts
    Scope: Own the current Terms of Use document content and its canonical Outflō update Instant
    Last Updated:
-   - Outflō Time: 847455447520560058175967459431
+   - Outflō Time: 2169138430132000000
    - reference: 1958-01-01 00:00:00 TAI
    ========================================================== */
 
@@ -17,7 +17,7 @@ export type TermsDocumentRecord = {
     title: string;
     version: string;
     updatedInstant: string;
-    temporalUnit: "Outflōseconds";
+    temporalUnit: "nanoseconds";
     temporalReference: string;
     introduction: readonly string[];
     sections: readonly TermsSectionRecord[];
@@ -28,9 +28,9 @@ export const TERMS_DOCUMENT: TermsDocumentRecord = {
 
     version: "1",
 
-    updatedInstant: "847455447520560058175967459431",
+    updatedInstant: "2169138430132000000",
 
-    temporalUnit: "Outflōseconds",
+    temporalUnit: "nanoseconds",
 
     temporalReference: "1958-01-01 00:00:00 TAI",
 
