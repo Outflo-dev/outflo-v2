@@ -122,7 +122,6 @@ begin
     return v_entered_at_ms;
 end;
 $function$;
-
 COMMENT ON FUNCTION public.enter_time(
   text,
   text,
@@ -137,7 +136,6 @@ COMMENT ON FUNCTION public.enter_time(
   bigint
 ) IS
 'Atomically creates Outflō for the authenticated Guide and returns immutable Outflō Begin as Unix milliseconds.';
-
 REVOKE ALL ON FUNCTION public.enter_time(
   text,
   text,
@@ -151,7 +149,6 @@ REVOKE ALL ON FUNCTION public.enter_time(
   text,
   bigint
 ) FROM PUBLIC;
-
 REVOKE ALL ON FUNCTION public.enter_time(
   text,
   text,
@@ -165,7 +162,6 @@ REVOKE ALL ON FUNCTION public.enter_time(
   text,
   bigint
 ) FROM anon;
-
 REVOKE ALL ON FUNCTION public.enter_time(
   text,
   text,
@@ -179,7 +175,6 @@ REVOKE ALL ON FUNCTION public.enter_time(
   text,
   bigint
 ) FROM authenticated;
-
 GRANT EXECUTE ON FUNCTION public.enter_time(
   text,
   text,

@@ -7,8 +7,8 @@ import "server-only";
    File: src/runtime/onboarding/enter-time/creation/createOutfloAtEnterTime.ts
    Scope: Own trusted authenticated Outflō creation at the Enter Time boundary
    Last Updated:
-   - Outflō Time: 847627357828824664966983192303
-   - note: remove Guide Name dependency from trusted Outflō creation
+   - Outflō Time: 847727497905743373502341416701
+   - note: consume canonical Clock serialization through the Machine boundary
    ========================================================== */
 
 /* ------------------------------
@@ -24,8 +24,8 @@ import {
 } from "@/lib/supabase/creation/createOutfloCreationClient";
 
 import {
-    serializeTemporalInstant128,
-} from "@/machine/clock/serialization/serializeTemporalInstant128";
+    machine,
+} from "@/machine";
 
 import {
     readCurrentTemporalInstant128,
@@ -73,7 +73,7 @@ export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTime
         readCurrentTemporalInstant128();
 
     const serializedInstant =
-        serializeTemporalInstant128(
+        machine.clock.serializeTemporalInstant128(
             observedInstant,
         );
 

@@ -5,8 +5,8 @@
    File: src/runtime/onboarding/access/sign-in/submission/useSignInSubmission.ts
    Scope: Own successful Sign In submission lifecycle
    Last Updated:
-   - date: 2026-09-25
-   - note: authenticate Access identity and resolve entry from persisted Outflō existence
+   - date: 2026-10-05
+   - note: expose raw client temporal observations around Supabase Auth
    ========================================================== */
 
 /* ------------------------------
@@ -24,6 +24,10 @@ import {
 import {
     signInEmailAccessIdentity,
 } from "@/runtime/onboarding/access/sign-in/identity/signInEmailAccessIdentity";
+
+import {
+    observePlatformTemporalNow,
+} from "@/runtime/clock/observation/observePlatformTemporalNow";
 
 /* ------------------------------
    Types
@@ -45,12 +49,28 @@ export function useSignInSubmission() {
         email,
         password,
     }: SignInSubmissionInput) {
+        const beforeAuthentication =
+            observePlatformTemporalNow();
+
+        console.log(
+            "[Outflō Clock Experiment] client before authentication",
+            beforeAuthentication,
+        );
+
         const {
             error,
         } = await signInEmailAccessIdentity({
             email,
             password,
         });
+
+        const afterAuthentication =
+            observePlatformTemporalNow();
+
+        console.log(
+            "[Outflō Clock Experiment] client after authentication",
+            afterAuthentication,
+        );
 
         if (error) {
             return {

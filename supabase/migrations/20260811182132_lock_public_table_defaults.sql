@@ -16,12 +16,10 @@ alter default privileges
 for role postgres
 in schema public
 revoke all on tables from anon, authenticated;
-
 /* ------------------------------
 Existing Tables
 -------------------------------- */
 
 revoke all on table public.profiles from anon;
 revoke all on table public.profiles from authenticated;
-
 grant select on table public.profiles to authenticated;

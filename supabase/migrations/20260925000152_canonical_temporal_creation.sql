@@ -31,16 +31,13 @@
 alter table public.profiles
     rename column entered_at_ms
     to legacy_entered_at_ms;
-
 alter table public.profiles
     alter column legacy_entered_at_ms
         drop default,
     alter column legacy_entered_at_ms
         drop not null;
-
 alter table public.profiles
     add column outflo_begin_instant numeric(39, 0);
-
 alter table public.profiles
     add constraint profiles_outflo_begin_instant_range
     check (
@@ -50,7 +47,6 @@ alter table public.profiles
             and
              170141183460469231731687303715884105727
     );
-
 alter table public.profiles
     add constraint profiles_begin_representation
     check (
@@ -64,13 +60,10 @@ alter table public.profiles
             and legacy_entered_at_ms is not null
         )
     );
-
 comment on column public.profiles.legacy_entered_at_ms is
 'Legacy Unix-millisecond Outflō Begin representation. Preserved only for pre-Clock rows and not used for new canonical creation.';
-
 comment on column public.profiles.outflo_begin_instant is
 'Immutable canonical Outflō Begin stored as an exact TemporalInstant128 Clock coordinate.';
-
 /* ------------------------------
    Guide Begins
 -------------------------------- */
@@ -96,25 +89,19 @@ create table public.guide_begins (
                  170141183460469231731687303715884105727
         )
 );
-
 create index guide_begins_user_id_idx
     on public.guide_begins(user_id);
-
 alter table public.guide_begins
     enable row level security;
-
 revoke all
 on table public.guide_begins
 from anon;
-
 revoke all
 on table public.guide_begins
 from authenticated;
-
 grant select
 on table public.guide_begins
 to authenticated;
-
 create policy "Guides can read their own Begins"
 on public.guide_begins
 for select
@@ -122,22 +109,16 @@ to authenticated
 using (
     user_id = (select auth.uid())
 );
-
 comment on table public.guide_begins is
 'Guide-owned repeatable Begin anchors on the canonical Outflō Clock.';
-
 comment on column public.guide_begins.begin_id is
 'Immutable identity of one Guide Begin.';
-
 comment on column public.guide_begins.user_id is
 'Authentication identity that owns this Guide Begin.';
-
 comment on column public.guide_begins.begin_instant is
 'Canonical TemporalInstant128 coordinate owned by this Guide Begin.';
-
 comment on table public.guide_time is
 'Legacy Unix-millisecond Guide Time representation. No new canonical Begin writes occur here.';
-
 /* ------------------------------
    Retire Legacy Creation
 -------------------------------- */
@@ -155,7 +136,6 @@ drop function if exists public.enter_time(
     text,
     bigint
 );
-
 /* ------------------------------
    Canonical Enter Time
 -------------------------------- */
@@ -271,7 +251,6 @@ begin
     return v_outflo_begin_serialized;
 end;
 $function$;
-
 /* ------------------------------
    Creation Access
 -------------------------------- */
@@ -282,28 +261,24 @@ revoke all on function public.enter_time(
     numeric,
     numeric
 ) from public;
-
 revoke all on function public.enter_time(
     uuid,
     text,
     numeric,
     numeric
 ) from anon;
-
 revoke all on function public.enter_time(
     uuid,
     text,
     numeric,
     numeric
 ) from authenticated;
-
 grant execute on function public.enter_time(
     uuid,
     text,
     numeric,
     numeric
 ) to service_role;
-
 /* ------------------------------
    Creation Contract
 -------------------------------- */
