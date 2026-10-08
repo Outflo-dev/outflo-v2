@@ -4,7 +4,7 @@
    Scope: Capture one server-observed temporal interval around a runtime operation
    Last Updated:
    - date: 2026-10-07
-   - note: capture observer provenance at entrance, preserve both raw boundaries, and resolve protected Machine Time
+   - note: expose the protected entrance Instant to the observed operation
    ========================================================== */
 
 import {
@@ -21,6 +21,11 @@ import type {
 
 import {
   resolveObservedMachineTime,
+  resolveObservedMachineTimeEntrance,
+} from "./resolveObservedMachineTime";
+
+import type {
+  ObservedMachineTimeEntrance,
 } from "./resolveObservedMachineTime";
 
 export type RuntimeMachineTimeObservation<T> = Readonly<{
@@ -36,7 +41,9 @@ export type RuntimeMachineTimeObservation<T> = Readonly<{
 }>;
 
 export async function observeRuntimeMachineTime<T>(
-  operation: () => Promise<T>,
+  operation: (
+    entrance: ObservedMachineTimeEntrance,
+  ) => Promise<T>,
 ): Promise<RuntimeMachineTimeObservation<T>> {
   const provenance =
     observeServerTemporalProvenance();
@@ -44,8 +51,15 @@ export async function observeRuntimeMachineTime<T>(
   const firstObservation =
     observePlatformTemporalNow();
 
+  const entrance =
+    resolveObservedMachineTimeEntrance(
+      firstObservation,
+    );
+
   const value =
-    await operation();
+    await operation(
+      entrance,
+    );
 
   const secondObservation =
     observePlatformTemporalNow();

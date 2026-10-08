@@ -6,12 +6,16 @@
    Scope: Observe and persist the authenticated server-entry interval for one successful Sign In
    Last Updated:
    - date: 2026-10-07
-   - note: begin server Machine-Time observation immediately after client authentication succeeds
+   - note: persist Sign In observation, then reuse its protected firstInstant as Guide Begin
    ========================================================== */
 
 import {
     createClient as createAuthenticatedSupabaseClient,
 } from "@/lib/supabase/server";
+
+import {
+    writeGuideBeginInstant,
+} from "@/runtime/begin/write/writeGuideBeginInstant";
 
 import {
     observeAndRecordRuntimeMachineTime,
@@ -59,7 +63,13 @@ export async function recordSuccessfulSignInMachineTime():
                         );
                     }
 
-                    return resolveSignInDestination();
+                    const destination =
+                        await resolveSignInDestination();
+
+                    return {
+                        userId: user.id,
+                        destination,
+                    };
                 },
             );
 
@@ -71,12 +81,37 @@ export async function recordSuccessfulSignInMachineTime():
             };
         }
 
+        /*
+         * Only an existing Guide entering Time has a Guide Begin
+         * to advance. Incomplete onboarding remains untouched.
+         */
+        if (
+            observed.value.destination ===
+            "/time"
+        ) {
+            const begin =
+                await writeGuideBeginInstant({
+                    userId:
+                        observed.value.userId,
+                    beginInstant:
+                        observed.machineTime.firstInstant,
+                });
+
+            if (!begin.success) {
+                return {
+                    success: false,
+                    error:
+                        begin.error,
+                };
+            }
+        }
+
         return {
             success: true,
             observationId:
                 observed.persistence.observationId,
             destination:
-                observed.value,
+                observed.value.destination,
         };
     } catch (error) {
         return {

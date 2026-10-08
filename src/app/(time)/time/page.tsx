@@ -1,33 +1,35 @@
 /* ==========================================================
    OUTFLO — TIME ROUTE
    File: src/app/(time)/time/page.tsx
-   Scope: Expose Time from persisted canonical Guide Begin truth
+   Scope: Enter Time through one observed canonical Guide Begin read
    Last Updated:
-   - date: 2026-09-25
-   - note: read canonical Guide Begin and pass exact serialization into Time
+   - date: 2026-10-07
+   - note: persist Machine Time around the /time entry read
    ========================================================== */
-
-/* ------------------------------
-   Imports
--------------------------------- */
 
 import TimeComposition from "@/compositions/time/TimeComposition";
 
 import {
-    readGuideBeginSerializedInstant,
-} from "@/runtime/begin/read/readGuideBeginSerializedInstant";
+    observeTimeEntryMachineTime,
+} from "@/runtime/time/entry/observeTimeEntryMachineTime";
 
 /* ------------------------------
    Route
 -------------------------------- */
 
 export default async function TimePage() {
-    const beginInstant =
-        await readGuideBeginSerializedInstant();
+    const observed =
+        await observeTimeEntryMachineTime();
+
+    if (!observed.persistence.success) {
+        throw new Error(
+            observed.persistence.error,
+        );
+    }
 
     return (
         <TimeComposition
-            beginInstant={beginInstant}
+            beginInstant={observed.value}
         />
     );
 }

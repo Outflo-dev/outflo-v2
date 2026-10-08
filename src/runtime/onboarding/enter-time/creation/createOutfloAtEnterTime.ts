@@ -5,10 +5,10 @@ import "server-only";
 /* ==========================================================
    OUTFLO — CREATE OUTFLO AT ENTER TIME
    File: src/runtime/onboarding/enter-time/creation/createOutfloAtEnterTime.ts
-   Scope: Own trusted authenticated Outflō creation at the Enter Time boundary
+   Scope: Create Outflō from the protected Machine-Time entrance of Enter Time
    Last Updated:
-   - Outflō Time: 847727497905743373502341416701
-   - note: consume canonical Clock serialization through the Machine boundary
+   - date: 2026-10-07
+   - note: anchor Guide Begin and Outflō Begin to the observed Enter Time entrance
    ========================================================== */
 
 /* ------------------------------
@@ -28,8 +28,8 @@ import {
 } from "@/machine";
 
 import {
-    readCurrentTemporalInstant128,
-} from "@/runtime/clock/now/readCurrentTemporalInstant128";
+    observeAndRecordRuntimeMachineTime,
+} from "@/runtime/clock/persistence/observeAndRecordRuntimeMachineTime";
 
 /* ------------------------------
    Types
@@ -50,67 +50,83 @@ export type CreateOutfloAtEnterTimeResult =
 -------------------------------- */
 
 export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTimeResult> {
-    const authenticatedSupabase =
-        await createAuthenticatedSupabaseClient();
+    const observed =
+        await observeAndRecordRuntimeMachineTime(
+            async (entrance) => {
+                const authenticatedSupabase =
+                    await createAuthenticatedSupabaseClient();
 
-    const {
-        data: {
-            user,
-        },
-        error: authenticationError,
-    } =
-        await authenticatedSupabase.auth.getUser();
+                const {
+                    data: {
+                        user,
+                    },
+                    error: authenticationError,
+                } =
+                    await authenticatedSupabase.auth.getUser();
 
-    if (authenticationError || !user) {
-        return {
-            success: false,
-            error:
-                "Authenticated Guide identity is required.",
-        };
-    }
+                if (authenticationError || !user) {
+                    return {
+                        success: false,
+                        error:
+                            "Authenticated Guide identity is required.",
+                    } as const;
+                }
 
-    const observedInstant =
-        readCurrentTemporalInstant128();
+                const serializedBeginInstant =
+                    machine.clock.serializeTemporalInstant128(
+                        entrance.firstInstant,
+                    );
 
-    const serializedInstant =
-        machine.clock.serializeTemporalInstant128(
-            observedInstant,
+                const creationSupabase =
+                    createOutfloCreationClient();
+
+                const {
+                    data,
+                    error,
+                } = await creationSupabase.rpc(
+                    "enter_time",
+                    {
+                        p_user_id: user.id,
+                        p_guide_begin_instant:
+                            serializedBeginInstant,
+                        p_outflo_begin_instant:
+                            serializedBeginInstant,
+                    },
+                );
+
+                if (error) {
+                    return {
+                        success: false,
+                        error: error.message,
+                    } as const;
+                }
+
+                if (typeof data !== "string") {
+                    return {
+                        success: false,
+                        error:
+                            "Outflō creation did not return a canonical Begin.",
+                    } as const;
+                }
+
+                return {
+                    success: true,
+                    outfloBeginInstant: data,
+                } as const;
+            },
         );
 
-    const creationSupabase =
-        createOutfloCreationClient();
-
-    const {
-        data,
-        error,
-    } = await creationSupabase.rpc(
-        "enter_time",
-        {
-            p_user_id: user.id,
-            p_guide_begin_instant:
-                serializedInstant,
-            p_outflo_begin_instant:
-                serializedInstant,
-        },
-    );
-
-    if (error) {
-        return {
-            success: false,
-            error: error.message,
-        };
+    if (!observed.value.success) {
+        return observed.value;
     }
 
-    if (typeof data !== "string") {
+    if (!observed.persistence.success) {
         return {
             success: false,
             error:
-                "Outflō creation did not return a canonical Begin.",
+                observed.persistence.error,
         };
     }
 
-    return {
-        success: true,
-        outfloBeginInstant: data,
-    };
+    return observed.value;
 }

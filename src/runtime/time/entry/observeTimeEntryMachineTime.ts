@@ -1,12 +1,12 @@
 import "server-only";
 
 /* ==========================================================
-   OUTFLO — RECORD GUIDE BEGIN READ MACHINE TIME
-   File: src/runtime/clock/proof/recordGuideBeginReadMachineTime.ts
-   Scope: Observe and persist Machine Time around one authenticated Guide Begin read
+   OUTFLO — OBSERVE TIME ENTRY MACHINE TIME
+   File: src/runtime/time/entry/observeTimeEntryMachineTime.ts
+   Scope: Observe and persist Machine Time around one authenticated Time entry
    Last Updated:
    - date: 2026-10-07
-   - note: establish the first repeatable end-to-end Machine-Time persistence witness
+   - note: promote the proven Guide Begin read witness into the real Time entry path
    ========================================================== */
 
 import {
@@ -17,7 +17,7 @@ import {
   observeAndRecordRuntimeMachineTime,
 } from "@/runtime/clock/persistence/observeAndRecordRuntimeMachineTime";
 
-export async function recordGuideBeginReadMachineTime() {
+export async function observeTimeEntryMachineTime() {
   return observeAndRecordRuntimeMachineTime(
     async () =>
       readGuideBeginSerializedInstant(),

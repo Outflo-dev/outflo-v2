@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — RESOLVE OBSERVED MACHINE TIME
    File: src/runtime/clock/interval/resolveObservedMachineTime.ts
-   Scope: Resolve two raw platform observations into one protected canonical Machine-Time interval
+   Scope: Resolve raw platform observations into protected canonical Machine-Time boundaries and intervals
    Last Updated:
    - date: 2026-10-07
-   - note: preserve raw observations, apply a one-millisecond inward observation bound, and derive one canonical Outflō duration
+   - note: expose the protected entrance Instant without duplicating observation law
    ========================================================== */
 
 import {
@@ -17,6 +17,22 @@ import type {
 
 const OBSERVATION_PRECISION_MILLISECONDS =
   1n;
+
+export type ObservedMachineTimeEntrance =
+  Readonly<{
+    firstObservation:
+      PlatformTemporalObservation;
+
+    observationPrecisionMilliseconds:
+      bigint;
+
+    protectedFirstUnixMilliseconds:
+      bigint;
+
+    firstInstant: ReturnType<
+      typeof machine.clock.resolveUnixMillisecondObservation128
+    >;
+  }>;
 
 export type ObservedMachineTime = Readonly<{
   firstObservation: PlatformTemporalObservation;
@@ -43,10 +59,39 @@ export type ObservedMachineTime = Readonly<{
   >;
 }>;
 
+export function resolveObservedMachineTimeEntrance(
+  firstObservation: PlatformTemporalObservation,
+): ObservedMachineTimeEntrance {
+  const protectedFirstUnixMilliseconds =
+    firstObservation.wallUnixMilliseconds +
+    OBSERVATION_PRECISION_MILLISECONDS;
+
+  const firstInstant =
+    machine.clock.resolveUnixMillisecondObservation128(
+      protectedFirstUnixMilliseconds,
+    );
+
+  return {
+    firstObservation,
+
+    observationPrecisionMilliseconds:
+      OBSERVATION_PRECISION_MILLISECONDS,
+
+    protectedFirstUnixMilliseconds,
+
+    firstInstant,
+  };
+}
+
 export function resolveObservedMachineTime(
   firstObservation: PlatformTemporalObservation,
   secondObservation: PlatformTemporalObservation,
 ): ObservedMachineTime {
+  const entrance =
+    resolveObservedMachineTimeEntrance(
+      firstObservation,
+    );
+
   const rawSpanMilliseconds =
     secondObservation.wallUnixMilliseconds -
     firstObservation.wallUnixMilliseconds;
@@ -64,22 +109,13 @@ export function resolveObservedMachineTime(
     );
   }
 
-  const protectedFirstUnixMilliseconds =
-    firstObservation.wallUnixMilliseconds +
-    OBSERVATION_PRECISION_MILLISECONDS;
-
   const protectedSecondUnixMilliseconds =
     secondObservation.wallUnixMilliseconds -
     OBSERVATION_PRECISION_MILLISECONDS;
 
   const protectedSpanMilliseconds =
     protectedSecondUnixMilliseconds -
-    protectedFirstUnixMilliseconds;
-
-  const firstInstant =
-    machine.clock.resolveUnixMillisecondObservation128(
-      protectedFirstUnixMilliseconds,
-    );
+    entrance.protectedFirstUnixMilliseconds;
 
   const secondInstant =
     machine.clock.resolveUnixMillisecondObservation128(
@@ -88,24 +124,30 @@ export function resolveObservedMachineTime(
 
   const duration =
     machine.clock.measureTemporalDurationBetweenInstants(
-      firstInstant,
+      entrance.firstInstant,
       secondInstant,
     );
 
   return {
-    firstObservation,
+    firstObservation:
+      entrance.firstObservation,
+
     secondObservation,
 
     rawSpanMilliseconds,
 
     observationPrecisionMilliseconds:
-      OBSERVATION_PRECISION_MILLISECONDS,
+      entrance.observationPrecisionMilliseconds,
 
-    protectedFirstUnixMilliseconds,
+    protectedFirstUnixMilliseconds:
+      entrance.protectedFirstUnixMilliseconds,
+
     protectedSecondUnixMilliseconds,
     protectedSpanMilliseconds,
 
-    firstInstant,
+    firstInstant:
+      entrance.firstInstant,
+
     secondInstant,
     duration,
   };
