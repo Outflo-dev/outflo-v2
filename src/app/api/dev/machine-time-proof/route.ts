@@ -3,8 +3,8 @@ import {
 } from "next/server";
 
 import {
-  recordGuideBeginReadMachineTime,
-} from "@/runtime/clock/proof/recordGuideBeginReadMachineTime";
+  observeTimeEntryMachineTime,
+} from "@/runtime/time/entry/observeTimeEntryMachineTime";
 
 export async function POST() {
   if (process.env.NODE_ENV === "production") {
@@ -14,7 +14,7 @@ export async function POST() {
   }
 
   const result =
-    await recordGuideBeginReadMachineTime();
+    await observeTimeEntryMachineTime();
 
   if (!result.persistence.success) {
     return NextResponse.json(
