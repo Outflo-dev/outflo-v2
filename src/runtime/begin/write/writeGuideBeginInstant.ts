@@ -5,8 +5,8 @@ import "server-only";
    File: src/runtime/begin/write/writeGuideBeginInstant.ts
    Scope: Persist one already-resolved canonical Instant as Guide Begin
    Last Updated:
-   - date: 2026-10-07
-   - note: consume canonical Machine truth without observing Time again
+   - date: 2026-10-09
+   - note: require unambiguous Begin identity before updating
    ========================================================== */
 
 import {
@@ -28,13 +28,49 @@ export async function writeGuideBeginInstant({
     userId: string;
     beginInstant: TemporalInstant128;
 }) {
+    const supabase =
+        await createTrustedSupabaseClient();
+
+    /*
+     * The current Sign In contract supports one Guide Begin.
+     *
+     * Resolve its identity before writing.
+     * Multiple Begins require explicit selection.
+     */
+    const {
+        data: begins,
+        error: readError,
+    } = await supabase
+        .from("guide_begins")
+        .select("begin_id")
+        .eq("user_id", userId)
+        .limit(2);
+
+    if (readError) {
+        return {
+            success: false,
+            error: readError.message,
+        } as const;
+    }
+
+    if (!begins || begins.length === 0) {
+        return {
+            success: false,
+            error: "Guide Begin does not exist.",
+        } as const;
+    }
+
+    if (begins.length !== 1) {
+        return {
+            success: false,
+            error: "Explicit Guide Begin selection is required.",
+        } as const;
+    }
+
     const serializedBeginInstant =
         machine.clock.serializeTemporalInstant128(
             beginInstant,
         );
-
-    const supabase =
-        await createTrustedSupabaseClient();
 
     const {
         data,
@@ -45,6 +81,7 @@ export async function writeGuideBeginInstant({
             begin_instant:
                 serializedBeginInstant,
         })
+        .eq("begin_id", begins[0].begin_id)
         .eq("user_id", userId)
         .select("begin_instant")
         .maybeSingle();
@@ -59,8 +96,7 @@ export async function writeGuideBeginInstant({
     if (!data) {
         return {
             success: false,
-            error:
-                "Guide Begin does not exist.",
+            error: "Guide Begin update failed.",
         } as const;
     }
 

@@ -5,21 +5,21 @@ import "server-only";
    File: src/runtime/time/entry/observeTimeEntryMachineTime.ts
    Scope: Observe and persist Machine Time around one authenticated Time entry
    Last Updated:
-   - date: 2026-10-07
-   - note: promote the proven Guide Begin read witness into the real Time entry path
+   - date: 2026-10-09
+   - note: return canonical Begin record from observed Time entry
    ========================================================== */
 
 import {
-  readGuideBeginSerializedInstant,
+    readGuideBeginRecord,
 } from "@/runtime/begin/read/readGuideBeginSerializedInstant";
 
 import {
-  observeAndRecordRuntimeMachineTime,
+    observeAndRecordRuntimeMachineTime,
 } from "@/runtime/clock/persistence/observeAndRecordRuntimeMachineTime";
 
 export async function observeTimeEntryMachineTime() {
-  return observeAndRecordRuntimeMachineTime(
-    async () =>
-      readGuideBeginSerializedInstant(),
-  );
+    return observeAndRecordRuntimeMachineTime(
+        async () =>
+            readGuideBeginRecord(),
+    );
 }

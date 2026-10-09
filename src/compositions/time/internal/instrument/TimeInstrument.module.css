@@ -1,124 +1,293 @@
 /* ==========================================================
    OUTFLO — TIME INSTRUMENT
    File: src/compositions/time/internal/instrument/TimeInstrument.module.css
-   Scope: Own the exact geometry and presentation of the primary elapsed-Time instrument
+   Scope: Present the circular Begin entrance
    Last Updated:
-   - date: 2026-08-09
-   - note: establish mathematically circular instrument geometry
+   - date: 2026-10-09
+   - note: compose SYSTEM Time in the approved entrance
    ========================================================== */
 
 .frame {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 100%;
+    max-width: 430px;
+    padding: 0 12px 2rem;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 2.8rem;
+}
+
+.wordmark {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-system);
+    font-size: 1.45rem;
+    font-weight: 300;
+    letter-spacing: 0.38em;
+    padding-left: 0.38em;
+}
+
+.product {
+    color: var(--color-accent-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.46em;
+    padding-left: 0.46em;
 }
 
 .instrument {
     position: relative;
-
     display: grid;
     place-items: center;
-
-    width: min(18.5rem, 82vw);
-    aspect-ratio: 1 / 1;
-
-    flex: 0 0 auto;
+    width: min(21.5rem, 86vw);
+    aspect-ratio: 1;
+    flex-shrink: 0;
 }
 
 .ring {
     position: absolute;
     inset: 0;
-
-    box-sizing: border-box;
-
     border-radius: 50%;
-
     background: var(--gradient-brand-primary);
-
-    filter:
-        drop-shadow(
-            0 0 0.7rem
-            color-mix(
-                in srgb,
-                var(--color-accent-primary) 34%,
-                transparent
-            )
-        );
+    box-shadow: 0 0 1.2rem rgba(94, 103, 255, 0.3);
 }
 
 .ring::after {
     content: "";
-
     position: absolute;
     inset: 3px;
-
     border-radius: 50%;
-
     background: var(--color-surface-primary);
+}
+
+.marker {
+    position: absolute;
+    z-index: 2;
+    top: -0.36rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow:
+        0 0 0.65rem rgba(255,255,255,0.95),
+        0 0 1.3rem rgba(79,124,255,0.9);
 }
 
 .readout {
     position: relative;
     z-index: 1;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 85%;
+    text-align: center;
+}
+
+.caption {
+    color: var(--color-text-secondary);
+    font-size: clamp(0.65rem, 2.2vw, 0.8rem);
+    letter-spacing: 0.28em;
+    text-align: center;
 }
 
 .value {
+    margin-top: 1rem;
     color: var(--color-text-primary);
-
-    font-family: var(--font-family-system);
-    font-size: 6.4rem;
+    font-size: clamp(5rem, 21vw, 7rem);
     font-weight: 300;
-    line-height: 0.92;
-    letter-spacing: -0.055em;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
 }
 
 .unit {
-    margin-top: 1rem;
-
+    margin-top: 0.25rem;
     color: var(--color-accent-secondary);
-
-    font-family: var(--font-family-system);
     font-size: 1.15rem;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    padding-left: 0.32em;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    margin-top: 1.6rem;
 }
 
 .detail {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 0.4rem;
+}
 
-    margin-top: 1.45rem;
+.detail + .detail {
+    border-left: 1px solid rgba(155, 163, 188, 0.35);
+}
 
+.detailValue {
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+}
+
+.detailLabel {
     color: var(--color-text-secondary);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+}
 
-    font-family: var(--font-family-system);
-    font-size: 0.78rem;
-    font-weight: 400;
-    line-height: 1;
+.identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2.25rem;
+    max-width: 100%;
+    text-align: center;
+}
+
+.beginTitle {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.85rem;
+    font-weight: 300;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.reference {
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+}
+
+.canonical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.canonicalLabel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    color: var(--color-text-secondary);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+}
+
+.canonicalLabel::before,
+.canonicalLabel::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(155,163,188,0.35);
+}
+
+.canonicalValue {
+    color: var(--color-text-primary);
+    font-size: clamp(0.69rem, 2.8vw, 0.9rem);
+    font-weight: 300;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    overflow-wrap: anywhere;
 }
 
-.separator {
-    margin-inline: 0.6rem;
-
-    color: var(--color-accent-secondary);
+.pageIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.7rem;
 }
 
-.caption {
-    margin-top: 1.8rem;
+.activeDot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--color-accent-secondary);
+    box-shadow: 0 0 0.6rem rgba(139, 92, 255, 0.8);
+}
 
-    color: var(--color-text-secondary);
+.enter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 2.7rem;
+    color: var(--color-accent-primary);
+    text-decoration: none;
+}
 
-    font-family: var(--font-family-system);
-    font-size: 1rem;
-    font-weight: 400;
+.enterCircle {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            var(--color-surface-primary),
+            var(--color-surface-primary)
+        ) padding-box,
+        var(--gradient-brand-primary) border-box;
+    box-shadow: 0 0 0.8rem rgba(79,124,255,0.3);
+}
+
+.upArrow {
+    display: block;
+    transform: rotate(-90deg);
+}
+
+.enterLabel {
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    padding-left: 0.35em;
+}
+
+/* TIME entrance — launch text color */
+.frame .wordmark,
+.frame .product,
+.frame .caption,
+.frame .value,
+.frame .unit,
+.frame .detailValue,
+.frame .detailLabel,
+.frame .beginTitle,
+.frame .reference,
+.frame .canonicalLabel,
+.frame .canonicalValue,
+.frame .enterLabel {
+    color: #FFFFFF;
+}
+
+/* ==========================================================
+   TIME — CANONICAL NUMBER VISIBILITY
+   ========================================================== */
+
+.frame .readout,
+.frame .readout *,
+.frame .digitGrid,
+.frame .digitGrid *,
+.frame .canonicalValue {
+    color: #FFFEFA !important;
+    -webkit-text-fill-color: #FFFEFA !important;
 }

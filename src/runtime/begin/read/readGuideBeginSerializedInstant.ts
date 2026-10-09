@@ -1,17 +1,13 @@
 import "server-only";
 
 /* ==========================================================
-   OUTFLO — READ GUIDE BEGIN SERIALIZED INSTANT
+   OUTFLO — READ GUIDE BEGIN
    File: src/runtime/begin/read/readGuideBeginSerializedInstant.ts
-   Scope: Read the authenticated Guide's persisted canonical Begin without precision loss
+   Scope: Read canonical Guide Begin and its identity
    Last Updated:
-   - date: 2026-09-25
-   - note: read Guide Begin as exact text from public.guide_begins
+   - date: 2026-10-09
+   - note: expose Begin identity while preserving Instant read
    ========================================================== */
-
-/* ------------------------------
-   Imports
--------------------------------- */
 
 import {
     createClient,
@@ -25,11 +21,14 @@ import {
     serializeTemporalInstant128,
 } from "@/machine/clock/serialization/serializeTemporalInstant128";
 
-/* ------------------------------
-   Read
--------------------------------- */
+export type GuideBeginRecord = {
+    beginId: string;
+    title: string | null;
+    beginInstant: string;
+};
 
-export async function readGuideBeginSerializedInstant(): Promise<string | null> {
+export async function readGuideBeginRecord():
+    Promise<GuideBeginRecord | null> {
     const supabase =
         await createClient();
 
@@ -38,15 +37,10 @@ export async function readGuideBeginSerializedInstant(): Promise<string | null> 
         error,
     } = await supabase
         .from("guide_begins")
-        .select("begin_instant::text")
+        .select("begin_id,title,begin_instant::text")
         .maybeSingle();
 
     if (error) {
-        console.error(
-            "readGuideBeginSerializedInstant failed:",
-            error,
-        );
-
         throw new Error(
             [
                 error.message,
@@ -59,14 +53,26 @@ export async function readGuideBeginSerializedInstant(): Promise<string | null> 
         );
     }
 
-    const serialized =
-        data?.begin_instant ?? null;
-
-    if (serialized === null) {
+    if (!data) {
         return null;
     }
 
-    return serializeTemporalInstant128(
-        parseTemporalInstant128(serialized),
-    );
+    return {
+        beginId: data.begin_id,
+        title: data.title,
+        beginInstant:
+            serializeTemporalInstant128(
+                parseTemporalInstant128(
+                    data.begin_instant,
+                ),
+            ),
+    };
+}
+
+export async function readGuideBeginSerializedInstant():
+    Promise<string | null> {
+    const begin =
+        await readGuideBeginRecord();
+
+    return begin?.beginInstant ?? null;
 }

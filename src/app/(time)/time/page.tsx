@@ -3,8 +3,8 @@
    File: src/app/(time)/time/page.tsx
    Scope: Enter Time through one observed canonical Guide Begin read
    Last Updated:
-   - date: 2026-10-07
-   - note: persist Machine Time around the /time entry read
+   - date: 2026-10-09
+   - note: pass observed Guide Begin identity to Time composition
    ========================================================== */
 
 import TimeComposition from "@/compositions/time/TimeComposition";
@@ -12,10 +12,6 @@ import TimeComposition from "@/compositions/time/TimeComposition";
 import {
     observeTimeEntryMachineTime,
 } from "@/runtime/time/entry/observeTimeEntryMachineTime";
-
-/* ------------------------------
-   Route
--------------------------------- */
 
 export default async function TimePage() {
     const observed =
@@ -29,7 +25,9 @@ export default async function TimePage() {
 
     return (
         <TimeComposition
-            beginInstant={observed.value}
+            beginInstant={
+                observed.value?.beginInstant ?? null
+            }
         />
     );
 }
