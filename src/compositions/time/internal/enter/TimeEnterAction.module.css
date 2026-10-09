@@ -1,0 +1,62 @@
+/* ==========================================================
+   OUTFLO — TIME ENTER ACTION
+   File: src/compositions/time/internal/enter/TimeEnterAction.module.css
+   Scope: Own local ENTER navigation appearance
+   ========================================================== */
+
+.action {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.circle {
+    display: grid;
+    place-items: center;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 50%;
+
+    transition:
+        border-color 160ms ease,
+        transform 160ms ease;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-90deg);
+}
+
+.label {
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    padding-left: 0.22em;
+}
+
+.action:hover .circle {
+    border-color: var(--color-text-primary);
+    transform: translateY(-2px);
+}
+
+.action:focus-visible {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 6px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .circle {
+        transition: none;
+    }
+}

@@ -1,0 +1,50 @@
+/* ==========================================================
+   OUTFLO — TIME CANONICAL READOUT
+   File: src/compositions/time/internal/canonical/TimeCanonicalReadout.module.css
+   Scope: Own canonical digit grouping, winding, and label
+   ========================================================== */
+
+.canonical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.8rem;
+    width: 100%;
+    min-width: 0;
+
+    text-align: center;
+}
+
+.value {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    column-gap: 0.55ch;
+    row-gap: 0.2rem;
+
+    width: 100%;
+
+    color: var(--color-text-primary);
+    font-family: var(--font-family-system);
+    font-size: clamp(1.15rem, 5vw, 1.55rem);
+    font-weight: 300;
+    line-height: 1.65;
+
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.group {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.unit {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+}

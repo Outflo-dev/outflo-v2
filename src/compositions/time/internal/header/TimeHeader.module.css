@@ -1,0 +1,27 @@
+/* ==========================================================
+   OUTFLO — TIME HEADER
+   File: src/compositions/time/internal/header/TimeHeader.module.css
+   Scope: Own local TIME header geometry and typography
+   ========================================================== */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    text-align: center;
+}
+
+.wordmark {
+    color: var(--color-text-primary);
+}
+
+.designation {
+    color: var(--color-accent-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.46em;
+    padding-left: 0.46em;
+}

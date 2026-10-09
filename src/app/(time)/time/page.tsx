@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — TIME ROUTE
    File: src/app/(time)/time/page.tsx
-   Scope: Enter Time through one observed canonical Guide Begin read
+   Scope: Observe TIME entry and supply immutable Outflō Begin
    Last Updated:
    - date: 2026-10-09
-   - note: pass observed Guide Begin identity to Time composition
+   - note: anchor TIME entrance to immutable Outflō Begin
    ========================================================== */
 
 import TimeComposition from "@/compositions/time/TimeComposition";
@@ -12,6 +12,10 @@ import TimeComposition from "@/compositions/time/TimeComposition";
 import {
     observeTimeEntryMachineTime,
 } from "@/runtime/time/entry/observeTimeEntryMachineTime";
+
+import {
+    readOutfloBeginInstant,
+} from "@/runtime/begin/read/readOutfloBeginInstant";
 
 export default async function TimePage() {
     const observed =
@@ -23,11 +27,12 @@ export default async function TimePage() {
         );
     }
 
+    const outfloBeginInstant =
+        await readOutfloBeginInstant();
+
     return (
         <TimeComposition
-            beginInstant={
-                observed.value?.beginInstant ?? null
-            }
+            beginInstant={outfloBeginInstant}
         />
     );
 }

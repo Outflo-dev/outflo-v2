@@ -1,0 +1,135 @@
+/* ==========================================================
+   OUTFLO — TIME ORB
+   File: src/compositions/time/internal/instrument/orb/TimeOrb.module.css
+   Scope: Own local circular geometry and SYSTEM Time placement
+   ========================================================== */
+
+.orb {
+    position: relative;
+    display: grid;
+    place-items: center;
+
+    width: min(21.5rem, 100%);
+    aspect-ratio: 1;
+
+    flex-shrink: 0;
+    isolation: isolate;
+}
+
+.ring {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+    background: var(--gradient-brand-primary);
+
+    box-shadow: 0 0 1.2rem rgba(94, 103, 255, 0.3);
+}
+
+.ring::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+
+    border-radius: 50%;
+    background: var(--color-surface-primary);
+}
+
+.marker {
+    position: absolute;
+    z-index: 2;
+
+    top: -0.35rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0.75rem;
+    height: 0.75rem;
+
+    border-radius: 50%;
+    background: var(--color-text-primary);
+
+    box-shadow:
+        0 0 0.65rem var(--color-text-primary),
+        0 0 1.3rem var(--color-accent-primary);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 88%;
+    text-align: center;
+}
+
+.caption {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+}
+
+.primary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 1.45rem;
+}
+
+.primaryValue {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-system);
+    font-size: clamp(4rem, 16vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.primaryUnit {
+    margin-top: 0.4rem;
+
+    color: var(--color-text-primary);
+    font-size: 1.65rem;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+    margin-top: 1.6rem;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.4rem;
+}
+
+.detail + .detail {
+    border-left: 1px solid var(--color-text-secondary);
+}
+
+.detailValue {
+    color: var(--color-text-primary);
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+}
+
+.detailLabel {
+    color: var(--color-text-secondary);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+}
