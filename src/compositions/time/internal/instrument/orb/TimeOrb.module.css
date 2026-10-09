@@ -1,106 +1,183 @@
 /* ==========================================================
-   OUTFLO — TIME ORB APPEARANCE
-   Scope: TIME-specific circular geometry and temporal typography
+   OUTFLO — TIME ORB
+   File: src/compositions/time/internal/instrument/orb/TimeOrb.module.css
+   Scope: Own circular TIME instrument geometry and appearance
+   Last Updated:
+   - date: 2026-10-09
+   - note: align orb appearance with approved TIME mock
    ========================================================== */
 
 .orb {
     position: relative;
+
     display: grid;
     place-items: center;
-    width: min(19rem, 100%);
+
+    width: min(19rem, 78vw);
     aspect-ratio: 1;
+
     flex-shrink: 0;
     isolation: isolate;
 }
 
+/* ------------------------------
+   Temporal Ring
+-------------------------------- */
+
 .ring {
     position: absolute;
     inset: 0;
+
     border-radius: 50%;
-    background: linear-gradient(
-        125deg,
-        #12c8ff 4%,
-        #4f7cff 49%,
-        #b344ff 94%
+
+    background: conic-gradient(
+        from 0deg,
+        var(--color-accent-primary) 0deg,
+        var(--color-accent-secondary) 90deg,
+        #8655ff 165deg,
+        var(--color-accent-primary) 215deg,
+        #16d5ff 280deg,
+        var(--color-accent-primary) 360deg
     );
-    box-shadow:
-        -0.4rem 0 2rem rgba(18, 200, 255, 0.16),
-        0.5rem 0 2rem rgba(179, 68, 255, 0.16);
+}
+
+.ring::before {
+    content: "";
+
+    position: absolute;
+    inset: -5px;
+
+    border-radius: 50%;
+
+    background: inherit;
+
+    filter: blur(12px);
+    opacity: 0.4;
+
+    z-index: -1;
 }
 
 .ring::after {
     content: "";
+
     position: absolute;
     inset: 2px;
+
     border-radius: 50%;
+
     background: var(--color-surface-primary);
 }
 
+/* ------------------------------
+   Observed Marker
+-------------------------------- */
+
 .marker {
     position: absolute;
+
     z-index: 2;
+
     top: -0.35rem;
     left: 50%;
+
     transform: translateX(-50%);
+
     width: 0.75rem;
     height: 0.75rem;
+
     border-radius: 50%;
+
     background: var(--color-text-primary);
+
     box-shadow:
-        0 0 0.65rem #ffffff,
-        0 0 1.4rem #4f7cff;
+        0 0 0.65rem rgba(255, 255, 255, 0.85),
+        0 0 1.4rem var(--color-accent-primary);
 }
+
+/* ------------------------------
+   Interior Composition
+-------------------------------- */
 
 .content {
     position: relative;
     z-index: 1;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 88%;
+
     text-align: center;
 }
 
+/* ------------------------------
+   Temporal Caption
+-------------------------------- */
+
 .caption {
     color: var(--color-text-secondary);
+
+    font-family: var(--font-family-system);
     font-size: 0.65rem;
-    letter-spacing: 0.24em;
+    font-weight: 400;
+
+    letter-spacing: 0.2em;
 }
+
+/* ------------------------------
+   Primary Duration
+-------------------------------- */
 
 .primary {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+
+    margin-top: 1.1rem;
 }
 
 .primaryValue {
     color: var(--color-text-primary);
-    font-size: clamp(4rem, 17vw, 5.5rem);
+
+    font-family: var(--font-family-system);
+    font-size: clamp(3.6rem, 17vw, 4.85rem);
     font-weight: 300;
     line-height: 1;
+
     font-variant-numeric: tabular-nums;
 }
 
 .primaryUnit {
-    margin-top: 0.35rem;
-    color: var(--color-text-secondary);
-    font-size: 1.35rem;
+    margin-top: 0.4rem;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-family-system);
+    font-size: 1.25rem;
     font-weight: 300;
-    letter-spacing: 0.25em;
+
+    letter-spacing: 0.22em;
+    padding-left: 0.22em;
 }
+
+/* ------------------------------
+   Secondary Duration
+-------------------------------- */
 
 .details {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
     width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1.15rem;
 }
 
 .detail {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 0.4rem;
 }
 
@@ -110,13 +187,20 @@
 
 .detailValue {
     color: var(--color-text-primary);
-    font-size: 1.2rem;
+
+    font-family: var(--font-family-system);
+    font-size: 1.1rem;
     font-weight: 300;
+
     font-variant-numeric: tabular-nums;
 }
 
 .detailLabel {
     color: var(--color-text-secondary);
-    font-size: 0.5rem;
-    letter-spacing: 0.1em;
+
+    font-family: var(--font-family-system);
+    font-size: 0.55rem;
+    font-weight: 400;
+
+    letter-spacing: 0.12em;
 }

@@ -1,10 +1,10 @@
 /* ==========================================================
    OUTFLO — TIME CANONICAL READOUT
    File: src/compositions/time/internal/canonical/TimeCanonicalReadout.tsx
-   Scope: Present the complete canonical Outflōsecond duration
+   Scope: Present complete canonical Outflōseconds
    Last Updated:
    - date: 2026-10-09
-   - note: establish grouped, winding canonical display
+   - note: compose canonical band above winding duration
    ========================================================== */
 
 import styles from "./TimeCanonicalReadout.module.css";
@@ -26,10 +26,17 @@ export default function TimeCanonicalReadout({
     return (
         <section
             className={styles.canonical}
-            aria-label="Canonical elapsed Outflōseconds"
+            aria-label="Canonical Outflōseconds"
         >
+            <div className={styles.heading}>
+                <span className={styles.unit}>
+                    OUTFLŌSECONDS
+                </span>
+            </div>
+
             <div
                 className={styles.value}
+                role="text"
                 aria-label={
                     canonicalDuration === null
                         ? "Time is loading"
@@ -46,10 +53,6 @@ export default function TimeCanonicalReadout({
                     </span>
                 ))}
             </div>
-
-            <span className={styles.unit}>
-                OUTFLŌSECONDS
-            </span>
         </section>
     );
 }

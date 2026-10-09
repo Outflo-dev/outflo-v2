@@ -1,27 +1,46 @@
+/* ==========================================================
+   OUTFLO — TIME HEADER APPEARANCE
+   File: src/compositions/time/internal/header/TimeHeader.module.css
+   Scope: Own local TIME identity geometry and typography
+   ========================================================== */
+
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.65rem;
+
     width: 100%;
+    gap: 0.6rem;
+
     text-align: center;
 }
 
 .wordmark {
+    display: block;
+
     color: var(--color-text-primary);
     font-family: var(--font-family-wordmark);
-    font-size: 1.15rem;
+
+    font-size: clamp(1rem, 4vw, 1.2rem);
     font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 0.43em;
-    padding-left: 0.43em;
+    line-height: 1.15;
+
+    letter-spacing: 0.28em;
+    padding-left: 0.28em;
+
+    text-transform: uppercase;
 }
 
 .designation {
-    color: #9375ff;
+    display: block;
+
+    color: var(--color-accent-secondary);
     font-family: var(--font-family-system);
-    font-size: 0.95rem;
+
+    font-size: 0.75rem;
     font-weight: 400;
-    letter-spacing: 0.44em;
-    padding-left: 0.44em;
+    line-height: 1.2;
+
+    letter-spacing: 0.52em;
+    padding-left: 0.52em;
 }

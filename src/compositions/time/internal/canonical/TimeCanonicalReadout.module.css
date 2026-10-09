@@ -1,7 +1,7 @@
 /* ==========================================================
    OUTFLO — TIME CANONICAL READOUT
    File: src/compositions/time/internal/canonical/TimeCanonicalReadout.module.css
-   Scope: Own canonical digit grouping, winding, and label
+   Scope: Own canonical heading, framing, and winding typography
    ========================================================== */
 
 .canonical {
@@ -9,11 +9,44 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 0.8rem;
     width: 100%;
     min-width: 0;
+    gap: 0.85rem;
 
     text-align: center;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 22rem);
+    gap: 0.85rem;
+}
+
+.heading::before,
+.heading::after {
+    content: "";
+
+    flex: 1 1 auto;
+    min-width: 0;
+
+    border-top: 1px solid var(--color-text-secondary);
+    opacity: 0.45;
+}
+
+.unit {
+    flex: 0 0 auto;
+
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-system);
+
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+
+    white-space: nowrap;
 }
 
 .value {
@@ -22,29 +55,26 @@
     justify-content: center;
     align-content: center;
 
-    column-gap: 0.55ch;
-    row-gap: 0.2rem;
-
     width: 100%;
+    max-width: 24rem;
+    min-width: 0;
+
+    column-gap: 0.6ch;
+    row-gap: 0.15rem;
 
     color: var(--color-text-primary);
     font-family: var(--font-family-system);
-    font-size: clamp(1.15rem, 5vw, 1.55rem);
+
+    font-size: clamp(0.95rem, 3.7vw, 1.15rem);
     font-weight: 300;
     line-height: 1.65;
+    letter-spacing: 0.08em;
 
     font-variant-numeric: tabular-nums;
-    overflow-wrap: anywhere;
 }
 
 .group {
     display: inline-block;
+    flex: 0 0 auto;
     white-space: nowrap;
-}
-
-.unit {
-    color: var(--color-text-secondary);
-    font-family: var(--font-family-system);
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
 }

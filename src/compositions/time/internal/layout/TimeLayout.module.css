@@ -1,22 +1,69 @@
 /* ==========================================================
-   OUTFLO — TIME PAGE LAYOUT
-   Scope: Position the TIME header and temporal instrument
+   OUTFLO — TIME LAYOUT
+   File: src/compositions/time/internal/layout/TimeLayout.module.css
+   Scope: Own TIME surface participation and page composition
+   Last Updated:
+   - date: 2026-10-09
+   - note: establish product header and temporal stage within AppPhoneShell
    ========================================================== */
 
+/* ------------------------------
+   Surface
+-------------------------------- */
+
 .surface {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    background: var(--color-surface-primary);
+}
+
+/* ------------------------------
+   Product Identity
+-------------------------------- */
+
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.8rem;
+
+    flex: 0 0 auto;
 
     width: 100%;
-    min-height: 100dvh;
 
-    padding:
-        calc(env(safe-area-inset-top) + 4.5rem)
-        0
-        calc(env(safe-area-inset-bottom) + 2.5rem);
+    padding-top: clamp(3rem, 6dvh, 4.5rem);
 
     box-sizing: border-box;
-    background: var(--color-surface-primary);
+}
+
+/* ------------------------------
+   Temporal Stage
+-------------------------------- */
+
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-height: 0;
+
+    padding-top: clamp(2.5rem, 5dvh, 3.75rem);
+
+    padding-bottom:
+        calc(env(safe-area-inset-bottom) + 3rem);
+
+    box-sizing: border-box;
 }

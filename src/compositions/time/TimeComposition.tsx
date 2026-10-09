@@ -4,7 +4,7 @@
    Scope: Compose the immutable Outflō Begin TIME entrance
    Last Updated:
    - date: 2026-10-09
-   - note: assemble header and live temporal instrument
+   - note: separate product identity from temporal stage
    ========================================================== */
 
 import TimeHeader from "@/compositions/time/internal/header/TimeHeader";
@@ -22,11 +22,15 @@ export default function TimeComposition({
 }: TimeCompositionProps) {
     return (
         <main className={styles.surface}>
-            <TimeHeader />
+            <div className={styles.header}>
+                <TimeHeader />
+            </div>
 
-            <TimeInstrument
-                beginInstant={beginInstant}
-            />
+            <div className={styles.stage}>
+                <TimeInstrument
+                    beginInstant={beginInstant}
+                />
+            </div>
         </main>
     );
 }
