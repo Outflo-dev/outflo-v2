@@ -7,6 +7,14 @@ import "server-only";
    File: src/runtime/onboarding/enter-time/creation/createOutfloAtEnterTime.ts
    Scope: Create Outflō from the protected Machine-Time entrance of Enter Time
    Last Updated:
+   - Outflō Time: 847939900040420252267242733671
+   - note: bind creation execution identity to persisted observation
+   - Outflō Time: 847937961822553110002352219277
+   - note: preserve committed creation independently of Proof verification
+   - Outflō Time: 847937961822553110002352219277
+   - note: construct Enter Time Proof from successful creation
+   - Outflō Time: 847937961822553110002352219277
+   - note: preserve successful creation observation identity
    - date: 2026-10-07
    - note: anchor Guide Begin and Outflō Begin to the observed Enter Time entrance
    ========================================================== */
@@ -27,6 +35,11 @@ import {
     machine,
 } from "@/machine";
 
+import { randomUUID } from "node:crypto";
+
+import { createEnterTimeProofV1 } from "@/proof/time/createEnterTimeProofV1";
+import type { EnterTimeProofV1 } from "@/proof/time/EnterTimeProofV1";
+
 import {
     observeAndRecordRuntimeMachineTime,
 } from "@/runtime/clock/persistence/observeAndRecordRuntimeMachineTime";
@@ -39,6 +52,17 @@ export type CreateOutfloAtEnterTimeResult =
     | {
           success: true;
           outfloBeginInstant: string;
+          proofOutcome:
+              | {
+                    status: EnterTimeProofV1["verification"]["verdict"];
+                    observationId: string;
+                    proof: EnterTimeProofV1;
+                }
+              | {
+                    status: "unavailable";
+                    observationId: string | null;
+                    error: string;
+                };
       }
     | {
           success: false;
@@ -50,6 +74,8 @@ export type CreateOutfloAtEnterTimeResult =
 -------------------------------- */
 
 export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTimeResult> {
+    const creationExecutionId = randomUUID();
+
     const observed =
         await observeAndRecordRuntimeMachineTime(
             async (entrance) => {
@@ -91,6 +117,8 @@ export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTime
                             serializedBeginInstant,
                         p_outflo_begin_instant:
                             serializedBeginInstant,
+                        p_creation_execution_id:
+                            creationExecutionId,
                     },
                 );
 
@@ -114,6 +142,7 @@ export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTime
                     outfloBeginInstant: data,
                 } as const;
             },
+        (value) => value.success ? creationExecutionId : null,
         );
 
     if (!observed.value.success) {
@@ -122,11 +151,42 @@ export async function createOutfloAtEnterTime(): Promise<CreateOutfloAtEnterTime
 
     if (!observed.persistence.success) {
         return {
-            success: false,
-            error:
-                observed.persistence.error,
+            ...observed.value,
+            proofOutcome: {
+                status: "unavailable",
+                observationId: null,
+                error: observed.persistence.error,
+            },
         };
     }
 
-    return observed.value;
+    const observationId = observed.persistence.observationId;
+
+    let proof: EnterTimeProofV1;
+
+    try {
+        proof = createEnterTimeProofV1({
+            observationId,
+            outfloBeginInstant: observed.value.outfloBeginInstant,
+            observed: observed.machineTime,
+        });
+    } catch {
+        return {
+            ...observed.value,
+            proofOutcome: {
+                status: "unavailable",
+                observationId,
+                error: "Enter Time Proof construction failed.",
+            },
+        };
+    }
+
+    return {
+        ...observed.value,
+        proofOutcome: {
+            status: proof.verification.verdict,
+            observationId,
+            proof,
+        },
+    };
 }

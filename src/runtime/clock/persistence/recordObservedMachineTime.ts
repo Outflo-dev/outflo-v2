@@ -5,6 +5,10 @@ import "server-only";
    File: src/runtime/clock/persistence/recordObservedMachineTime.ts
    Scope: Persist one authenticated observed Machine-Time derivation through the trusted database boundary
    Last Updated:
+   - Outflō Time: 847940195259850655425164046450
+   - note: explicitly supply creation identity for the new observation RPC
+   - Outflō Time: 847937961822553110002352219277
+   - note: support optional creation execution identity
    - date: 2026-10-07
    - note: preserve raw evidence, protected millisecond derivation, canonical Instants, and the resulting Outflō duration
    ========================================================== */
@@ -64,6 +68,7 @@ function toSafeJsonInteger(
 export async function recordObservedMachineTime(
     observedMachineTime: ObservedMachineTime,
     provenance: ServerTemporalProvenance,
+    creationExecutionId: string | null = null,
 ): Promise<RecordObservedMachineTimeResult> {
     const authenticatedSupabase =
         await createAuthenticatedSupabaseClient();
@@ -221,6 +226,9 @@ export async function recordObservedMachineTime(
 
             p_provenance_snapshot:
                 provenance,
+
+            p_creation_execution_id:
+                creationExecutionId,
         },
     );
 
