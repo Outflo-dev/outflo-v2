@@ -32,10 +32,7 @@ export default function BeginSurface({
             />
 
             <div className={styles.stage}>
-                <div
-                    className={styles.orbit}
-                    aria-label="Verified Proofs"
-                >
+                <Link href="/home/proofs" className={styles.orbit} aria-label="View verified Proofs" style={{ textDecoration: "none", color: "inherit" }}>
                     <div className={styles.orbitInner}>
                         <span className={styles.count}>
                             {proofCount ?? "—"}
@@ -43,8 +40,7 @@ export default function BeginSurface({
                         <span className={styles.proofLabel}>
                             PROOFS
                         </span>
-                    </div>
-                </div>
+                    </div></Link>
 
                 <div className={styles.seconds}>
                     <div className={styles.secondsLabel}>
