@@ -132,7 +132,9 @@ const SOON_STYLE: CSSProperties = {
    Page
 -------------------------------- */
 
-export default function ComingSoonPage() {
+export default async function ComingSoonPage({ searchParams }: { searchParams: Promise<{ from?: string | string[] }> }) {
+    const { from } = await searchParams;
+    const backHref = from === "proofs" ? "/home/proofs" : "/";
     return (
         <OnboardingPage
             atmosphere={
@@ -149,8 +151,8 @@ export default function ComingSoonPage() {
             navigation={
                 <div style={NAVIGATION_STYLE}>
                     <Link
-                        href="/"
-                        aria-label="Back to landing"
+                        href={backHref}
+                        aria-label="Go back"
                         style={ARROW_ACTION_STYLE}
                     >
                         <ArrowIcon
