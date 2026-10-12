@@ -72,7 +72,7 @@ export async function recordSuccessfulSignInMachineTime():
                 },
                 undefined,
                 ({ destination }) =>
-                    destination === "/time"
+                    destination === "/home"
                         ? signInExecutionId
                         : null,
             );
