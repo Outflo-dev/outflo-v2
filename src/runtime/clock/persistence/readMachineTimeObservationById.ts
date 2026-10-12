@@ -11,6 +11,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { createTrustedSupabaseClient } from "@/lib/supabase/trusted/createTrustedSupabaseClient";
 
 const OBSERVATION_COLUMNS = [
   "observation_id",
@@ -62,6 +63,30 @@ export async function readMachineTimeObservationById(
         .filter(Boolean)
         .join(" | "),
     );
+  }
+
+  return data;
+}
+
+export async function readCompletedSignOutObservation(
+  observationId: string,
+  authenticatedGuideId: string,
+) {
+  if (!observationId || !authenticatedGuideId) {
+    throw new Error("Sign Out observation identity required.");
+  }
+
+  const supabase = createTrustedSupabaseClient();
+
+  const { data, error } = await supabase
+    .from("machine_time_observations")
+    .select(OBSERVATION_COLUMNS)
+    .eq("observation_id", observationId)
+    .eq("user_id", authenticatedGuideId)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(error.message);
   }
 
   return data;

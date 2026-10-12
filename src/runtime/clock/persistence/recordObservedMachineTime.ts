@@ -70,6 +70,8 @@ export async function recordObservedMachineTime(
     provenance: ServerTemporalProvenance,
     creationExecutionId: string | null = null,
     signInExecutionId: string | null = null,
+    signOutExecutionId: string | null = null,
+    authenticatedSignOutGuideId: string | null = null,
 ): Promise<RecordObservedMachineTimeResult> {
     const authenticatedSupabase =
         await createAuthenticatedSupabaseClient();
@@ -82,7 +84,7 @@ export async function recordObservedMachineTime(
     } =
         await authenticatedSupabase.auth.getUser();
 
-    if (authenticationError || !user) {
+    if ((authenticationError || !user) && !authenticatedSignOutGuideId) {
         return {
             success: false,
             error:
@@ -169,7 +171,7 @@ export async function recordObservedMachineTime(
         "record_machine_time_observation",
         {
             p_user_id:
-                user.id,
+                authenticatedSignOutGuideId ?? user?.id,
 
             p_first_wall_unix_milliseconds:
                 firstWallUnixMilliseconds,
@@ -231,6 +233,10 @@ export async function recordObservedMachineTime(
             p_creation_execution_id:
                 creationExecutionId,
             ...(signInExecutionId === null ? {} : { p_sign_in_execution_id: signInExecutionId }),
+            ...(signOutExecutionId === null ? {} : {
+                p_sign_out_execution_id: signOutExecutionId,
+                p_sign_in_execution_id: null,
+            }),
         },
     );
 

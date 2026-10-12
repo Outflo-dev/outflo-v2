@@ -1,4 +1,5 @@
 import "server-only";
+import { readCompletedSignOutObservation } from "./readMachineTimeObservationById";
 
 /*
  * OUTFLO — OBSERVE AND RECORD RUNTIME MACHINE TIME
@@ -60,10 +61,11 @@ function errorMessage(error: unknown): string {
 
 async function verifyPersistedObservation(
   observationId: string,
+  signedOutGuideId: string | null = null,
 ): Promise<ProofRecording> {
-  const row = await readMachineTimeObservationById(
-    observationId,
-  );
+  const row = signedOutGuideId
+    ? await readCompletedSignOutObservation(observationId, signedOutGuideId)
+    : await readMachineTimeObservationById(observationId);
 
   if (!row) {
     throw new Error(
@@ -162,6 +164,8 @@ export async function observeAndRecordRuntimeMachineTime<T>(
   signInExecutionIdForResult?: (
     value: T,
   ) => string | null,
+  signOutExecutionId: string | null = null,
+  signedOutGuideId: string | null = null,
 ) {
   const observed =
     await observeRuntimeMachineTime(operation);
@@ -178,6 +182,8 @@ export async function observeAndRecordRuntimeMachineTime<T>(
         ?? null,
       signInExecutionIdForResult?.(observed.value)
         ?? null,
+      signOutExecutionId,
+      signedOutGuideId,
     );
   } catch (error) {
     persistence = {
@@ -195,6 +201,7 @@ export async function observeAndRecordRuntimeMachineTime<T>(
       proofVerification =
         await verifyPersistedObservation(
           persistence.observationId,
+          signedOutGuideId,
         );
     } catch (error) {
       proofVerification = {

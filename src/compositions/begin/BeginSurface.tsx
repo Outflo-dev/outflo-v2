@@ -4,6 +4,7 @@
    ========================================================== */
 
 import Link from "next/link";
+import BeginGuideMenu from "./BeginGuideMenu";
 import styles from "./BeginSurface.module.css";
 
 type BeginSurfaceProps = {
@@ -31,6 +32,7 @@ export default function BeginSurface({
                 aria-label="Time — coming soon"
             />
 
+            <BeginGuideMenu />
             <div className={styles.stage}>
                 <Link href="/home/proofs" className={styles.orbit} aria-label="View verified Proofs" style={{ textDecoration: "none", color: "inherit" }}>
                     <div className={styles.orbitInner}>
