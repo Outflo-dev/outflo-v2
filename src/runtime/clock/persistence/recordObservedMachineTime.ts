@@ -69,6 +69,7 @@ export async function recordObservedMachineTime(
     observedMachineTime: ObservedMachineTime,
     provenance: ServerTemporalProvenance,
     creationExecutionId: string | null = null,
+    signInExecutionId: string | null = null,
 ): Promise<RecordObservedMachineTimeResult> {
     const authenticatedSupabase =
         await createAuthenticatedSupabaseClient();
@@ -229,6 +230,7 @@ export async function recordObservedMachineTime(
 
             p_creation_execution_id:
                 creationExecutionId,
+            ...(signInExecutionId === null ? {} : { p_sign_in_execution_id: signInExecutionId }),
         },
     );
 

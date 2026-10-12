@@ -30,6 +30,7 @@ export async function observeAndRecordRuntimeMachineTime<T>(
     entrance: ObservedMachineTimeEntrance,
   ) => Promise<T>,
   creationExecutionIdForResult?: (value: T) => string | null,
+  signInExecutionIdForResult?: (value: T) => string | null,
 ) {
   const observed =
     await observeRuntimeMachineTime(
@@ -43,6 +44,7 @@ export async function observeAndRecordRuntimeMachineTime<T>(
       observed.machineTime,
       observed.provenance,
       creationExecutionIdForResult?.(observed.value) ?? null,
+      signInExecutionIdForResult?.(observed.value) ?? null,
     );
   } catch (error) {
     persistence = {

@@ -1,21 +1,16 @@
 "use server";
 
 /* ==========================================================
-   OUTFLO — RECORD SUCCESSFUL SIGN IN MACHINE TIME
-   File: src/runtime/onboarding/access/sign-in/observation/recordSuccessfulSignInMachineTime.ts
-   Scope: Observe and persist the authenticated server-entry interval for one successful Sign In
-   Last Updated:
-   - date: 2026-10-07
-   - note: persist Sign In observation, then reuse its protected firstInstant as Guide Begin
+   OUTFLO — SUCCESSFUL SIGN IN MACHINE TIME
+   Scope: Persist a distinct Machine Time observation for
+          each authenticated Sign In execution.
    ========================================================== */
+
+import { randomUUID } from "node:crypto";
 
 import {
     createClient as createAuthenticatedSupabaseClient,
 } from "@/lib/supabase/server";
-
-import {
-    writeGuideBeginInstant,
-} from "@/runtime/begin/write/writeGuideBeginInstant";
 
 import {
     observeAndRecordRuntimeMachineTime,
@@ -25,15 +20,16 @@ import {
     resolveSignInDestination,
 } from "../destination/resolveSignInDestination";
 
+type SignInDestination = Awaited<
+    ReturnType<typeof resolveSignInDestination>
+>;
+
 type SuccessfulSignInMachineTimeResult =
     | {
           success: true;
-          observationId: string;
-          destination: Awaited<
-              ReturnType<
-                  typeof resolveSignInDestination
-              >
-          >;
+          observationId: string | null;
+          proofPersistence: "recorded" | "unavailable";
+          destination: SignInDestination;
       }
     | {
           success: false;
@@ -42,6 +38,13 @@ type SuccessfulSignInMachineTimeResult =
 
 export async function recordSuccessfulSignInMachineTime():
     Promise<SuccessfulSignInMachineTimeResult> {
+
+    const signInExecutionId = randomUUID();
+
+    const completedOperation: {
+        destination?: SignInDestination;
+    } = {};
+
     try {
         const observed =
             await observeAndRecordRuntimeMachineTime(
@@ -50,76 +53,56 @@ export async function recordSuccessfulSignInMachineTime():
                         await createAuthenticatedSupabaseClient();
 
                     const {
-                        data: {
-                            user,
-                        },
+                        data: { user },
                         error,
-                    } =
-                        await supabase.auth.getUser();
+                    } = await supabase.auth.getUser();
 
                     if (error || !user) {
                         throw new Error(
-                            "Authenticated Guide identity is required for Sign In observation.",
+                            "Authenticated Guide identity is required.",
                         );
                     }
 
                     const destination =
                         await resolveSignInDestination();
 
-                    return {
-                        userId: user.id,
-                        destination,
-                    };
+                    completedOperation.destination = destination;
+
+                    return { destination };
                 },
+                undefined,
+                ({ destination }) =>
+                    destination === "/time"
+                        ? signInExecutionId
+                        : null,
             );
-
-        if (!observed.persistence.success) {
-            return {
-                success: false,
-                error:
-                    observed.persistence.error,
-            };
-        }
-
-        /*
-         * Only an existing Guide entering Time has a Guide Begin
-         * to advance. Incomplete onboarding remains untouched.
-         */
-        if (
-            observed.value.destination ===
-            "/time"
-        ) {
-            const begin =
-                await writeGuideBeginInstant({
-                    userId:
-                        observed.value.userId,
-                    beginInstant:
-                        observed.machineTime.firstInstant,
-                });
-
-            if (!begin.success) {
-                return {
-                    success: false,
-                    error:
-                        begin.error,
-                };
-            }
-        }
 
         return {
             success: true,
-            observationId:
-                observed.persistence.observationId,
-            destination:
-                observed.value.destination,
+            observationId: observed.persistence.success
+                ? observed.persistence.observationId
+                : null,
+            proofPersistence: observed.persistence.success
+                ? "recorded"
+                : "unavailable",
+            destination: observed.value.destination,
         };
+
     } catch (error) {
+        if (completedOperation.destination) {
+            return {
+                success: true,
+                observationId: null,
+                proofPersistence: "unavailable",
+                destination: completedOperation.destination,
+            };
+        }
+
         return {
             success: false,
-            error:
-                error instanceof Error
-                    ? error.message
-                    : "Successful Sign In Machine-Time observation failed.",
+            error: error instanceof Error
+                ? error.message
+                : "Sign In entry failed.",
         };
     }
 }
