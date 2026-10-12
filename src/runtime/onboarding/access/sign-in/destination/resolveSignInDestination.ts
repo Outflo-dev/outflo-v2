@@ -12,12 +12,12 @@
 -------------------------------- */
 
 export type SignInDestination =
-    "/time";
+    "/home";
 
 /* ------------------------------
    Resolution
 -------------------------------- */
 
 export async function resolveSignInDestination(): Promise<SignInDestination> {
-    return "/time";
+    return "/home";
 }

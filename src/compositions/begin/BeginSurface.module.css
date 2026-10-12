@@ -1,0 +1,105 @@
+/* OUTFLO — FIRST BEGIN SURFACE
+   Owner: Begin presentation geometry and appearance */
+
+.surface {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: calc(env(safe-area-inset-top) + 1.25rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 2rem);
+    background: var(--color-surface-primary);
+}
+
+.timeAction {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border: 1px solid var(--color-accent-secondary);
+    border-radius: 50%;
+}
+
+.timeAction::after {
+    content: "";
+    width: 0.4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-accent-secondary);
+}
+
+.stage {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    gap: clamp(2.5rem, 6dvh, 4rem);
+}
+
+.orbit {
+    display: grid;
+    place-items: center;
+    width: min(19rem, 78vw);
+    aspect-ratio: 1;
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: var(--gradient-brand-primary);
+    filter: drop-shadow(0 0 0.55rem
+        color-mix(in srgb, var(--color-accent-primary) 55%, transparent));
+}
+
+.orbitInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-surface-primary);
+}
+
+.count {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-system);
+    font-size: clamp(3.6rem, 16vw, 5rem);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+}
+
+.proofLabel {
+    margin-top: 0.75rem;
+    color: var(--color-accent-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+}
+
+.seconds {
+    width: 100%;
+    text-align: center;
+}
+
+.secondsLabel {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-system);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+}
+
+.secondsValue {
+    margin-top: 0.85rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-system);
+    font-size: clamp(0.65rem, 2.65vw, 0.95rem);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
