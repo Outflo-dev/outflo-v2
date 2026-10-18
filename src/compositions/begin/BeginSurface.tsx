@@ -27,9 +27,9 @@ export default function BeginSurface({
     return (
         <section className={styles.surface}>
             <Link
-                href="/coming-soon"
+                href="/home/conversation"
                 className={styles.timeAction}
-                aria-label="Time — coming soon"
+                aria-label="Open Conversation"
             />
 
             <BeginGuideMenu />

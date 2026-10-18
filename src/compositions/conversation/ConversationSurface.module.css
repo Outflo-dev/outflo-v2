@@ -1,0 +1,184 @@
+.surface {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  color: var(--color-text-primary);
+  background:
+    linear-gradient(160deg, rgba(79, 124, 255, 0.07), transparent 42%),
+    var(--color-surface-primary);
+  font-family: var(--font-family-system);
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 4.5rem;
+  padding: 1rem 1.5rem;
+  flex: 0 0 auto;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.entrance {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.title {
+  margin: 0;
+  max-width: 17rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.turn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.guideMessage {
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(155, 163, 188, 0.18);
+  border-radius: 1rem 1rem 0.25rem 1rem;
+  background: rgba(155, 163, 188, 0.08);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.outfloMessage {
+  align-self: stretch;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.75;
+}
+
+.pending {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.pendingMark {
+  display: inline-flex;
+  animation: breathe 1.8s ease-in-out infinite;
+}
+
+.composer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(155, 163, 188, 0.12);
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 2.75rem;
+  max-height: 10rem;
+  resize: vertical;
+  padding: 0.75rem;
+  border: 1px solid rgba(155, 163, 188, 0.25);
+  border-radius: 0.75rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--color-text-primary);
+  font: inherit;
+  line-height: 1.4;
+}
+
+.input:focus-visible {
+  border-color: var(--color-accent-primary);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.send {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--color-accent-primary);
+  color: var(--color-text-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.send:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.notice {
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.error {
+  color: #ffaaa8;
+}
+
+.retry {
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  color: var(--color-accent-primary);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+@keyframes breathe {
+  50% { opacity: 0.45; transform: scale(0.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pendingMark { animation: none; }
+}

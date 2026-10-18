@@ -28,6 +28,10 @@ type MistralResponse = Readonly<{
 export class MistralInferenceProvider
   implements InferenceProvider
 {
+  constructor(
+    private readonly requestFetch: typeof fetch = fetch,
+  ) {}
+
   async inferStructured(
     request: InferenceProviderRequest,
   ): Promise<InferenceProviderResult> {
@@ -40,7 +44,9 @@ export class MistralInferenceProvider
       );
     }
 
-    const response = await fetch(
+    const startedAt = performance.now();
+
+    const response = await this.requestFetch(
       MISTRAL_CHAT_COMPLETIONS_URL,
       {
         method: "POST",
@@ -76,6 +82,33 @@ export class MistralInferenceProvider
 
     const body =
       (await response.json()) as MistralResponse;
+
+
+    const envelope = body as MistralResponse & {
+      id?: string;
+      created?: number;
+      usage?: unknown;
+    };
+
+    console.info(
+      "[OUTFLO MISTRAL RECEIPT]",
+      JSON.stringify({
+        responseId: envelope.id ?? null,
+        providerCreatedUnixSeconds: envelope.created ?? null,
+        requestedModel: MISTRAL_MODEL,
+        returnedModel: body.model ?? null,
+        httpStatus: response.status,
+        elapsedMs: Math.round(performance.now() - startedAt),
+        receivedAtUtc: new Date().toISOString(),
+        finishReasons: body.choices?.map(
+          (choice) =>
+            (choice as typeof choice & {
+              finish_reason?: string | null;
+            }).finish_reason ?? null,
+        ) ?? [],
+        usage: envelope.usage ?? null,
+      }, null, 2),
+    );
 
     const content =
       body.choices?.[0]?.message?.content;

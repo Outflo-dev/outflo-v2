@@ -7,6 +7,11 @@
 import {
   createInterface,
 } from "node:readline/promises";
+import { randomUUID } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { createClient } from "@supabase/supabase-js";
+import { createRecordingMistralFetch } from "../persistence/createRecordingMistralFetch";
+import { readMachineTimeProofSummaryV1 } from "../../proof/time/readMachineTimeProofSummaryV1";
 
 import {
   stdin as input,
@@ -17,9 +22,6 @@ import {
   emitClockText,
 } from "../../emitter/text/clock/emitClockText";
 
-import type {
-  ClockTextEmission,
-} from "../../emitter/text/clock/ClockTextEmission";
 
 import {
   MistralInferenceProvider,
@@ -30,21 +32,32 @@ import {
   type InferenceGround,
 } from "../ground/InferenceGround";
 
-import {
-  createOutfloOrientationGround,
-} from "../ground/outflo/createOutfloOrientationGround";
 
-import {
-  createClockGround,
-} from "../ground/machine/createClockGround";
 
 import {
   talkToOutflo,
 } from "./talkToOutflo";
 
 async function main(): Promise<void> {
-  const provider =
-    new MistralInferenceProvider();
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SECRET_KEY;
+
+  if (!url || !key) {
+    throw new Error("Trusted database configuration missing.");
+  }
+
+  const db = createClient(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
+  });
+
+  const sessionId = randomUUID();
+  let turnOrdinal = 0;
+
 
   const readline =
     createInterface({
@@ -54,14 +67,22 @@ async function main(): Promise<void> {
 
   const transcript: string[] = [];
 
+  const packetGround = createInferenceGround(
+    "outflo:system:conversational-grounding:v1",
+    readFileSync("src/inference/ground/outflo/outflo-conversational-grounding-v1.md", "utf8"),
+  );
+  const approval = await readline.question(
+    "Type SEND to share the conversational orientation, live development Proof counts, and messages with Mistral: "
+  );
+  if (approval !== "SEND") {
+    readline.close();
+    return;
+  }
+
   function conversationGround(
-    clockEmission: ClockTextEmission,
   ): readonly InferenceGround[] {
     const ground: InferenceGround[] = [
-      createOutfloOrientationGround(),
-      createClockGround(
-        clockEmission,
-      ),
+      packetGround,
     ];
 
     if (transcript.length > 0) {
@@ -104,15 +125,25 @@ async function main(): Promise<void> {
         const clockEmission =
           emitClockText();
 
+
+        const provider = new MistralInferenceProvider(
+          createRecordingMistralFetch(
+            db,
+            sessionId,
+            ++turnOrdinal,
+          ),
+        );
+
         const result =
           await talkToOutflo(
             provider,
             {
               message,
-              ground:
-                conversationGround(
-                  clockEmission,
-                ),
+              ground: [
+                ...conversationGround(),
+                createInferenceGround("outflo:machine:proof-summary:live:v1",
+                  "Development ledger, not Guide-specific.\n" + JSON.stringify(await readMachineTimeProofSummaryV1(db))),
+              ],
             },
           );
 

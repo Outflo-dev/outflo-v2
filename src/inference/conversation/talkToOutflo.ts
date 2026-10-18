@@ -86,6 +86,17 @@ export async function talkToOutflo(
     composeGround(request.ground),
   ].join("\n");
 
+  console.info("[OUTFLO INPUT SIZES]", JSON.stringify({
+    guideMessageChars: message.length,
+    promptChars: prompt.length,
+    promptBytes: new TextEncoder().encode(prompt).length,
+    schemaBytes: new TextEncoder().encode(JSON.stringify(CONVERSATION_REPLY_JSON_SCHEMA)).length,
+    ground: request.ground.map(({ sourceId, content }) => ({
+      sourceId,
+      chars: content.length,
+      bytes: new TextEncoder().encode(content).length,
+    })),
+  }, null, 2));
   const result =
     await provider.inferStructured({
       prompt,
