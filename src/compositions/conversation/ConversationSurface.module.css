@@ -4,7 +4,12 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% + 24px + env(safe-area-inset-left) + env(safe-area-inset-right));
+  margin-left: calc(-12px - env(safe-area-inset-left));
+  margin-right: calc(-12px - env(safe-area-inset-right));
+  padding-left: calc(12px + env(safe-area-inset-left));
+  padding-right: calc(12px + env(safe-area-inset-right));
+  box-sizing: border-box;
   height: 100%;
   min-height: 0;
   overflow: hidden;
