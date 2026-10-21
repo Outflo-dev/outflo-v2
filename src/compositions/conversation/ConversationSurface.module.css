@@ -188,3 +188,40 @@
 @media (prefers-reduced-motion: reduce) {
   .pendingMark { animation: none; }
 }
+
+/* OUTFLŌ — CONVERSATION PROOF SNAPSHOT */
+
+.proofSummary {
+  flex: 0 0 auto;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(155, 163, 188, 0.18);
+  border-radius: 0.85rem;
+  background: rgba(155, 163, 188, 0.06);
+}
+
+.proofTitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.proofChecks {
+  margin: 0 0 0.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+}
+
+.proofValue {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.proofCutoff {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}

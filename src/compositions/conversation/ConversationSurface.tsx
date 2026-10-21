@@ -22,10 +22,20 @@ type Turn = {
   messages: Message[];
 };
 
+type ConversationProof = {
+  proofId: string;
+  verdict: string;
+  checksPassed: number;
+  checksTotal: number;
+  recordedSpanOutfloSeconds: string;
+  snapshotCutoffAt: string;
+};
+
 type Conversation = {
   conversationId: string;
   status: "open" | "completed";
   turns: Turn[];
+  proof: ConversationProof | null;
 };
 
 const API = "/api/conversations";
@@ -235,7 +245,7 @@ export default function ConversationSurface() {
           <div className={styles.entrance}>
             <OutfloMark size={110} title="Outflō" />
             <h1 className={styles.title}>
-              Converse in Abstract Time.
+              Chat in Abstract Time.
             </h1>
           </div>
         ) : (
@@ -291,6 +301,34 @@ export default function ConversationSurface() {
             })}
           </div>
         )}
+
+        {conversation?.proof ? (
+          <aside
+            className={styles.proofSummary}
+            aria-label="Conversation Proof"
+          >
+            <p className={styles.proofTitle}>
+              Conversation Proof · Verified
+            </p>
+
+            <p className={styles.proofChecks}>
+              {conversation.proof.checksPassed}/
+              {conversation.proof.checksTotal} checks passed
+            </p>
+
+            <p className={styles.proofValue}>
+              {conversation.proof.recordedSpanOutfloSeconds}
+              {" "}Outflōseconds
+            </p>
+
+            <p className={styles.proofCutoff}>
+              Snapshot through{" "}
+              {new Date(
+                conversation.proof.snapshotCutoffAt
+              ).toLocaleString()}
+            </p>
+          </aside>
+        ) : null}
       </div>
 
       {error ? (

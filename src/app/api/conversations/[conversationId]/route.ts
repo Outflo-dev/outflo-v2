@@ -10,6 +10,8 @@ import "server-only";
 import { NextResponse } from "next/server";
 import { readAuthenticatedConversation } from
   "@/runtime/conversation/readAuthenticatedConversation";
+import { readAuthenticatedConversationProofSnapshot } from
+  "@/runtime/conversation/readAuthenticatedConversationProofSnapshot";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,7 +39,9 @@ export async function GET(
 
   try {
     const conversation = await readAuthenticatedConversation(conversationId);
-    return NextResponse.json(conversation, {
+    const proof = await readAuthenticatedConversationProofSnapshot(conversationId);
+
+    return NextResponse.json({ ...conversation, proof }, {
       status: 200,
       headers: HEADERS,
     });
