@@ -145,12 +145,6 @@ export default function ConversationSurface() {
 
   const turns = conversation?.turns ?? [];
 
-  const hasUnansweredTurn = turns.some(
-    (turn) =>
-      turn.messages.some((message) => message.author === "guide") &&
-      !turn.messages.some((message) => message.author === "outflo"),
-  );
-
   async function send(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -160,7 +154,6 @@ export default function ConversationSurface() {
       !conversation ||
       conversation.status !== "open" ||
       !content ||
-      hasUnansweredTurn ||
       locked.current
     ) return;
 
@@ -352,8 +345,7 @@ export default function ConversationSurface() {
           disabled={
             !conversation ||
             conversation.status !== "open" ||
-            busy ||
-            hasUnansweredTurn
+            busy
           }
         />
 
@@ -364,7 +356,6 @@ export default function ConversationSurface() {
             !conversation ||
             conversation.status !== "open" ||
             busy ||
-            hasUnansweredTurn ||
             !draft.trim()
           }
         >
