@@ -27,7 +27,7 @@ export default function BeginSurface({
     return (
         <section className={styles.surface}>
             <Link
-                href="/home/conversation"
+                href="/home/abstract-time"
                 className={styles.timeAction}
                 aria-label="Open Conversation"
             />
