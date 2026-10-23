@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { FormEvent, KeyboardEvent } from "react";
 
 import BackNavigationAction from
@@ -65,7 +66,8 @@ function describeError(error: unknown): string {
     : "Conversation temporarily unavailable.";
 }
 
-export default function ConversationSurface() {
+export default function ConversationSurface({ entrance = false }: { entrance?: boolean }) {
+  const router = useRouter();
   const [conversation, setConversation] = useState<Conversation | null>(null);
   const [draft, setDraft] = useState("");
   const [loading, setLoading] = useState(true);
@@ -162,6 +164,7 @@ export default function ConversationSurface() {
     setError(null);
 
     const conversationId = conversation.conversationId;
+    let admittedTurnId: string | null = null;
 
     try {
       const admitted = await requestJson<{ turnId: string }>(
@@ -173,6 +176,7 @@ export default function ConversationSurface() {
         },
       );
 
+      admittedTurnId = admitted.turnId;
       setDraft("");
 
       // Admission is persisted before inference begins.
@@ -194,6 +198,9 @@ export default function ConversationSurface() {
     } finally {
       locked.current = false;
       setBusy(false);
+      if (entrance && admittedTurnId) {
+        router.replace("/home/conversation");
+      }
     }
   }
 
@@ -234,11 +241,11 @@ export default function ConversationSurface() {
       <div ref={scrollArea} className={styles.content}>
         {loading ? (
           <p className={styles.notice}>Entering Conversation…</p>
-        ) : conversation && turns.length === 0 ? (
+        ) : (entrance || (conversation && turns.length === 0)) ? (
           <div className={styles.entrance}>
-            <OutfloMark size={110} title="Outflō" />
+            <OutfloMark size={entrance ? 150 : 110} title="Outflō" />
             <h1 className={styles.title}>
-              Chat in Abstract Time.
+              {entrance ? "Converse in Abstract Time." : "Chat in Abstract Time."}
             </h1>
           </div>
         ) : (
@@ -295,33 +302,6 @@ export default function ConversationSurface() {
           </div>
         )}
 
-        {conversation?.proof ? (
-          <aside
-            className={styles.proofSummary}
-            aria-label="Conversation Proof"
-          >
-            <p className={styles.proofTitle}>
-              Conversation Proof · Verified
-            </p>
-
-            <p className={styles.proofChecks}>
-              {conversation.proof.checksPassed}/
-              {conversation.proof.checksTotal} checks passed
-            </p>
-
-            <p className={styles.proofValue}>
-              {conversation.proof.recordedSpanOutfloSeconds}
-              {" "}Outflōseconds
-            </p>
-
-            <p className={styles.proofCutoff}>
-              Snapshot through{" "}
-              {new Date(
-                conversation.proof.snapshotCutoffAt
-              ).toLocaleString()}
-            </p>
-          </aside>
-        ) : null}
       </div>
 
       {error ? (
@@ -333,12 +313,21 @@ export default function ConversationSurface() {
         </p>
       ) : null}
 
-      <form className={styles.composer} onSubmit={send}>
+      <form
+        className={`${styles.composer} ${entrance ? styles.entranceComposer : ""}`}
+        onSubmit={send}
+      >
+        {entrance ? (
+          <>
+            <span className={styles.entrancePlus} aria-hidden="true">+</span>
+            <span className={styles.entranceDivider} aria-hidden="true" />
+          </>
+        ) : null}
         <textarea
           className={styles.input}
           aria-label="Message Outflō"
-          placeholder="Message Outflō…"
-          rows={2}
+          placeholder={entrance ? "Ask Outflō…" : "Message Outflō…"}
+          rows={entrance ? 1 : 2}
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           onKeyDown={handleKeyDown}
@@ -350,7 +339,7 @@ export default function ConversationSurface() {
         />
 
         <button
-          className={styles.send}
+          className={`${styles.send} ${entrance ? styles.entranceSend : ""}`}
           type="submit"
           disabled={
             !conversation ||
@@ -359,7 +348,7 @@ export default function ConversationSurface() {
             !draft.trim()
           }
         >
-          Send
+          {entrance ? "↑" : "Send"}
         </button>
       </form>
     </section>
