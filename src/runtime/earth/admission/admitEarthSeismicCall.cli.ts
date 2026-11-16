@@ -1,0 +1,161 @@
+/* ==========================================================
+   OUTFLO — ADMIT EARTH SEISMIC CALL
+   File: src/runtime/earth/admission/admitEarthSeismicCall.cli.ts
+   Scope: Observe and persist one Earth seismic Admission
+
+   Earth owns the Admission operation.
+   Machine owns canonical temporal mathematics.
+   Emission and Verification retain separate ownership.
+   ========================================================== */
+
+import { randomUUID } from "node:crypto";
+
+import {
+  resolveUnixMillisecondObservation128,
+} from "../../../machine/resolution/observation/resolveUnixMillisecondObservation128";
+
+import {
+  createTrustedSupabaseClient,
+} from "../../../lib/supabase/trusted/createTrustedSupabaseClient";
+
+async function main(): Promise<void> {
+  const eventId = process.argv[2];
+
+  if (!eventId || !/^[A-Za-z0-9_-]+$/.test(eventId)) {
+    throw new Error("Expected a USGS event ID");
+  }
+
+  const source =
+    `https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/${eventId}.geojson`;
+
+  const response = await fetch(source, {
+    signal: AbortSignal.timeout(60000),
+  });
+
+  if (!response.ok) {
+    throw new Error(`USGS request failed: ${response.status}`);
+  }
+
+  const sourceBytes = Buffer.from(await response.arrayBuffer());
+  const event = JSON.parse(sourceBytes.toString("utf8"));
+
+  if (event?.type !== "Feature" || event?.id !== eventId) {
+    throw new Error("USGS event identity mismatch");
+  }
+
+  const sourceTime = event?.properties?.time;
+
+  if (!Number.isSafeInteger(sourceTime)) {
+    throw new Error("USGS provided timestamp missing or invalid");
+  }
+
+  // Preserve the original numeric timestamp in decimal text.
+  const providedTimestamp = String(sourceTime);
+  const emissionId = randomUUID();
+
+  const db = createTrustedSupabaseClient();
+
+  // Observe the Admission INSERT entrance.
+  const entranceUnixMs = BigInt(Date.now());
+
+  const coordinate =
+    resolveUnixMillisecondObservation128(entranceUnixMs);
+
+  const inserted = await db
+    .from("admissions_earth_seismic")
+    .insert({
+      source,
+      coordinate: coordinate.toString(),
+      emission_id: emissionId,
+      provided_timestamp: providedTimestamp,
+      verification_id: null,
+    })
+    .select("admission_id")
+    .single();
+
+  if (inserted.error || !inserted.data) {
+    throw inserted.error ?? new Error("Admission insert failed");
+  }
+
+  // Compare the exact numeric coordinate inside PostgreSQL.
+  // Do not decode a 128-bit coordinate as a JS Number.
+  const readback = await db
+    .from("admissions_earth_seismic")
+    .select("admission_id")
+    .eq("admission_id", inserted.data.admission_id)
+    .eq("source", source)
+    .eq("coordinate", coordinate.toString())
+    .eq("provided_timestamp", providedTimestamp)
+    .eq("emission_id", emissionId)
+    .is("verification_id", null)
+    .single();
+
+  if (
+    readback.error ||
+    readback.data?.admission_id !== inserted.data.admission_id
+  ) {
+    throw new Error("Exact Admission readback failed");
+  }
+
+  // Preserve the exact USGS response under the existing Emission ID.
+  const emitted = await db
+    .from("emissions_earth_seismic_source_data")
+    .insert({
+      emission_id: emissionId,
+      type: event.type,
+      properties: event.properties,
+      geometry: event.geometry,
+      id: event.id,
+      source_bytes: "\\x" + sourceBytes.toString("hex"),
+    })
+    .select("emission_id")
+    .single();
+
+  if (emitted.error || emitted.data?.emission_id !== emissionId) {
+    throw emitted.error ??
+      new Error("Emission insert failed; inspect the Admission");
+  }
+
+  const emissionReadback = await db
+    .from("emissions_earth_seismic_source_data")
+    .select("emission_id,type,id,source_bytes")
+    .eq("emission_id", emissionId)
+    .single();
+
+  const storedBytes = emissionReadback.data?.source_bytes;
+
+  if (
+    emissionReadback.error ||
+    emissionReadback.data?.emission_id !== emissionId ||
+    emissionReadback.data?.type !== event.type ||
+    emissionReadback.data?.id !== event.id ||
+    typeof storedBytes !== "string" ||
+    !storedBytes.startsWith("\\x") ||
+    !Buffer.from(storedBytes.slice(2), "hex").equals(sourceBytes)
+  ) {
+    throw new Error("Exact Emission readback failed");
+  }
+
+  console.log(JSON.stringify({
+    operation: "admit-earth-seismic-call",
+    admissionId: inserted.data.admission_id,
+    source,
+    coordinate: coordinate.toString(),
+    unit: "Outflōseconds",
+    clockDefinition: "v1",
+    entranceUnixMs: entranceUnixMs.toString(),
+    providedTimestamp,
+    emissionId,
+    verificationId: null,
+    persistence: "confirmed",
+    emissionPersistence: "confirmed",
+    originalSourceBytes: sourceBytes.length,
+    exactEmissionReadback: true,
+    independentVerification: false,
+  }, null, 2));
+}
+
+main().catch(error => {
+  console.error("EARTH SEISMIC ADMISSION FAILED:", error);
+  process.exitCode = 1;
+});
